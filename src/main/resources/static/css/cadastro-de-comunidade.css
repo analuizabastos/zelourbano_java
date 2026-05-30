@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #44474E;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.main-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 100px 40px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.page-header {
+    width: 100%;
+}
+
+.page-header h2 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #041635;
+    line-height: 38px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #44474E;
+}
+
+/* O Form divide a tela em duas colunas sem sumir com nada */
+.form-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    width: 100%;
+}
+
+.form-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.form-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.form-section, .sidebar-block {
+    background: #FFFFFF;
+    border: 1px solid #C5C6CF;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.section-title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #E9E7EB;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.section-icon {
+    width: 20px;
+    height: 20px;
+    background: #041635;
+}
+
+.form-section h3, .upload-box h3 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #041635;
+    line-height: 31px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    color: #44474E;
+}
+
+input[type="text"], input[type="email"], input[type="number"], textarea {
+    width: 100%;
+    height: 48px;
+    padding: 12.5px 16px;
+    background: #FBF8FC;
+    border: 1px solid #C5C6CF;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #1B1B1E;
+}
+
+textarea {
+    height: 98px;
+    resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #6B7280;
+}
+
+/* Sidebar e Upload */
+.sidebar-description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #44474E;
+    margin-bottom: 24px;
+}
+
+.dropzone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 161px;
+    border: 2px dashed #C5C6CF;
+    background: #FAFAFA;
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.upload-icon {
+    width: 24px;
+    height: 30px;
+    background: #75777F;
+}
+
+.file-uploaded {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: #F5F3F6;
+    border: 1px solid #C5C6CF;
+    border-radius: 4px;
+    margin-top: 12px;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-icon {
+    width: 13px;
+    height: 16px;
+    background: #041635;
+}
+
+.file-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #1B1B1E;
+}
+
+.btn-remove-file {
+    background: #BA1A1A;
+    border: none;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+/* CTA e Botão Laranja */
+.cta-box {
+    background: #1B2B4B;
+    color: #FFFFFF;
+}
+
+.cta-box h4 {
+    font-family: 'Sora', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 24px;
+}
+
+.btn-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 64px;
+    background: #FD9826;
+    border: none;
+    border-radius: 8px;
+    color: #663800;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-icon {
+    width: 20px;
+    height: 16px;
+    background: #663800;
+}

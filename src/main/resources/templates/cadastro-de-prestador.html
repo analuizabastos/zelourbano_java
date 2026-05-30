@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Empresa Parceira</title>
+    <link rel="stylesheet" href="../static/css/cadastro-de-prestador.css" th:href="@{/css/cadastro-de-prestador.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Sora:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar-sistema">
+    <div class="nav-left">
+        <div class="logo-area">
+            <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+        </div>
+        <span class="logo-sub">Gestão Comunitária de Confiança</span>
+    </div>
+
+    <div class="nav-center">
+        <a href="#" class="nav-link active">Início</a>
+        <a href="#" class="nav-link">Mapa</a>
+        <a href="#" class="nav-link">Prestadores</a>
+        <a href="#" class="nav-link">Relatórios</a>
+    </div>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <button class="nav-btn icon-bell"></button>
+        <button class="nav-btn icon-cog"></button>
+        <div class="user-avatar"></div>
+    </div>
+</nav>
+
+<main class="main-container">
+
+    <header class="page-header">
+        <h2>Cadastro de Empresa Parceira</h2>
+        <p>Complete o registro para oferecer seus serviços na rede ZeloUrbano.</p>
+    </header>
+
+    <form th:action="@{/prestadores/salvar}" method="POST" class="form-layout">
+
+        <section class="form-section">
+            <div class="section-title-container">
+                <div class="section-icon"></div>
+                <h3>Dados do Prestador</h3>
+            </div>
+
+            <div class="input-row-top">
+                <div class="input-group">
+                    <label>Nome da Empresa / Prestador *</label>
+                    <input type="text" placeholder="Ex: Manutenção Total Ltda" required th:field="*{nome}">
+                </div>
+
+                <div class="input-group">
+                    <label>Tipo de Prestador *</label>
+                    <select required th:field="*{tipoPrestador}">
+                        <option value="Empresa">Empresa</option>
+                        <option value="Autônomo">Autônomo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Categoria de Serviço *</label>
+                <select required th:field="*{categoriaServico}">
+                    <option value="" disabled selected>Selecione uma especialidade</option>
+                    <option value="Eletricista">Eletricista</option>
+                    <option value="Encanador">Encanador</option>
+                    <option value="Segurança">Segurança Eletrônica / Câmeras</option>
+                    <option value="Zeladoria">Zeladoria Geral</option>
+                </select>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Telefone de Emergência *</label>
+                    <input type="text" placeholder="(11) 99999-9999" required th:field="*{telefone}">
+                </div>
+                <div class="input-group">
+                    <label>Link/App de Suporte</label>
+                    <input type="url" placeholder="https://suporte.exemplo.com" th:field="*{linkSuporte}">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Observações</label>
+                <textarea placeholder="Informações adicionais sobre o prestador..." th:field="*{observacoes}"></textarea>
+            </div>
+        </section>
+
+        <div class="cta-container">
+            <button type="submit" class="btn-submit">
+                <span>SALVAR CADASTRO</span>
+                <div class="btn-icon"></div>
+            </button>
+        </div>
+
+    </form>
+</main>
+
+</body>
+</html>
