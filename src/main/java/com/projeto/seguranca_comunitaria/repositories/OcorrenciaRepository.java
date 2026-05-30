@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Optional;
 public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Integer> {
     Optional<Ocorrencia> findByProtocolo(String protocolo);
-    List<Ocorrencia> findByComunidadeIdComunidade(Integer idComunidade);
-    List<Ocorrencia> findByUsuarioAutorIdUsuario(Integer idUsuario);
+    List<Ocorrencia> findByComunidade_Id(Integer id);
+    List<Ocorrencia> findByUsuarioAutor_Id(Integer id);
     long countByProtocoloStartingWith(String prefixo);
-
 }

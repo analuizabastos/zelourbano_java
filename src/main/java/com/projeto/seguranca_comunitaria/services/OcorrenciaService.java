@@ -38,14 +38,12 @@ public class OcorrenciaService {
         return ocorrenciaRepository.save(comunicado);
     }
 
-    public List<Ocorrencia> listarPorComunidade(Integer idComunidade) {
-        return ocorrenciaRepository
-                .findByComunidadeIdComunidade(idComunidade);
+    // OcorrenciaService
+    public List<Ocorrencia> listarPorComunidade(Integer id) {
+        return ocorrenciaRepository.findByComunidade_Id(id);
     }
-
-    public List<Ocorrencia> listarPorUsuario(Integer idUsuario) {
-        return ocorrenciaRepository
-                .findByUsuarioAutorIdUsuario(idUsuario);
+    public List<Ocorrencia> listarPorUsuario(Integer id) {
+        return ocorrenciaRepository.findByUsuarioAutor_Id(id);
     }
 
     public Optional<Ocorrencia> buscarPorProtocolo(String protocolo) {

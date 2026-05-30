@@ -19,11 +19,14 @@ public class MoradorUnidadeService {
         return moradorUnidadeRepository.save(moradorUnidade);
     }
 
+    // MoradorUnidadeService
     public boolean isVinculado(Integer idMorador) {
-        return moradorUnidadeRepository.existsByMoradorIdMorador(idMorador);
+        return moradorUnidadeRepository.existsByMorador_Id(idMorador);
     }
-
-    public List<MoradorUnidade> listarPorMorador(Integer idMorador) {
-        return moradorUnidadeRepository.findByMoradorIdMorador(idMorador);
+    public List<MoradorUnidade> listarPorMorador(Integer id) {
+        return moradorUnidadeRepository.findByMorador_Id(id);
+    }
+    public List<MoradorUnidade> listarPorUnidade(Integer id) {
+        return moradorUnidadeRepository.findByUnidade_Id(id);
     }
 }
