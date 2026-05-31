@@ -55,7 +55,7 @@
         <h2>Cadastro de Comunidade</h2>
         <p>Preencha os dados técnicos e legais para registrar um novo loteamento no sistema.</p>
     </header>
-    <form th:action="@{/comunidades/salvar}" method="POST" enctype="multipart/form-data" class="form-layout">
+    <form th:action="@{/comunidades/salvar}" method="POST" enctype="multipart/form-data" class="form-layout" th:object="${comunidade}">
         <div class="form-main-content">
             <section class="form-section">
                 <div class="section-title-container">

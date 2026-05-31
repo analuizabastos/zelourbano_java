@@ -34,7 +34,7 @@
             <p>Preencha as informações abaixo para criar sua conta de morador.</p>
         </header>
 
-        <form th:action="@{/cadastro/salvar}" method="POST" enctype="multipart/form-data" class="cadastro-split-container">
+        <form th:action="@{/cadastro/salvar}" method="POST" enctype="multipart/form-data" class="cadastro-split-container" th:object="${morador}">
 
             <div class="main-form-column">
 
