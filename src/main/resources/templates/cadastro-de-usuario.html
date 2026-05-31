@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuário - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/cadastro-de-usuario.css" th:href="@{/css/cadastro-de-usuario.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar-cadastro">
+    <div class="nav-container-inner">
+        <div class="logo-container">
+            <div class="logo-icon-bg">
+                <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+            </div>
+            <div class="logo-text-group">
+                <div class="logo-title"><span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span></div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+        <a href="/login" class="nav-back-link">
+            <img src="../static/images/seta-para-esquerda.svg" th:src="@{/images/seta-para-esquerda.svg}" alt="Voltar">
+            <span>Voltar para o Login</span>
+        </a>
+    </div>
+</nav>
+
+<div class="painel-layout">
+    <main class="main-content-canvas">
+
+        <header class="page-header">
+            <h2>Cadastro de Usuário</h2>
+            <p>Preencha as informações abaixo para criar sua conta de morador.</p>
+        </header>
+
+        <form th:action="@{/cadastro/salvar}" method="POST" enctype="multipart/form-data" class="cadastro-split-container">
+
+            <div class="main-form-column">
+
+                <section class="cadastro-card">
+                    <div class="card-title-container">
+                        <img src="../static/images/perfil-icon.svg" th:src="@{/images/perfil-icon.svg}" class="card-title-icon" alt="Dados">
+                        <h3>Dados Pessoais</h3>
+                    </div>
+
+                    <div class="inner-form-fields">
+                        <div class="form-group-full">
+                            <label>Nome Completo <span class="required-star">*</span></label>
+                            <input type="text" placeholder="Seu nome completo" required th:name="nome">
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group-box">
+                                <label>CPF <span class="required-star">*</span></label>
+                                <input type="text" placeholder="000.000.000-00" required th:name="cpf">
+                            </div>
+                            <div class="form-group-box">
+                                <label>RG</label>
+                                <input type="text" placeholder="00.000.000-0" th:name="rg">
+                            </div>
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group-box">
+                                <label>Data de Nascimento</label>
+                                <div class="date-input-container">
+                                    <input type="date" required th:name="dataNascimento">
+                                </div>
+                            </div>
+                            <div class="form-group-box">
+                                <label>Perfil de Acesso <span class="required-star">*</span></label>
+                                <div class="select-custom-container">
+                                    <select th:name="perfilAcesso" required>
+                                        <option value="MORADOR" selected>Morador</option>
+                                        <option value="SINDICO">Síndico / Administrador</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group-full">
+                            <label>E-mail <span class="required-star">*</span></label>
+                            <input type="email" placeholder="exemplo@email.com" required th:name="email">
+                        </div>
+
+                        <div class="form-group-full">
+                            <label>Telefone <span class="required-star">*</span></label>
+                            <input type="text" placeholder="(00) 00000-0000" required th:name="telefone">
+                        </div>
+
+                        <div class="form-group-full">
+                            <label>Senha <span class="required-star">*</span></label>
+                            <input type="password" placeholder="No mínimo 8 caracteres" required th:name="senha">
+                        </div>
+
+                        <div class="form-group-full">
+                            <label>Confirmar Senha <span class="required-star">*</span></label>
+                            <input type="password" placeholder="Repita sua senha" required th:name="confirmarSenha">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="cadastro-card">
+                    <div class="card-title-container">
+                        <img src="../static/images/localizacao.svg" th:src="@{/images/localizacao.svg}" class="card-title-icon" alt="Endereço">
+                        <h3>Endereço</h3>
+                    </div>
+
+                    <div class="inner-form-fields">
+                        <div class="form-group-row split-cep">
+                            <div class="form-group-box">
+                                <label>CEP</label>
+                                <input type="text" placeholder="00000-000" th:name="cep">
+                            </div>
+                            <div class="form-group-box">
+                                <label>Logradouro / Rua</label>
+                                <input type="text" placeholder="Nome da rua ou avenida" th:name="logradouro">
+                            </div>
+                        </div>
+
+                        <div class="form-group-row split-num">
+                            <div class="form-group-box">
+                                <label>Número</label>
+                                <input type="text" placeholder="123" th:name="numero">
+                            </div>
+                            <div class="form-group-box">
+                                <label>Complemento</label>
+                                <input type="text" placeholder="Apt, Bloco, etc." th:name="complemento">
+                            </div>
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group-box">
+                                <label>Cidade</label>
+                                <input type="text" placeholder="Ex: Maceió" th:name="cidade">
+                            </div>
+                            <div class="form-group-box">
+                                <label>Estado</label>
+                                <input type="text" placeholder="Ex: Alagoas" th:name="estado">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="cadastro-card">
+                    <div class="card-title-container">
+                        <img src="../static/images/localizacao.svg" th:src="@{/images/localizacao.svg}" class="card-title-icon" alt="Geolocalização">
+                        <h3>Unidades (Lotes)</h3>
+                    </div>
+
+                    <div class="inner-form-fields">
+                        <div class="map-placeholder-box">
+                            <img src="../static/images/mapa.svg" th:src="@{/images/mapa.svg}" class="map-pin-icon" alt="Pin">
+                            <span>Selecione sua localização no mapa</span>
+                        </div>
+
+                        <div class="form-group-row">
+                            <div class="form-group-box">
+                                <label>Latitude</label>
+                                <input type="text" value="-0.000000" class="input-readonly" readonly th:name="latitude">
+                            </div>
+                            <div class="form-group-box">
+                                <label>Longitude</label>
+                                <input type="text" value="-0.000000" class="input-readonly" readonly th:name="longitude">
+                            </div>
+                        </div>
+
+                        <div class="form-group-row split-comunidade">
+                            <div class="form-group-box">
+                                <label>Comunidade</label>
+                                <div class="select-custom-container">
+                                    <select th:name="comunidadeId">
+                                        <option value="" disabled selected>Ex: Rio das Flores</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-lote">
+                                <img src="../static/images/sinal-de-mais.svg" th:src="@{/images/sinal-de-mais.svg}" alt="Mais">
+                                <span>Nova Unidade</span>
+                            </button>
+                        </div>
+
+                        <div class="geo-info-tip">
+                            <span>* A geolocalização vincula seu cadastro automaticamente à sua associação comunitária legítima.</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="sidebar-form-column">
+
+                <section class="cadastro-card side-documento-card">
+                    <div class="card-title-container">
+                        <img src="../static/images/pdf.svg" th:src="@{/images/pdf.svg}" class="card-title-icon" alt="Documentos">
+                        <h3>Documentos</h3>
+                    </div>
+                    <p class="doc-instruction-text">Anexe seu comprovante de residência ou documento de identificação (Apenas PDF).</p>
+
+                    <div class="file-dropzone-area">
+                        <img src="../static/images/upload.svg" th:src="@{/images/upload.svg}" class="upload-cloud-icon" alt="Upload">
+                        <span class="dropzone-text">Selecione o arquivo</span>
+                        <input type="file" accept="application/pdf" th:name="comprovanteDocumento" class="file-input-hidden">
+                    </div>
+                </section>
+
+                <div class="action-submit-block">
+                    <p class="terms-text">Ao criar a conta você aceita os <a href="/termos">Termos de Uso</a> e as <a href="/privacidade">Políticas de Privacidade</a> do ZeloUrbano.</p>
+                    <button type="submit" class="btn-submit-registration">
+                        <span>CADASTRAR</span>
+                        <img src="../static/images/pessoa-com-confirmado.svg" th:src="@{/images/pessoa-com-confirmado.svg}" class="btn-submit-icon" alt="Enviar">
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </main>
+</div>
+
+<footer class="footer-sistema">
+    <div class="footer-left">
+        <span class="footer-brand">ZeloUrbano</span>
+        <div class="vertical-divider"></div>
+        <span class="footer-copyright">© 2026 ZeloUrbano - Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-right">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <div class="footer-social-margin">
+            <div class="social-overlay">
+                <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" class="social-icon" alt="Global">
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

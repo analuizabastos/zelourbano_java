@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Comunidade - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/cadastro-de-comunidade.css" th:href="@{/css/cadastro-de-comunidade.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar-sistema">
+    <div class="nav-left">
+        <div class="logo-container">
+            <a href="/" class="logo-link">
+                <div class="logo-icon-bg">
+                    <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+                </div>
+            </a>
+            <div class="logo-text-group">
+                <div class="logo-title">
+                    <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+                </div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-center">
+        <a href="#" class="nav-link active">Início</a>
+        <a href="#" class="nav-link">Mapa</a>
+        <a href="#" class="nav-link">Ocorrências</a>
+    </div>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Buscar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <button class="nav-btn">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-avatar-border">
+            <div class="user-avatar">
+                <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário">
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="main-container">
+    <header class="page-header">
+        <h2>Cadastro de Comunidade</h2>
+        <p>Preencha os dados técnicos e legais para registrar um novo loteamento no sistema.</p>
+    </header>
+    <form th:action="@{/comunidades/salvar}" method="POST" enctype="multipart/form-data" class="form-layout">
+        <div class="form-main-content">
+            <section class="form-section">
+                <div class="section-title-container">
+                    <img src="../static/images/circulo-com-exclamacao.svg" th:src="@{/images/circulo-com-exclamacao.svg}" class="section-icon" alt="Identificação">
+                    <h3>Identificação</h3>
+                </div>
+
+                <div class="input-group">
+                    <label>Nome da Comunidade / Loteamento *</label>
+                    <input type="text" placeholder="Ex: Residencial Flores" required th:field="*{nome}">
+                </div>
+
+                <div class="input-group">
+                    <label>CNPJ</label>
+                    <input type="text" placeholder="00.000.000/0000-00" th:field="*{cnpj}">
+                </div>
+
+                <div class="input-group">
+                    <label>E-mail de Contato</label>
+                    <input type="email" placeholder="contato@comunidade.com.br" th:field="*{email}">
+                </div>
+
+                <div class="input-group">
+                    <label>Razão Social</label>
+                    <input type="text" th:field="*{razaoSocial}">
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Inscrição Estadual</label>
+                        <input type="text" th:field="*{inscricaoEstadual}">
+                    </div>
+                    <div class="input-group">
+                        <label>Nome Fantasia</label>
+                        <input type="text" th:field="*{nomeFantasia}">
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-title-container">
+                    <img src="../static/images/trabalhador-com-engrenagem.svg" th:src="@{/images/trabalhador-com-engrenagem.svg}" class="section-icon" alt="Dados Técnicos">
+                    <h3>Dados Técnicos</h3>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Área Total (m²)</label>
+                        <input type="number" placeholder="m²" th:field="*{areaTotal}">
+                    </div>
+                    <div class="input-group">
+                        <label>Quantidade de Lotes</label>
+                        <input type="number" placeholder="0" th:field="*{qtdLotes}">
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="section-title-container">
+                    <h3>Observações</h3>
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="Informações adicionais sobre a comunidade..." th:field="*{observacoes}"></textarea>
+                </div>
+            </section>
+
+        </div>
+
+        <aside class="form-sidebar">
+
+            <div class="sidebar-block upload-box">
+                <div class="section-title-container">
+                    <img src="../static/images/pasta.svg" th:src="@{/images/pasta.svg}" class="section-icon" alt="Documentos">
+                    <h3>Documentos</h3>
+                </div>
+                <p class="sidebar-description">Anexe os documentos de identificação, caso tenha Pessoa Jurídica (Apenas PDF).</p>
+
+                <label class="dropzone">
+                    <img src="../static/images/upload.svg" th:src="@{/images/upload.svg}" class="upload-icon" alt="Upload">
+                    <span>Clique para anexar arquivo</span>
+                    <input type="file" accept=".pdf" style="display: none;">
+                </label>
+
+                <div class="file-uploaded">
+                    <div class="file-info">
+                        <img src="../static/images/pdf.svg" th:src="@{/images/pdf.svg}" class="file-icon" alt="PDF">
+                        <span class="file-name">cnpj.pdf</span>
+                    </div>
+                    <button type="button" class="btn-remove-file">
+                        <img src="../static/images/remover.svg" th:src="@{/images/remover.svg}" alt="Remover">
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-block cta-box">
+                <h4>Finalizar registro?</h4>
+                <button type="submit" class="btn-submit">
+                    <span>CADASTRAR COMUNIDADE</span>
+                    <img src="../static/images/pessoa-com-confirmado.svg" th:src="@{/images/seta-branca.svg}" class="btn-arrow-icon" alt="Seta">
+                </button>
+            </div>
+
+        </aside>
+    </form>
+</main>
+
+<footer class="footer-sistema">
+    <div class="footer-left">
+        <span class="footer-brand">ZeloUrbano</span>
+        <div class="vertical-divider"></div>
+        <span class="footer-copyright">© 2026 ZeloUrbano - Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-right">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <div class="footer-social-margin">
+            <div class="social-overlay">
+                <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" class="social-icon" alt="Idioma">
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

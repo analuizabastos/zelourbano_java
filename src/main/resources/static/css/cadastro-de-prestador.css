@@ -1,0 +1,409 @@
+/* Reset padrão */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f8f9fc;
+    color: #44474E;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header - TopNavBar */
+.navbar-sistema {
+    width: 100%;
+    height: 70px;
+    background-color: #041635;
+    border-bottom: 1px solid #C5C6CF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    z-index: 2;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon-bg {
+    width: 32px;
+    height: 32px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-sistema {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.logo-zelo { color: #FFFFFF; }
+.logo-urbano { color: #FD9826; }
+
+.logo-sub {
+    font-size: 11px;
+    color: #FFFFFF;
+    opacity: 0.7;
+    letter-spacing: 0.22px;
+    margin-top: 2px;
+}
+
+.nav-center {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    color: #FFFFFF;
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 8px;
+}
+
+.nav-link.active {
+    color: #FD9826;
+    opacity: 1;
+    font-weight: 700;
+    border-bottom: 2px solid #FD9826;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Proteção contra herança global de inputs */
+.search-box input[type="text"] {
+    background-color: #1B2B4B !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 0 16px 0 40px !important;
+    color: #FFFFFF !important;
+    width: 256px !important;
+    height: 32.8px !important;
+    font-size: 14px !important;
+}
+
+.search-box input[type="text"]::placeholder {
+    color: #6B7280 !important;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.nav-btn img {
+    width: 16px;
+    height: 20px;
+}
+
+/* Avatar do Usuário com correção Squircle */
+.user-avatar-border {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FD9826;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estrutura de Uma Coluna Centralizada conforme o Figma */
+.main-container {
+    max-width: 896px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 48px 0 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex: 1;
+}
+
+.page-header h2 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #1B2B4B;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    font-size: 16px;
+    color: #44474E;
+    line-height: 24px;
+}
+
+/* Formulário e Seções */
+.form-layout-centered {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+}
+
+.form-section {
+    background: #FFFFFF;
+    border: 1px solid #C5C6CF;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.section-title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #E9E7EB;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.section-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.form-section h3 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #1B2B4B;
+}
+
+/* Campos de entrada e layouts de linhas */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.input-group.no-margin {
+    margin-bottom: 0;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* Divisão assimétrica: 70% para nome e 30% para tipo de prestador */
+.input-row.split-70-30 {
+    grid-template-columns: 545.33fr 260.67fr;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #44474E;
+}
+
+input[type="text"], input[type="url"], select, textarea {
+    width: 100%;
+    height: 48px;
+    padding: 12.5px 16px;
+    background: #FBF8FC;
+    border: 1px solid #C5C6CF;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #1B1B1E;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+}
+
+select {
+    appearance: none;
+    background-image: url('../images/seta-para-baixo.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 16px) center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+textarea {
+    height: 98px;
+    resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #6B7280;
+}
+
+/* Bloco do Botão Centralizado */
+.cta-container-centered {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 16px;
+}
+
+.btn-submit-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 448px;
+    height: 64px;
+    background: #F5921E;
+    border: none;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 0 24px;
+}
+
+.btn-arrow-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Rodapé (Footer) */
+.footer-sistema {
+    width: 100%;
+    height: 79px;
+    background-color: #1B2B4B;
+    border-top: 1px solid #C5C6CF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    color: #FFFFFF;
+    margin-top: auto;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-brand {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 16px;
+    background: #FFFFFF;
+    opacity: 0.3;
+}
+
+.footer-copyright {
+    font-size: 11px;
+    opacity: 0.7;
+    letter-spacing: 0.22px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-link {
+    color: #FFFFFF;
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.footer-social-margin {
+    padding-left: 16px;
+}
+
+.social-overlay {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+}

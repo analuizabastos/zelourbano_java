@@ -1,0 +1,474 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f8f9fc;
+    color: #44474E;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar-sistema {
+    width: 100%;
+    height: 70px;
+    background-color: #041635;
+    border-bottom: 1px solid #C5C6CF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    z-index: 2;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon-bg {
+    width: 32px;
+    height: 32px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-sistema {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.logo-zelo { color: #FFFFFF; }
+.logo-urbano { color: #FD9826; }
+
+.logo-sub {
+    font-size: 11px;
+    color: #FFFFFF;
+    opacity: 0.7;
+    letter-spacing: 0.22px;
+    margin-top: 2px;
+}
+
+.nav-center {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    color: #FFFFFF;
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 8px;
+}
+
+.nav-link.active {
+    color: #FD9826;
+    opacity: 1;
+    font-weight: 700;
+    border-bottom: 2px solid #FD9826;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+}
+
+.search-box input[type="text"] {
+    background-color: #1B2B4B !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 0px 16px 0px 40px !important;
+    color: #FFFFFF !important;
+    width: 256px !important;
+    height: 32.8px !important;
+    font-size: 14px !important;
+}
+
+.search-box input::placeholder {
+    color: #6B7280;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.nav-btn img {
+    width: 16px;
+    height: 20px;
+}
+
+.user-avatar-border {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FD9826;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+
+.user-avatar {
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px 128px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex: 1;
+}
+
+.page-header h2 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #041635;
+    line-height: 38px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    font-size: 16px;
+    color: #44474E;
+    line-height: 24px;
+}
+
+.form-layout {
+    display: grid;
+    grid-template-columns: 674.67px 325.33px;
+    gap: 24px;
+    width: 100%;
+}
+
+.form-main-content, .form-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.form-section, .sidebar-block {
+    background: #FFFFFF;
+    border: 1px solid #C5C6CF;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.section-title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #E9E7EB;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.section-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.form-section h3, .upload-box h3 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #041635;
+    line-height: 31px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #44474E;
+    line-height: 17px;
+}
+
+input[type="text"], input[type="email"], input[type="number"], textarea {
+    width: 100%;
+    height: 48px;
+    padding: 12.5px 16px;
+    background: #FBF8FC;
+    border: 1px solid #C5C6CF;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #1B1B1E;
+}
+
+textarea {
+    height: 98px;
+    resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #6B7280;
+}
+
+.sidebar-description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #44474E;
+    margin-bottom: 24px;
+}
+
+.dropzone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 161.5px;
+    border: 2px dashed #C5C6CF;
+    background: #FAFAFA;
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.upload-icon {
+    width: 24px;
+    height: 30px;
+}
+
+.file-uploaded {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: #F5F3F6;
+    border: 1px solid #C5C6CF;
+    border-radius: 4px;
+    margin-top: 12px;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-icon {
+    width: 13.33px;
+    height: 16.67px;
+}
+
+.file-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #1B1B1E;
+}
+
+.btn-remove-file {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-remove-file img {
+    width: 10.5px;
+    height: 10.5px;
+}
+
+.cta-box {
+    background: #1B2B4B;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.cta-box h4 {
+    font-family: 'Sora', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    line-height: 30px;
+}
+
+.btn-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    height: 64px;
+    background: #FD9826;
+    border: none;
+    border-radius: 8px;
+    color: #663800;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0 16px;
+}
+
+/* Força o ícone a manter o tamanho correto do Figma sem achatar */
+.btn-arrow-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Rodapé (Footer) */
+.footer-sistema {
+    width: 100%;
+    height: 81px;
+    background-color: #1B2B4B;
+    border-top: 1px solid #C5C6CF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    color: #FFFFFF;
+    margin-top: auto;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-brand {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 16px;
+    background: #FFFFFF;
+    opacity: 0.3;
+}
+
+.footer-copyright {
+    font-size: 11px;
+    opacity: 0.7;
+    letter-spacing: 0.22px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-link {
+    color: #FFFFFF;
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.footer-social-margin {
+    padding-left: 16px;
+}
+
+.social-overlay {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+}
