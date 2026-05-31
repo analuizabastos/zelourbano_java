@@ -1,10 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Painel de Monitoramento Vivo - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/gestao-de-cameras.css" th:href="@{/css/gestao-de-cameras.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<nav class="navbar-sistema">
+    <div class="nav-left">
+        <div class="logo-container">
+            <div class="logo-icon-bg">
+                <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+            </div>
+            <div class="logo-text-group">
+                <div class="logo-title"><span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span></div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+        <div class="nav-center">
+            <a href="#" class="nav-link">Início</a>
+            <a href="#" class="nav-link">Mapa</a>
+            <a href="#" class="nav-link active">Ocorrências</a>
+        </div>
+    </div>
+    <div class="nav-right">
+        <div class="search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Pesquisar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <button class="nav-btn">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-avatar-border">
+            <div class="user-avatar">
+                <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário">
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="painel-layout">
+
+    <aside class="sidebar-lateral">
+        <div class="sidebar-scroll-content">
+            <span class="sidebar-section-title">NAVEGAÇÃO</span>
+            <nav class="sidebar-menu-links">
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/geral.svg" th:src="@{/images/geral.svg}" class="sidebar-icon" alt="Icon">
+                    <span>Geral</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" class="sidebar-icon" alt="Icon">
+                    <span>Minhas Ocorrências</span>
+                </a>
+            </nav>
+
+            <span class="sidebar-section-title">DISPOSITIVOS</span>
+            <nav class="sidebar-menu-links">
+                <a href="#" class="sidebar-link active-link">
+                    <img src="../static/images/camera-cinza.svg" th:src="@{/images/camera-cinza.svg}" class="sidebar-icon" alt="Icon">
+                    <span>Câmeras Ativas</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-group footer-group">
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" class="sidebar-icon" alt="Ajuda">
+                    <span>Ajuda</span>
+                </a>
+                <a href="#" class="sidebar-link link-logout">
+                    <img src="../static/images/logout.svg" th:src="@{/images/logoutsvg}" class="sidebar-icon" alt="Sair">
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <div class="main-content-split">
+
+        <main class="camera-grid-area">
+            <div class="inner-grid-container">
+
+                <header class="main-header-info">
+                    <div class="header-title-wrapper">
+                        <h2>Painel de Monitoramento Vivo</h2>
+                        <p>Setor Norte • Loteamento Harmonia</p>
+                    </div>
+                    <div class="header-badges-status">
+                        <div class="badge-pill bg-navy">
+                            <div class="bullet-green"></div>
+                            <span>SISTEMA ONLINE</span>
+                        </div>
+                        <div class="badge-pill bg-gray">
+                            <span>18:16:26 — 23/05/2026</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="surveillance-grid-display">
+
+                    <div class="main-feed-large-card">
+                        <div class="main-feed-video-frame">
+                            <img src="../static/images/imagem-camera-1.svg" th:src="@{/images/imagem-camera-1.svg}" class="video-stream-img" alt="Stream">
+                            <div class="video-overlay-gradient"></div>
+                            <div class="overlay-ui-top">
+                                <div class="badge-ui-meta">
+                                    <span>CAM 01 - ENTRADA PRINCIPAL</span>
+                                </div>
+                                <div class="badge-ui-live">
+                                    <span>REC</span>
+                                </div>
+                            </div>
+                            <div class="overlay-ui-bottom-left">
+                                <span>HQ-4K-STREAM // BITRATE: 12.4 MBPS</span>
+                            </div>
+                        </div>
+
+                        <div class="main-toolbar-panel">
+                            <div class="toolbar-left-controls">
+                                <button class="btn-tool"><img src="../static/images/pause.svg" th:src="@{/images/pause.svg}" alt="Pause"></button>
+                                <button class="btn-tool"><img src="../static/images/camera-icon.svg" th:src="@{/images/camera-icon.svg}" alt="Dot"></button>
+                                <div class="toolbar-divider"></div>
+                                <div class="volume-slider-container">
+                                    <button class="btn-tool"><img src="../static/images/volume.svg" th:src="@{/images/volume.svg}" alt="Volume"></button>
+                                    <div class="volume-track">
+                                        <div class="volume-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toolbar-right-actions">
+                                <button class="btn-tool-outline">
+                                    <img src="../static/images/reverter-icon.svg" th:src="@{/images/reverter-icon.svg}" alt="Rewind">
+                                    <div class="btn-double-text">
+                                        <span>Reverter</span>
+                                        <span>30s</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="miniatures-grid-layout">
+
+                        <article class="camera-miniature-card">
+                            <div class="miniature-thumb-frame">
+                                <img src="../static/images/imagem-camera-6.svg" th:src="@{/images/imagem-camera-6.svg}" class="mini-stream-img" alt="Cam">
+                                <div class="mini-ui-overlay">
+                                    <div class="mini-label-bg">
+                                        <span>RUA A - SETOR 2</span>
+                                    </div>
+                                    <div class="mini-bullet-green"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="camera-miniature-card">
+                            <div class="miniature-thumb-frame">
+                                <img src="../static/images/imagem-camera-2.svg" th:src="@{/images/imagem-camera-2.svg}" class="mini-stream-img" alt="Cam">
+                                <div class="mini-ui-overlay">
+                                    <div class="mini-label-bg">
+                                        <span>GARAGEM S1</span>
+                                    </div>
+                                    <div class="mini-bullet-green"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="camera-miniature-card">
+                            <div class="miniature-thumb-frame">
+                                <img src="../static/images/imagem-camera-3.svg" th:src="@{/images/imagem-camera-3.svg" class="mini-stream-img" alt="Cam">
+                                <div class="mini-ui-overlay">
+                                    <div class="mini-label-bg">
+                                        <span>ÁREA SOCIAL</span>
+                                    </div>
+                                    <div class="mini-bullet-red"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="camera-miniature-card">
+                            <div class="miniature-thumb-frame">
+                                <img src="../static/images/imagem-camera-4.svg" th:src="@{/images/imagem-camera-4.svg}" class="mini-stream-img" alt="Cam">
+                                <div class="mini-ui-overlay">
+                                    <div class="mini-label-bg">
+                                        <span>ZONA DE LAZER</span>
+                                    </div>
+                                    <div class="mini-bullet-green"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="camera-miniature-card">
+                            <div class="miniature-thumb-frame">
+                                <img src="../static/images/imagem-camera-5.svg" th:src="@{/images/imagem-camera-5.svg}" class="mini-stream-img" alt="Cam">
+                                <div class="mini-ui-overlay">
+                                    <div class="mini-label-bg">
+                                        <span>ACESSO OESTE</span>
+                                    </div>
+                                    <div class="mini-bullet-green"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="add-camera-placeholder-card">
+                            <img src="../static/images/zoom-mais-2.svg" th:src="@{/images/zoom-mais-2.svg}" class="add-dash-icon" alt="Plus">
+                            <span>NOVO FEED</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+        <aside class="right-panel-camera-list">
+            <header class="panel-header-border">
+                <h3>Câmeras Disponíveis</h3>
+                <span>Filtrando por: Loteamento Harmonia</span>
+            </header>
+
+            <div class="panel-scroll-content">
+
+                <section class="community-list-section">
+                    <header class="section-toggle-row">
+                        <div class="section-label-group">
+                            <img src="../static/images/prediro-2.svg" th:src="@{/images/prediro-2.svg}" class="folder-svg-icon" alt="Folder">
+                            <h4>SETOR NORTE (4)</h4>
+                        </div>
+                        <span class="arrow-toggle-icon"></span>
+                    </header>
+
+                    <div class="section-items-stacked">
+                        <div class="camera-list-row active-row">
+                            <div class="row-meta-left">
+                                <div class="status-dot-green"></div>
+                                <span>Portaria Principal</span>
+                            </div>
+                            <span class="eye-status-icon show-eye"></span>
+                        </div>
+                        <div class="camera-list-row">
+                            <div class="row-meta-left">
+                                <div class="status-dot-green"></div>
+                                <span>Rua das Acácias</span>
+                            </div>
+                            <span class="eye-status-icon"></span>
+                        </div>
+                        <div class="camera-list-row">
+                            <div class="row-meta-left">
+                                <div class="status-dot-red"></div>
+                                <span>Bosque Central</span>
+                            </div>
+                            <span class="text-error-tag">OFFLINE</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="community-list-section">
+                    <header class="section-toggle-row">
+                        <div class="section-label-group">
+                            <img src="../static/images/arvore.svg" th:src="@{/images/arvore.svg}" class="folder-svg-icon" alt="Folder">
+                            <h4>ÁREA DE LAZER (3)</h4>
+                        </div>
+                        <span class="arrow-toggle-icon"></span>
+                    </header>
+
+                    <div class="section-items-stacked">
+                        <div class="camera-list-row">
+                            <div class="row-meta-left">
+                                <div class="status-dot-green"></div>
+                                <span>Piscina Adulto</span>
+                            </div>
+                            <span class="eye-status-icon"></span>
+                        </div>
+                        <div class="camera-list-row">
+                            <div class="row-meta-left">
+                                <div class="status-dot-green"></div>
+                                <span>Quadra Poliesportiva</span>
+                            </div>
+                            <span class="eye-status-icon"></span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+<footer class="footer-sistema">
+    <div class="footer-left">
+        <span class="footer-brand">ZeloUrbano</span>
+        <div class="vertical-divider"></div>
+        <span class="footer-copyright">© 2026 ZeloUrbano - Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-right">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <div class="footer-social-margin">
+            <div class="social-overlay">
+                <img src="../static/images/globo.svg" th:src="@{/images/globo" class="social-icon" alt="Globo">
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
