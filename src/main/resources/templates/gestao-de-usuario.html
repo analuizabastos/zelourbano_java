@@ -1,10 +1,356 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Gestão de Usuário - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/gestao-de-usuario.css" th:href="@{/css/gestao-de-usuario.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<nav class="navbar-sistema">
+    <div class="nav-left">
+        <div class="logo-container">
+            <a href="/" class="logo-link">
+                <div class="logo-icon-bg">
+                    <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+                </div>
+            </a>
+            <div class="logo-text-group">
+                <div class="logo-title">
+                    <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+                </div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-center">
+        <a href="#" class="nav-link">Início</a>
+        <a href="#" class="nav-link">Mapa</a>
+        <a href="#" class="nav-link">Ocorrências</a>
+    </div>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Buscar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <button class="nav-btn">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-avatar-border">
+            <div class="user-avatar">
+                <img src="../static/images/foto-de-perfil.png" th:src="@{/images/foto-de-perfil.png}" alt="Usuário">
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="painel-layout">
+
+    <aside class="sidebar-lateral">
+        <div class="sidebar-scroll-content">
+
+            <div class="sidebar-group">
+                <span class="sidebar-title">Navegação</span>
+                <a href="#" class="sidebar-link active-link">
+                    <img src="../static/images/geral-icon.svg" th:src="@{/images/geral-icon.svg}" class="sidebar-icon" alt="Geral">
+                    <span>Geral</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/alerta-icon.svg" th:src="@{/images/alerta-icon.svg}" class="sidebar-icon" alt="Ocorrências">
+                    <span>Minhas Ocorrências</span>
+                </a>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-group">
+                <span class="sidebar-title">Dispositivos</span>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/camera-icon.svg" th:src="@{/images/camera-icon.svg}" class="sidebar-icon" alt="Câmeras">
+                    <span>Câmeras Ativas</span>
+                </a>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-group">
+                <span class="sidebar-title">Filtrar Status</span>
+                <div class="filter-options">
+                    <label class="radio-label">
+                        <input type="radio" name="statusFiltro" checked>
+                        <span class="custom-radio checked"></span>
+                        <span>Todas</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="statusFiltro">
+                        <span class="custom-radio"></span>
+                        <span>Abertas</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="statusFiltro">
+                        <span class="custom-radio"></span>
+                        <span>Concluídas</span>
+                    </label>
+                </div>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-group">
+                <span class="sidebar-title">Tipo</span>
+                <div class="filter-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="tipoFiltro">
+                        <span class="custom-checkbox"></span>
+                        <span>Infraestrutura</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="tipoFiltro">
+                        <span class="custom-checkbox"></span>
+                        <span>Segurança</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="tipoFiltro">
+                        <span class="custom-checkbox"></span>
+                        <span>Convivência</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="sidebar-group footer-group">
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/ajuda-icon.svg" th:src="@{/images/ajuda-icon.svg}" class="sidebar-icon" alt="Ajuda">
+                    <span>Ajuda</span>
+                </a>
+                <a href="#" class="sidebar-link link-logout">
+                    <img src="../static/images/logout-icon.svg" th:src="@{/images/logout-icon.svg}" class="sidebar-icon" alt="Sair">
+                    <span>Sair</span>
+                </a>
+            </div>
+
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <div class="header-info">
+                <h2>Gestão de Usuário</h2>
+                <p>Gerencie suas informações pessoais e preferências de segurança.</p>
+            </div>
+        </header>
+
+        <div class="bento-grid">
+
+            <div class="bento-row-two-columns">
+
+                <section class="bento-card">
+                    <div class="card-title-container">
+                        <img src="../static/images/perfil-card-icon.svg" th:src="@{/images/perfil-card-icon.svg}" class="card-title-icon" alt="Perfil">
+                        <h3>Perfil Pessoal</h3>
+                    </div>
+
+                    <form th:action="@{/conta/perfil/salvar}" method="POST" class="inner-form">
+                        <div class="form-row">
+                            <div class="form-group-box">
+                                <label>Nome Completo</label>
+                                <input type="text" value="Ricardo Oliveira de Almeida" th:name="nome">
+                            </div>
+                            <div class="form-group-box">
+                                <label>Email</label>
+                                <input type="email" value="ricardo.almeida@zelourbano.gov.br" th:name="email">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group-box">
+                                <label>Telefone de Contato</label>
+                                <input type="text" value="(11) 98765-4321" th:name="telefone">
+                            </div>
+                            <div class="form-group-box disabled-box">
+                                <label>CPF</label>
+                                <input type="text" value="123.456.789-00" readonly th:name="cpf">
+                            </div>
+                        </div>
+
+                        <div class="form-actions-right">
+                            <button type="button" class="btn-discard">Descartar</button>
+                            <button type="submit" class="btn-save">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="bento-card card-cta-comunidade">
+                    <div class="cta-inner-content">
+                        <div class="cta-icon-square">
+                            <img src="../static/images/comunidade-icon.svg" th:src="@{/images/comunidade-icon.svg}" alt="Comunidade">
+                        </div>
+                        <h3>Sua Comunidade</h3>
+                        <p>Ainda não faz parte de uma comunidade ou quer registrar um novo loteamento? Crie sua comunidade agora para gerenciar a segurança e zeladoria do seu bairro.</p>
+                    </div>
+                    <div class="cta-blur-overlay"></div>
+                    <a th:href="@{/comunidades/cadastro}" class="btn-orange-cta">
+                        <span>CRIAR NOVA COMUNIDADE</span>
+                        <img src="../static/images/seta-branca.svg" th:src="@{/images/seta-branca.svg}" class="cta-btn-icon" alt="Seta">
+                    </a>
+                </section>
+            </div>
+
+            <section class="bento-card card-full-width">
+                <div class="card-title-container">
+                    <img src="../static/images/endereco-card-icon.svg" th:src="@{/images/endereco-card-icon.svg}" class="card-title-icon" alt="Endereço">
+                    <h3>Endereço</h3>
+                </div>
+
+                <form th:action="@{/conta/endereco/salvar}" method="POST" class="inner-form">
+                    <div class="form-row split-cep">
+                        <div class="form-group-box">
+                            <label>CEP <span class="required-star">*</span></label>
+                            <input type="text" placeholder="00000-000" required th:name="cep">
+                        </div>
+                        <div class="form-group-box">
+                            <label>Logradouro / Rua <span class="required-star">*</span></label>
+                            <input type="text" placeholder="Nome da rua ou avenida" required th:name="logradouro">
+                        </div>
+                    </div>
+
+                    <div class="form-row split-num">
+                        <div class="form-group-box">
+                            <label>Número <span class="required-star">*</span></label>
+                            <input type="text" placeholder="123" required th:name="numero">
+                        </div>
+                        <div class="form-group-box">
+                            <label>Complemento</label>
+                            <input type="text" placeholder="Apt, Bloco, etc." th:name="complemento">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group-box">
+                            <label>Cidade</label>
+                            <input type="text" placeholder="Ex: Maceió" th:name="cidade">
+                        </div>
+                        <div class="form-group-box">
+                            <label>Estado</label>
+                            <input type="text" placeholder="Ex: Alagoas" th:name="estado">
+                        </div>
+                    </div>
+
+                    <div class="form-actions-right border-top-actions">
+                        <button type="button" class="btn-discard">Descartar</button>
+                        <button type="submit" class="btn-save">Salvar Alterações</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="bento-card card-full-width">
+                <div class="card-title-container">
+                    <img src="../static/images/seguranca-icon.svg" th:src="@{/images/seguranca-icon.svg}" class="card-title-icon" alt="Segurança">
+                    <h3>Segurança</h3>
+                </div>
+
+                <form th:action="@{/conta/senha/atualizar}" method="POST" class="inner-form">
+                    <div class="security-grid-layout">
+                        <div class="security-info-text">
+                            <h4>Alterar Senha</h4>
+                            <p>Recomendamos o uso de senhas fortes com caracteres especiais, números e letras maiúsculas.</p>
+                        </div>
+                        <div class="security-fields">
+                            <div class="form-group-box">
+                                <label>Senha Atual</label>
+                                <input type="password" value="••••••••" th:name="senhaAtual">
+                            </div>
+                            <div class="form-group-box">
+                                <label>Nova Senha</label>
+                                <input type="password" placeholder="Nova senha" th:name="novaSenha">
+                            </div>
+                            <div class="form-group-box">
+                                <label>Confirmar Nova Senha</label>
+                                <input type="password" placeholder="Repita a nova senha" th:name="confirmarSenha">
+                                choice</div>
+                        </div>
+                    </div>
+
+                    <div class="security-footer-border">
+                        <div class="security-tip">
+                            <img src="../static/images/cadeado-cinza.svg" th:src="@{/images/cadeado-cinza.svg}" alt="Dica">
+                            <span>Nunca compartilhe seus dados de acesso.</span>
+                        </div>
+                        <button type="submit" class="btn-submit-blue">Alterar Senha</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="bento-card card-full-width">
+                <div class="card-title-container">
+                    <img src="../static/images/home-card-icon.svg" th:src="@{/images/home-card-icon.svg}" class="card-title-icon" alt="Unidades">
+                    <h3>Minhas Unidades</h3>
+                </div>
+
+                <div class="units-list-container">
+                    <div class="unit-item item-shaded">
+                        <div class="unit-info-left">
+                            <img src="../static/images/predio-icon.svg" th:src="@{/images/predio-icon.svg}" class="unit-icon" alt="Prédio">
+                            <div class="unit-text-wrapper">
+                                <span class="unit-title-text">Residencial Harmonia - Bloco A, Apto 101</span>
+                                <div class="unit-tag">
+                                    <span class="unit-tag-text">Principal</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-trash-action">
+                            <img src="../static/images/lixeira-cinza.svg" th:src="@{/images/lixeira-cinza.svg}" alt="Deletar">
+                        </button>
+                    </div>
+
+                    <div class="unit-item">
+                        <div class="unit-info-left">
+                            <img src="../static/images/casa-icon.svg" th:src="@{/images/casa-icon.svg}" class="unit-icon" alt="Casa">
+                            <div class="unit-text-wrapper">
+                                <span class="unit-title-text">Condomínio Solar - Casa 15</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-trash-action">
+                            <img src="../static/images/lixeira-cinza.svg" th:src="@{/images/lixeira-cinza.svg}" alt="Deletar">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="units-footer-action">
+                    <button type="button" class="btn-add-unit-orange">
+                        <img src="../static/images/plus-icon-white.svg" th:src="@{/images/plus-icon-white.svg}" class="btn-plus-icon" alt="Adicionar">
+                        <span>CADASTRAR NOVA UNIDADE</span>
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<footer class="footer-sistema">
+    <div class="footer-left">
+        <span class="footer-brand">ZeloUrbano</span>
+        <div class="vertical-divider"></div>
+        <span class="footer-copyright">© 2026 ZeloUrbano - Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-right">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <div class="footer-social-margin">
+            <div class="social-overlay">
+                <img src="../static/images/global-icon.svg" th:src="@{/images/global-icon.svg}" class="social-icon" alt="Global">
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

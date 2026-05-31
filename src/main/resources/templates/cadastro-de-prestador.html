@@ -2,63 +2,78 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Empresa Parceira</title>
+    <title>Cadastro de Empresa Parceira - ZeloUrbano</title>
     <link rel="stylesheet" href="../static/css/cadastro-de-prestador.css" th:href="@{/css/cadastro-de-prestador.css}">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <nav class="navbar-sistema">
     <div class="nav-left">
-        <div class="logo-area">
-            <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+        <div class="logo-container">
+            <a href="/" class="logo-link">
+                <div class="logo-icon-bg">
+                    <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+                </div>
+            </a>
+            <div class="logo-text-group">
+                <div class="logo-title">
+                    <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+                </div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
         </div>
-        <span class="logo-sub">Gestão Comunitária de Confiança</span>
     </div>
-
     <div class="nav-center">
         <a href="#" class="nav-link active">Início</a>
         <a href="#" class="nav-link">Mapa</a>
         <a href="#" class="nav-link">Prestadores</a>
-        <a href="#" class="nav-link">Relatórios</a>
     </div>
-
     <div class="nav-right">
         <div class="search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Buscar">
             <input type="text" placeholder="Pesquisar...">
         </div>
-        <button class="nav-btn icon-bell"></button>
-        <button class="nav-btn icon-cog"></button>
-        <div class="user-avatar"></div>
+        <button class="nav-btn">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-avatar-border">
+            <div class="user-avatar">
+                <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário">
+            </div>
+        </div>
     </div>
 </nav>
 
+<!-- Conteúdo Principal (Main Canvas de Uma Coluna Centralizada) -->
 <main class="main-container">
 
     <header class="page-header">
-        <h2>Cadastro de Empresa Parceira</h2>
+        <h2>Cadastro de Empresa Empresa Parceira</h2>
         <p>Complete o registro para oferecer seus serviços na rede ZeloUrbano.</p>
     </header>
 
-    <form th:action="@{/prestadores/salvar}" method="POST" class="form-layout">
+    <form th:action="@{/prestadores/salvar}" method="POST" class="form-layout-centered">
 
+        <!-- Section: Dados do Prestador -->
         <section class="form-section">
             <div class="section-title-container">
-                <div class="section-icon"></div>
+                <img src="../static/images/id.svg" th:src="@{/images/id.svg}" class="section-icon" alt="Ícone Seção">
                 <h3>Dados do Prestador</h3>
             </div>
 
-            <div class="input-row-top">
+            <div class="input-row split-70-30">
                 <div class="input-group">
                     <label>Nome da Empresa / Prestador *</label>
                     <input type="text" placeholder="Ex: Manutenção Total Ltda" required th:field="*{nome}">
                 </div>
-
                 <div class="input-group">
                     <label>Tipo de Prestador *</label>
                     <select required th:field="*{tipoPrestador}">
-                        <option value="Empresa">Empresa</option>
-                        <option value="Autônomo">Autônomo</option>
+                        <option value="EMPRESA">Empresa</option>
+                        <option value="AUTONOMO">Autônomo</option>
                     </select>
                 </div>
             </div>
@@ -66,18 +81,17 @@
             <div class="input-group">
                 <label>Categoria de Serviço *</label>
                 <select required th:field="*{categoriaServico}">
-                    <option value="" disabled selected>Selecione uma especialidade</option>
-                    <option value="Eletricista">Eletricista</option>
-                    <option value="Encanador">Encanador</option>
-                    <option value="Segurança">Segurança Eletrônica / Câmeras</option>
-                    <option value="Zeladoria">Zeladoria Geral</option>
+                    <option value="">Selecione uma especialidade</option>
+                    <option value="MANUTENCAO">Manutenção Geral</option>
+                    <option value="SEGURANCA">Segurança</option>
+                    <option value="LIMPEZA">Limpeza e Jardinagem</option>
                 </select>
             </div>
 
             <div class="input-row">
                 <div class="input-group">
                     <label>Telefone de Emergência *</label>
-                    <input type="text" placeholder="(11) 99999-9999" required th:field="*{telefone}">
+                    <input type="text" placeholder="(11) 99999-9999" required th:field="*{telefoneEmergencia}">
                 </div>
                 <div class="input-group">
                     <label>Link/App de Suporte</label>
@@ -85,21 +99,41 @@
                 </div>
             </div>
 
-            <div class="input-group">
+            <div class="input-group no-margin">
                 <label>Observações</label>
                 <textarea placeholder="Informações adicionais sobre o prestador..." th:field="*{observacoes}"></textarea>
             </div>
         </section>
 
-        <div class="cta-container">
-            <button type="submit" class="btn-submit">
-                <span>SALVAR CADASTRO</span>
-                <div class="btn-icon"></div>
+        <!-- Bloco CTA Integrado Centralizado -->
+        <div class="cta-container-centered">
+            <button type="submit" class="btn-submit-large">
+                <span>CADASTRAR EMPRESA PARCEIRA</span>
+                <img src="../static/images/seta-branca.svg" th:src="@{/images/seta-branca.svg}" class="btn-arrow-icon" alt="Seta">
             </button>
         </div>
 
     </form>
 </main>
+
+<!-- Footer -->
+<footer class="footer-sistema">
+    <div class="footer-left">
+        <span class="footer-brand">ZeloUrbano</span>
+        <div class="vertical-divider"></div>
+        <span class="footer-copyright">© 2026 ZeloUrbano - Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-right">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <div class="footer-social-margin">
+            <div class="social-overlay">
+                <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" class="social-icon" alt="Global">
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
