@@ -1,0 +1,49 @@
+package com.projeto.seguranca_comunitaria.controllers;
+
+import com.projeto.seguranca_comunitaria.entities.Morador;
+import com.projeto.seguranca_comunitaria.entities.StatusSistema;
+import com.projeto.seguranca_comunitaria.entities.Usuario;
+import com.projeto.seguranca_comunitaria.services.MoradorService;
+import com.projeto.seguranca_comunitaria.services.StatusSistemaService;
+import com.projeto.seguranca_comunitaria.services.UsuarioService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+@RequestMapping("/moradores")
+public class MoradorController {
+
+    private final MoradorService moradorService;
+    private final UsuarioService usuarioService;
+    private final StatusSistemaService statusSistemaService;
+
+    public MoradorController(MoradorService moradorService,
+                             UsuarioService usuarioService,
+                             StatusSistemaService statusSistemaService) {
+        this.moradorService = moradorService;
+        this.usuarioService = usuarioService;
+        this.statusSistemaService = statusSistemaService;
+    }
+
+    @GetMapping
+    public String listar(Model model) {
+        model.addAttribute("moradores", moradorService.listarTodos());
+        return "morador/lista";
+    }
+
+    @GetMapping("/novo")
+    public String formulario(Model model) {
+        model.addAttribute("morador", new Morador());
+        model.addAttribute("usuario", new Usuario());
+        model.addAttribute("statuses", statusSistemaService.listarTodos());
+        return "morador/cadastro";
+    }
+
+    @PostMapping("/salvar")
+    public String salvar(@ModelAttribute Morador morador,
+                         @ModelAttribute Usuario usuario) {
+        usuarioService.cadastrar(morador, usuario);
+        return "redirect:/moradores";
+    }
+}
