@@ -5,18 +5,18 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class MoradorUnidadeId implements Serializable {
-    private Integer idMorador;
-    private Integer idUnidade;
+    private Integer morador;
+    private Integer unidade;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof MoradorUnidadeId that)) return false;
-        return Objects.equals(idMorador, that.idMorador) && Objects.equals(idUnidade, that.idUnidade);
+        return Objects.equals(morador, that.morador) && Objects.equals(unidade, that.unidade);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idMorador, idUnidade);
+        return Objects.hash(morador, unidade);
     }
 }

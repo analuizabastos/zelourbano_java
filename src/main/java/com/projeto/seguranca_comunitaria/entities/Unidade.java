@@ -23,7 +23,7 @@ public class Unidade {
 
     @ManyToOne
     @JoinColumn(name = "id_comunidade")
-    private Comunidade Comunidade;
+    private Comunidade comunidade;
 
     @ManyToOne
     @JoinColumn(name = "status")
@@ -36,7 +36,7 @@ public class Unidade {
         this.latitude = latitude;
         this.longitude = longitude;
         this.areaLote = areaLote;
-        this.Comunidade = idComunidade;
+        this.comunidade = idComunidade;
         this.status = Status;
     }
 
@@ -73,11 +73,11 @@ public class Unidade {
     }
 
     public Comunidade getIdComunidade() {
-        return Comunidade;
+        return comunidade;
     }
 
     public void setIdComunidade(Comunidade idComunidade) {
-        this.Comunidade = idComunidade;
+        this.comunidade = idComunidade;
     }
 
     public StatusSistema getStatus() {

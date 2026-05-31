@@ -24,8 +24,8 @@ public class LogSistemaService {
         logSistemaRepository.save(log);
     }
 
-    public List<LogSistema> listarPorUsuario(Integer idUsuario) {
-        return logSistemaRepository
-                .findByUsuarioIdUsuario(idUsuario);
+    // LogSistemaService
+    public List<LogSistema> listarPorUsuario(Integer id) {
+        return logSistemaRepository.findByUsuario_Id(id);
     }
 }

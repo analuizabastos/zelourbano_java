@@ -18,8 +18,9 @@ public class MensagemService {
         return mensagemRepository.save(mensagem);
     }
 
-    public List<Mensagem> listarPorOcorrencia(Integer idOcorrencia) {
-        return mensagemRepository
-                .findByOcorrenciaIdOcorrencia(idOcorrencia);
+    // MensagemService
+    public List<Mensagem> listarPorOcorrencia(Integer id) {
+        return mensagemRepository.findByOcorrencia_Id(id);
     }
+
 }

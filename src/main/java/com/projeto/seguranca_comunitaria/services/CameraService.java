@@ -23,9 +23,12 @@ public class CameraService {
         return cameraRepository.findById(id);
     }
 
-    public List<Camera> listarPorComunidade(Integer idComunidade) {
-        return cameraRepository
-                .findByComunidadeIdComunidade(idComunidade);
+    // CameraService
+    public List<Camera> listarPorComunidade(Integer id) {
+        return cameraRepository.findByComunidade_Id(id);
+    }
+    public List<Camera> listarPorUsuario(Integer id) {
+        return cameraRepository.findByUsuario_Id(id);
     }
 
     public Camera atualizar(Camera camera) {

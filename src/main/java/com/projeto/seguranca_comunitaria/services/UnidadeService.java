@@ -24,7 +24,7 @@ public class UnidadeService {
     }
 
     public List<Unidade> listarPorComunidade(Integer idComunidade) {
-        return unidadeRepository.findByComunidadeIdComunidade(idComunidade);
+        return unidadeRepository.findByComunidade_Id(idComunidade);
     }
 
     public Unidade atualizar(Unidade unidade) {
