@@ -284,10 +284,9 @@ input[type="text"], input[type="url"], select, textarea {
     outline: none;
 }
 
-/* Customização dos elementos Select (Dropdowns) */
 select {
     appearance: none;
-    background-image: url('../images/seta-para-baixo.svg'); /* Pronto para receber o vetor */
+    background-image: url('../images/seta-para-baixo.svg');
     background-repeat: no-repeat;
     background-position: calc(100% - 16px) center;
     background-size: 16px;

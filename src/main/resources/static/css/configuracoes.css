@@ -1,0 +1,671 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FBF8FC;
+    color: #44474E;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Header - TopNavBar */
+.navbar-sistema {
+    width: 100%;
+    height: 70px;
+    background-color: #041635;
+    border-bottom: 1px solid #C5C6CF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon-bg {
+    width: 32px;
+    height: 32px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo-sistema {
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 22px;
+    white-space: nowrap;
+}
+
+.logo-zelo { color: #FFFFFF !important; }
+.logo-urbano { color: #FD9826 !important; }
+
+.logo-sub {
+    font-size: 11px;
+    color: #FFFFFF !important;
+    opacity: 0.7;
+    letter-spacing: 0.22px;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+.nav-center {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 8px;
+}
+
+.nav-link.active {
+    color: #FD9826 !important;
+    opacity: 1;
+    font-weight: 700;
+    border-bottom: 2px solid #FD9826;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input[type="text"] {
+    background-color: #1B2B4B !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 0 16px 0 40px !important;
+    color: #FFFFFF !important;
+    width: 256px !important;
+    height: 32.8px !important;
+    font-size: 14px !important;
+    outline: none;
+}
+
+.search-box input[type="text"]::placeholder {
+    color: #6B7280 !important;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.nav-btn img {
+    width: 16px;
+    height: 20px;
+}
+
+.user-avatar-border {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FD9826;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Divisão de Layout Principal */
+.painel-layout {
+    display: flex;
+    margin-top: 70px;
+    width: 100%;
+    align-items: stretch;
+    min-height: calc(100vh - 70px - 81px);
+}
+
+/* Sidebar Lateral Esticando */
+.sidebar-lateral {
+    width: 240px;
+    background-color: #FFFFFF;
+    border-right: 1px solid #C5C6CF;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebar-scroll-content {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 32px;
+    height: 100%;
+}
+
+.sidebar-admin-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    width: 191px;
+}
+
+.admin-avatar-bg {
+    width: 40px;
+    height: 40px;
+    background-color: #1B2B4B;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.sidebar-icon-admin {
+    width: 45px;
+    height: 45px;
+}
+
+.admin-text-wrapper h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #041635;
+    line-height: 17px;
+}
+
+.admin-text-wrapper span {
+    font-size: 11px;
+    color: #75777F;
+    opacity: 0.7;
+    letter-spacing: 0.22px;
+}
+
+.sidebar-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 191px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #44474E;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.sidebar-link:hover, .sidebar-link.active-link {
+    background-color: #1B2B4B;
+    color: #8393B8;
+}
+
+.sidebar-text-double {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-icon {
+    width: 16px;
+    height: 15px;
+}
+
+.sidebar-group.footer-group {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(197, 198, 207, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 191px;
+    flex-shrink: 0;
+}
+
+.sidebar-link.link-logout {
+    color: #BA1A1A !important;
+}
+
+/* Área do Painel Bento */
+.main-content {
+    padding: 32px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background-color: #FBF8FC;
+}
+
+.page-header-bento {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid #C5C6CF;
+    padding-bottom: 24px;
+    width: 100%;
+}
+
+.header-title-text h2 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #041635;
+}
+
+.header-title-text p {
+    font-size: 16px;
+    color: #75777F;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+.header-actions-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action-outline {
+    height: 35px;
+    padding: 8px 16px;
+    border: 1px solid #75777F;
+    border-radius: 4px;
+    background: transparent;
+    color: #75777F;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-action-primary {
+    height: 35px;
+    padding: 8px 16px;
+    background: #041635;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Configuração do Grid Bento Assimétrico */
+.bento-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 325.33px;
+    gap: 32px;
+    width: 100%;
+}
+
+.bento-cards-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.resident-request-card {
+    background: #FFFFFF;
+    border: 1px solid #C5C6CF;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.user-info-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.resident-photo-frame {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #C5C6CF;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #EFEDF0;
+}
+
+.resident-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resident-meta-text h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #041635;
+    line-height: 17px;
+}
+
+.resident-meta-text span {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: #75777F;
+    line-height: 20px;
+}
+
+.status-tag {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tag-pendente {
+    background-color: #FFDCC0;
+    color: #2D1600;
+}
+
+.document-attached-bar {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;
+    background: #F5F3F6;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.doc-item-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.document-attached-bar span {
+    font-size: 16px;
+    color: #44474E;
+}
+
+.card-action-row-buttons {
+    display: flex;
+    gap: 8px;
+    padding-top: 8px;
+    width: 100%;
+}
+
+.btn-card-success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 0;
+    flex-grow: 1;
+    background: #2E7D32;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-card-danger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 0;
+    flex-grow: 1;
+    background: #BA1A1A;
+    border: none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Coluna Lateral - Painel de Status Escuro */
+.bento-side-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-stats-panel {
+    background-color: #041635;
+    border: 1px solid #C5C6CF;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    height: 327px;
+}
+
+.decorative-bg-icon {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: -23.55px;
+    bottom: -23.75px;
+    opacity: 0.1;
+    transform: rotate(12deg);
+    z-index: 1;
+}
+
+.decorative-bg-icon img {
+    width: 120px;
+    height: 120px;
+}
+
+.stats-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 2;
+}
+
+.featured-stats-panel h3 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #FFB875;
+}
+
+.stats-rows-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stat-horizontal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-horizontal-row span:nth-child(1) {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.stat-horizontal-row span:nth-child(2) {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.stat-horizontal-row.row-alert-color span:nth-child(2) {
+    color: #FFDAD6;
+}
+
+.stats-footer-quote-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 2;
+    padding-top: 32px;
+}
+
+.quote-text {
+    font-size: 14px;
+    font-style: italic;
+    color: #FFFFFF;
+    opacity: 0.6;
+    line-height: 20px;
+}
+
+.quote-bullets-indicator {
+    display: flex;
+    gap: 8px;
+}
+
+.quote-bullets-indicator .bullet {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
+
+.quote-bullets-indicator .bullet.active {
+    background: #FD9826;
+}
+
+/* Linha de Carregamento */
+.load-more-placeholder-row {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+    width: 100%;
+}
+
+.btn-load-more {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    gap: 8px;
+    background: transparent;
+    border: 2px solid #1B2B4B;
+    border-radius: 12px;
+    color: #041635;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-load-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Rodapé (Footer) */
+.footer-sistema {
+    width: 100%;
+    height: 81px;
+    background-color: #1B2B4B;
+    border-top: 1px solid #C5C6CF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-brand { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 22px; }
+.vertical-divider { width: 1px; height: 16px; background: #FFFFFF; opacity: 0.3; }
+.footer-copyright { font-size: 11px; opacity: 0.7; letter-spacing: 0.22px; }
+
+.footer-right { display: flex; align-items: center; gap: 24px; }
+.footer-link { color: #FFFFFF; opacity: 0.7; text-decoration: none; font-size: 12px; font-weight: 600; }
+.footer-social-margin { padding-left: 16px; }
+.social-overlay { width: 32px; height: 32px; background: rgba(255, 255, 255, 0.1); border-radius: 12px; display: flex; justify-content: center; align-items: center; }
+
+.social-icon {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain;
+}

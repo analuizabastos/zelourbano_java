@@ -1,10 +1,264 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Configurações - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/configuracoes.css" th:href="@{/css/configuracoes.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<nav class="navbar-sistema">
+    <div class="nav-left">
+        <div class="logo-container">
+            <div class="logo-icon-bg">
+                <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+            </div>
+            <div class="logo-text-group">
+                <div class="logo-title"><span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span></div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+        <div class="nav-center">
+            <a href="#" class="nav-link active">Início</a>
+            <a href="#" class="nav-link">Mapa</a>
+            <a href="#" class="nav-link">Prestadores</a>
+            <a href="#" class="nav-link">Relatórios</a>
+        </div>
+    </div>
+    <div class="nav-right">
+        <div class="search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Pesquisar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <button class="nav-btn">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-avatar-border">
+            <div class="user-avatar">
+                <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário">
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="painel-layout">
+
+    <aside class="sidebar-lateral">
+        <div class="sidebar-scroll-content">
+            <div class="sidebar-admin-profile">
+                <div class="admin-avatar-bg">
+                    <img src="../static/images/escudo-com-perfil.svg" th:src="@{/images/escudo-com-perfil.svg}" class="sidebar-icon-admin" alt="Admin">
+                </div>
+                <div class="admin-text-wrapper">
+                    <h4>Painel Admin</h4>
+                    <span>Gestão de Sistema</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu-links">
+                <a href="#" class="sidebar-link active-link">
+                    <img src="../static/images/pessoa-com-confirmado-cinza.svg" th:src="@{/images/pessoa-com-confirmado-cinza.svg}" class="sidebar-icon" alt="Dashboard">
+                    <div class="sidebar-text-double">
+                        <span>Aprovações de Cadastros</span>
+                    </div>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/varios-perfis.svg" th:src="@{/images/varios-perfis.svg}" class="sidebar-icon" alt="Usuários">
+                    <span>Gestão de Perfis</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/historico-icon.svg" th:src="@{/images/historico-icon.svg}" class="sidebar-icon" alt="Serviços">
+                    <span>Histórico</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" class="sidebar-icon" alt="Ocorrências">
+                    <span>Gestão de Ocorrências</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-group footer-group">
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" class="sidebar-icon" alt="Ajuda">
+                    <span>Ajuda</span>
+                </a>
+                <a href="#" class="sidebar-link link-logout">
+                    <img src="../static/images/logout.svg" th:src="@{/images/logout.svg}" class="sidebar-icon" alt="Sair">
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header-bento">
+            <div class="header-title-text">
+                <h2>Aprovação de Cadastros</h2>
+                <p>Existem 12 solicitações pendentes de novos moradores</p>
+            </div>
+            <div class="header-actions-buttons">
+                <button class="btn-action-outline">Exportar CSV</button>
+                <button class="btn-action-primary">Aprovar Selecionados</button>
+            </div>
+        </header>
+
+        <div class="bento-layout-grid">
+
+            <div class="bento-cards-column">
+
+                <article class="resident-request-card">
+                    <div class="card-header-flex">
+                        <div class="user-info-left">
+                            <div class="resident-photo-frame">
+                                <img src="../static/images/foto-de-perfil-homem.svg" th:src="@{/images/foto-de-perfil-homem.svg}" alt="Foto">
+                            </div>
+                            <div class="resident-meta-text">
+                                <h4>Carlos Alberto Silva</h4>
+                                <span>CPF: 123.***.***-01</span>
+                            </div>
+                        </div>
+                        <span class="status-tag tag-pendente">Pendente</span>
+                    </div>
+                    <div class="document-attached-bar">
+                        <img src="../static/images/predios.svg" th:src="@{/images/predios.svg}" class="doc-item-icon" alt="Doc">
+                        <span>Torre A, Apto 142</span>
+                    </div>
+                    <div class="card-action-row-buttons">
+                        <button class="btn-card-success">
+                            <img src="../static/images/circulo-confirmar.svg" th:src="@{/images/circulo-confirmar.svg}" alt="Ok">
+                            <span>Aprovar</span>
+                        </button>
+                        <button class="btn-card-danger">
+                            <img src="../static/images/circulo-negar.svg" th:src="@{/images/circulo-negar.svg}" alt="X">
+                            <span>Recusar</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="resident-request-card">
+                    <div class="card-header-flex">
+                        <div class="user-info-left">
+                            <div class="resident-photo-frame">
+                                <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Foto">
+                            </div>
+                            <div class="resident-meta-text">
+                                <h4>Joao Costa</h4>
+                                <span>CPF: 345.***.***-93</span>
+                            </div>
+                        </div>
+                        <span class="status-tag tag-pendente">Pendente</span>
+                    </div>
+                    <div class="document-attached-bar">
+                        <img src="../static/images/predios.svg" th:src="@{/images/predios.svg}" class="doc-item-icon" alt="Doc">
+                        <span>Torre C, Apto 21</span>
+                    </div>
+                    <div class="card-action-row-buttons">
+                        <button class="btn-card-success">
+                            <img src="../static/images/circulo-confirmar.svg" th:src="@{/images/circulo-confirmar.svg}" alt="Ok">
+                            <span>Aprovar</span>
+                        </button>
+                        <button class="btn-card-danger">
+                            <img src="../static/images/circulo-negar.svg" th:src="@{/images/circulo-negar.svg}" alt="X">
+                            <span>Recusar</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="resident-request-card">
+                    <div class="card-header-flex">
+                        <div class="user-info-left">
+                            <div class="resident-photo-frame">
+                                <img src="../static/images/foto-de-perfil-homem-2.svg" th:src="@{/images/foto-de-perfil-homem-2.svg}" alt="Foto">
+                            </div>
+                            <div class="resident-meta-text">
+                                <h4>Ricardo Alencar</h4>
+                                <span>CPF: 923.***.***-23</span>
+                            </div>
+                        </div>
+                        <span class="status-tag tag-pendente">Pendente</span>
+                    </div>
+                    <div class="document-attached-bar">
+                        <img src="../static/images/doc-file-icon.svg" th:src="@{/images/doc-file-icon.svg}" class="doc-item-icon" alt="Doc">
+                        <span>Torre B, Apto 305</span>
+                    </div>
+                    <div class="card-action-row-buttons">
+                        <button class="btn-card-success">
+                            <img src="../static/images/circulo-confirmar.svg" th:src="@{/images/circulo-confirmar.svg}" alt="Ok">
+                            <span>Aprovar</span>
+                        </button>
+                        <button class="btn-card-danger">
+                            <img src="../static/images/circulo-negar.svg" th:src="@{/images/circulo-negar.svg}" alt="X">
+                            <span>Recusar</span>
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <div class="bento-side-column">
+                <section class="featured-stats-panel">
+                    <div class="decorative-bg-icon">
+                        <img src="../static/images/shield-watermark.svg" th:src="@{/images/shield-watermark.svg}" alt="Watermark">
+                    </div>
+
+                    <div class="stats-main-content">
+                        <h3>Resumo Mensal</h3>
+                        <div class="stats-rows-container">
+                            <div class="stat-horizontal-row">
+                                <span>Novas Solicitacoes</span>
+                                <span>24</span>
+                            </div>
+                            <div class="stat-horizontal-row row-alert-color">
+                                <span>Casos Pendentes</span>
+                                <span>05</span>
+                            </div>
+                            <div class="stat-horizontal-row">
+                                <span>Total Aprovados</span>
+                                <span>142</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-footer-quote-block">
+                        <p class="quote-text">"A gestão transparente fortalece o zelo pela nossa comunidade."</p>
+                        <div class="quote-bullets-indicator">
+                            <span class="bullet active"></span>
+                            <span class="bullet"></span>
+                            <span class="bullet"></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="load-more-placeholder-row">
+            <button class="btn-load-more">
+                <img src="../static/images/seta-carregando.svg" th:src="@{/images/seta-carregando.svg}" class="btn-load-icon" alt="Carregar">
+                <span>Carregar mais registros</span>
+            </button>
+        </div>
+    </main>
+</div>
+
+<footer class="footer-sistema">
+    <div class="footer-left">
+        <span class="footer-brand">ZeloUrbano</span>
+        <div class="vertical-divider"></div>
+        <span class="footer-copyright">© 2026 ZeloUrbano - Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-right">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <div class="footer-social-margin">
+            <div class="social-overlay">
+                <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" class="social-icon" alt="Global">
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
