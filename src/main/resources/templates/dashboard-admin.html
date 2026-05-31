@@ -1,10 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dashboard Administrativo - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/dashboard-admin.css" th:href="@{/css/dashboard-admin.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;700&family=Sora:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<nav class="navbar-sistema">
+    <div class="nav-left">
+        <div class="logo-container">
+            <div class="logo-icon-bg">
+                <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+            </div>
+            <div class="logo-text-group">
+                <div class="logo-title"><span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span></div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+        <div class="nav-center">
+            <a href="#" class="nav-link active">Início</a>
+            <a href="#" class="nav-link">Mapa</a>
+            <a href="#" class="nav-link">Prestadores</a>
+            <a href="#" class="nav-link">Relatórios</a>
+        </div>
+    </div>
+    <div class="nav-right">
+        <div class="search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Pesquisar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <button class="nav-btn">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-avatar-border">
+            <div class="user-avatar">
+                <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário">
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="painel-layout">
+
+    <aside class="sidebar-lateral">
+        <div class="sidebar-scroll-content">
+            <div class="sidebar-admin-profile">
+                <div class="admin-avatar-bg">
+                    <img src="../static/images/escudo-com-perfil.svg" th:src="@{/images/escudo-com-perfil.svg}" class="sidebar-icon-admin" alt="Admin">
+                </div>
+                <div class="admin-text-wrapper">
+                    <h4>Painel Admin</h4>
+                    <span>Gestão de sistema</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu-links">
+                <a href="#" class="sidebar-link active-link">
+                    <img src="../static/images/pessoa-com-confirmado-preto.svg" th:src="@{/images/pessoa-com-confirmado-preto.svg}" class="sidebar-icon" alt="Dashboard">
+                    <div class="sidebar-text-double">
+                        <span>Aprovação de Cadastros</span>
+                    </div>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/varios-perfis.svg" th:src="@{/images/varios-perfis.svg}" class="sidebar-icon" alt="Moradores">
+                    <span>Gestão de Perfis</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/historico-icon.svg" th:src="@{/images/historico-icon.svg}" class="sidebar-icon" alt="Unidades">
+                    <span>Histórico</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" class="sidebar-icon" alt="Ocorrências">
+                    <span>Gestão de Ocorrências</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-group footer-group">
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" class="sidebar-icon" alt="Ajuda">
+                    <span>Ajuda</span>
+                </a>
+                <a href="#" class="sidebar-link link-logout">
+                    <img src="../static/images/logout.svg" th:src="@{/images/logout.svg}" class="sidebar-icon" alt="Sair">
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="welcome-header">
+            <div class="header-title-text">
+                <h2>Painel Administrativo</h2>
+                <p>Aqui está o resumo operacional e de segurança da sua comunidade hoje.</p>
+            </div>
+            <div class="header-actions-buttons">
+                <button class="btn-action-primary">
+                    <img src="../static/images/sinal-de-mais.svg" th:src="@{/images/sinal-de-mais.svg}" alt="Novo">
+                    <span>Novo Comunicado</span>
+                </button>
+                <button class="btn-action-outline">
+                    <img src="../static/images/baixar-icon.svg" th:src="@{/images/baixar-icon.svg}" alt="Baixar">
+                    <span>Exportar</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="bento-grid-dashboard">
+
+            <section class="bento-item grid-mapa-calor">
+                <header class="bento-card-header">
+                    <div class="card-title-left">
+                        <img src="../static/images/localizacao-2.svg" th:src="@{/images/localizacao-2.svg}" class="card-header-icon" alt="Mapa">
+                        <h3>Mapa de Calor</h3>
+                    </div>
+                    <div class="badge-mono-status">
+                        <span>AO VIVO</span>
+                    </div>
+                </header>
+                <div class="map-interactive-container">
+                    <img src="../static/images/mapa-de-calor.svg" th:src="@{/images/mapa-de-calor.svg}" class="mapa-satelite-img" alt="Mapa">
+                    <div class="map-controls-floating">
+                        <button class="btn-map-zoom"><img src="../static/images/zoom-mais.svg" th:src="@{/images/zoom-mais.svg}" alt="+"></button>
+                        <button class="btn-map-zoom"><img src="../static/images/zoom-menos.svg" th:src="@{/images/zoom-menos.svg}" alt="-"></button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bento-item grid-comunicados">
+                <header class="bento-card-header">
+                    <div class="card-title-left">
+                        <img src="../static/images/alerta-som.svg" th:src="@{/images/alerta-som.svg}" class="card-header-icon" alt="Comunicados">
+                        <h3>Comunicados</h3>
+                    </div>
+                    <button class="btn-card-text-link">Ver todos</button>
+                </header>
+                <div class="comunicados-list-wrapper">
+                    <article class="comunicado-item item-urgente">
+                        <span class="comunicado-meta">URGENTE • HOJE 10:30</span>
+                        <h4>Manutenção Preventiva - Rede Elétrica Central</h4>
+                        <p>Informamos que haverá interrupção programada para reparos na Rua das Flores pela Equatorial...</p>
+                    </article>
+                    <article class="comunicado-item">
+                        <span class="comunicado-meta">INFO • ONTEM 15:45</span>
+                        <h4>Nova Coleta Seletiva Implantada</h4>
+                        <p>O cronograma de coleta de resíduos sólidos foi atualizado para facilitar o horário do descarte...</p>
+                    </article>
+                    <article class="comunicado-item">
+                        <span class="comunicado-meta">INFO • 12 OUT 2023</span>
+                        <h4>Reunião de Orçamento Participativo</h4>
+                        <p>Participe da votação das novas prioridades de infraestrutura para o próximo trimestre fiscal...</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="bento-item grid-ocorrencias">
+                <header class="bento-card-header">
+                    <div class="card-title-left">
+                        <img src="../static/images/triangulo-exclamacao-amarelo.svg" th:src="@{/images/shield-secure.svg}" class="card-header-icon" alt="Aviso">
+                        <h3>Ocorrências</h3>
+                    </div>
+                    <div class="badge-alert-status">
+                        <span>3 Críticas</span>
+                    </div>
+                </header>
+                <div class="table-container-scroll">
+                    <table class="dashboard-data-table">
+                        <thead>
+                        <tr>
+                            <th>PROTOCOLO</th>
+                            <th>TIPO</th>
+                            <th class="text-right">STATUS</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="td-mono-date">#ZU-2024-001</td>
+                            <td>Iluminação Pública</td>
+                            <td class="text-right"><span class="table-tag tag-analise">EM ANÁLISE</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td-mono-date">#ZU-2024-002</td>
+                            <td>Vazamento Água</td>
+                            <td class="text-right"><span class="table-tag tag-critico">CRÍTICO</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td-mono-date">#ZU-2024-003</td>
+                            <td>Buraco na Via</td>
+                            <td class="text-right"><span class="table-tag tag-aberto">ABERTO</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="bento-item grid-painel-adm">
+                <header class="bento-card-header">
+                    <div class="card-title-left">
+                        <img src="../static/images/escudo-com-perfil-amarelo.svg" th:src="@{/images/escudo-com-perfil-amarelo.svg}" class="card-header-icon" alt="Engrenagens">
+                        <h3>Painel Adm</h3>
+                    </div>
+                </header>
+
+                <div class="adm-metrics-flex-row">
+                    <div class="adm-metric-vertical-block">
+                        <div class="metric-icon-wrapper block-navy">
+                            <img src="../static/images/varios-perfis.svg" th:src="@{/images/varios-perfis.svg}" alt="Users">
+                        </div>
+                        <span class="metric-value-large">842</span>
+                        <span class="metric-caption">Usuários Ativos</span>
+                    </div>
+                    <div class="adm-metric-vertical-block">
+                        <div class="metric-icon-wrapper block-orange">
+                            <img src="../static/images/escudo-autenticado.svg" th:src="@{/images/escudo-autenticado.svg}" alt="Chart">
+                        </div>
+                        <span class="metric-value-large">96%</span>
+                        <span class="metric-caption">Resolutividade</span>
+                    </div>
+                </div>
+
+                <div class="adm-quick-actions-list">
+                    <button class="btn-quick-action-row">
+                        <div class="btn-action-label-left">
+                            <img src="../static/images/perfil-com-engrenagem.svg" th:src="@{/images/perfil-com-engrenagem.svg}" class="quick-action-svg" alt="Icon">
+                            <span>Gerenciar Prestadores</span>
+                        </div>
+                        <span class="quick-arrow-right"></span>
+                    </button>
+                    <button class="btn-quick-action-row">
+                        <div class="btn-action-label-left">
+                            <img src="../static/images/perfil-com-engrenagem.svg" th:src="@{/images/perfil-com-engrenagem.svg}" class="quick-action-svg" alt="Icon">
+                            <span>Gerenciar Perfis</span>
+                        </div>
+                        <span class="quick-arrow-right"></span>
+                    </button>
+                    <button class="btn-quick-action-row">
+                        <div class="btn-action-label-left">
+                            <img src="../static/images/engrenagem-2.svg" th:src="@{/images/engrenagem-2.svg}" class="quick-action-svg" alt="Icon">
+                            <span>Configurações do Sistema</span>
+                        </div>
+                        <span class="quick-arrow-right"></span>
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <section class="dashboard-summary-dark-bar">
+            <div class="summary-items-group">
+                <div class="summary-stat-box">
+                    <span class="summary-label">ABERTAS</span>
+                    <h3 class="summary-number">12</h3>
+                </div>
+                <div class="summary-vertical-divider"></div>
+                <div class="summary-stat-box">
+                    <span class="summary-label">EM ANÁLISE</span>
+                    <h3 class="summary-number">5</h3>
+                </div>
+                <div class="summary-vertical-divider"></div>
+                <div class="summary-stat-box">
+                    <span class="summary-label">ATENDIDAS</span>
+                    <h3 class="summary-number">28</h3>
+                </div>
+                <div class="summary-vertical-divider"></div>
+                <div class="summary-stat-box">
+                    <span class="summary-label">FINALIZADAS</span>
+                    <h3 class="summary-number">142</h3>
+                </div>
+            </div>
+            <div class="summary-efficiency-pill">
+                <img src="../static/images/seta-subindo.svg" th:src="@{/images/seta-subindo.svg}" class="trend-icon" alt="Trend">
+                <span>+12% de eficiência este mês</span>
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer class="footer-sistema">
+    <div class="footer-left">
+        <span class="footer-brand">ZeloUrbano</span>
+        <div class="vertical-divider"></div>
+        <span class="footer-copyright">© 2026 ZeloUrbano - Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-right">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <div class="footer-social-margin">
+            <div class="social-overlay">
+                <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" class="social-icon" alt="Global">
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
