@@ -29,7 +29,10 @@ public class AutenticacaoService implements UserDetailsService {
         if (usuario.getPrestador() != null) {
             role = "PRESTADOR";
         }
-
+        if (usuario.getPerfilAcesso() != null &&
+                usuario.getPerfilAcesso().getId() == 1) {
+            role = "ADMIN";
+        }
         return User.builder()
                 .username(usuario.getLogin())
                 .password(usuario.getSenha())

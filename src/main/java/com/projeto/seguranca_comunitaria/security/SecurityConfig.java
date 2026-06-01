@@ -12,12 +12,21 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private final CustomSuccessHandler customSuccessHandler;
+
+    public SecurityConfig(CustomSuccessHandler customSuccessHandler) {
+        this.customSuccessHandler = customSuccessHandler;
+    }
+
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/",
+                                "/selecao-perfil",
                                 "/login",
                                 "/login-admin",
                                 "/login/entrar",
@@ -26,6 +35,11 @@ public class SecurityConfig {
                                 "/cadastro/salvar",
                                 "/comunidades/novo",
                                 "/prestadores/novo",
+                                "/dashboard-admin",
+                                "/gestao-ocorrencias",
+                                "/gestao-cameras",
+                                "/configuracoes",
+                                "/gestao-usuario",
                                 "/css/**",
                                 "/js/**",
                                 "/images/**"
@@ -35,7 +49,7 @@ public class SecurityConfig {
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login/entrar")
-                        .defaultSuccessUrl("/ocorrencias/geral", true)
+                        .successHandler(customSuccessHandler)
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )
