@@ -39,9 +39,11 @@
         <button class="nav-btn">
             <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
         </button>
-        <button class="nav-btn">
-            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
-        </button>
+        <a th:href="@{/gestao-usuario}" class="nav-btn-icon-link">
+            <button class="nav-btn-icon" type="button">
+                <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+            </button>
+        </a>
         <div class="user-avatar-border">
             <div class="user-avatar">
                 <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário">
@@ -57,11 +59,11 @@
 
             <div class="sidebar-group">
                 <span class="sidebar-title">Navegação</span>
-                <a href="#" class="sidebar-link active-link">
+                <a href="#" th:href="@{/ocorrencias/geral}" class="sidebar-link active-link">
                     <img src="../static/images/geral.svg" th:src="@{/images/geral.svg}" class="sidebar-icon" alt="Geral">
                     <span>Geral</span>
                 </a>
-                <a href="#" class="sidebar-link">
+                <a href="#" th:href="@{/ocorrencias/minhas}" class="sidebar-link">
                     <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" class="sidebar-icon" alt="Ocorrências">
                     <span>Minhas Ocorrências</span>
                 </a>
@@ -239,7 +241,7 @@
                     <div class="form-row">
                         <div class="form-group-box">
                             <label>Cidade</label>
-                            <input type="text" th:field="*{municipio}" placeholder="Ex: Maceió">
+                            <input type="text" th:field="*{cidade}" placeholder="Ex: Maceió">
                         </div>
                         <div class="form-group-box">
                             <label>Estado</label>
@@ -260,7 +262,7 @@
                     <h3>Segurança</h3>
                 </div>
 
-                <form th:action="@{/conta/senha/atualizar}" method="POST" class="inner-form">
+                <form th:action="@{/gestao-usuario/alterar-senha}" method="POST" class="inner-form">
                     <div class="security-grid-layout">
                         <div class="security-info-text">
                             <h4>Alterar Senha</h4>
@@ -269,16 +271,16 @@
                         <div class="security-fields">
                             <div class="form-group-box">
                                 <label>Senha Atual</label>
-                                <input type="password" value="••••••••" th:name="senhaAtual">
+                                <input type="password" name="senhaAtual" required>
                             </div>
                             <div class="form-group-box">
                                 <label>Nova Senha</label>
-                                <input type="password" placeholder="Nova senha" th:name="novaSenha">
+                                <input type="password" placeholder="Nova senha" name="novaSenha" required>
                             </div>
                             <div class="form-group-box">
                                 <label>Confirmar Nova Senha</label>
-                                <input type="password" placeholder="Repita a nova senha" th:name="confirmarSenha">
-                                choice</div>
+                                <input type="password" placeholder="Repita a nova senha" name="confirmarSenha" required>
+                            </div>
                         </div>
                     </div>
 
@@ -297,35 +299,28 @@
                     <img src="../static/images/casa.svg" th:src="@{/images/casa.svg}" class="card-title-icon" alt="Unidades">
                     <h3>Minhas Unidades</h3>
                 </div>
-
                 <div class="units-list-container">
-                    <div class="unit-item item-shaded">
-                        <div class="unit-info-left">
-                            <img src="../static/images/predios.svg" th:src="@{/images/predios.svg}" class="unit-icon" alt="Prédio">
-                            <div class="unit-text-wrapper">
-                                <span class="unit-title-text">Residencial Harmonia - Bloco A, Apto 101</span>
-                                <div class="unit-tag">
-                                    <span class="unit-tag-text">Principal</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-trash-action">
-                            <img src="../static/images/lixeira.svg" th:src="@{/images/lixeira.svg}" alt="Deletar">
-                        </button>
+
+                    <div th:if="${#lists.isEmpty(morador.moradorUnidades)}" style="padding: 30px; text-align: center; color: #64748B;">
+                        Nenhuma unidade imobiliária vinculada ao seu perfil.
                     </div>
 
-                    <div class="unit-item">
+                    <div th:each="vinculo : ${morador.moradorUnidades}" class="unit-item">
                         <div class="unit-info-left">
-                            <img src="../static/images/casa.svg" th:src="@{/images/casa.svg}" class="unit-icon" alt="Casa">
+                            <img th:src="@{/images/casa.svg}" class="unit-icon" alt="Unidade">
                             <div class="unit-text-wrapper">
-                                <span class="unit-title-text">Condomínio Solar - Casa 15</span>
+                <span class="unit-title-text"
+                      th:text="${vinculo?.unidade?.idComunidade?.nome != null} ? ${vinculo.unidade.idComunidade.nome} + ' - Lote de ' + ${vinculo.unidade.areaLote} + ' m²' : 'Lote Residencial'">
+                        Comunidade - Lote 00m²
+                </span>
                             </div>
                         </div>
                         <button type="button" class="btn-trash-action">
-                            <img src="../static/images/lixeira.svg" th:src="@{/images/lixeira.svg}" alt="Deletar">
+                            <img th:src="@{/images/lixeira.svg}" alt="Deletar">
                         </button>
                     </div>
                 </div>
+
 
                 <div class="units-footer-action">
                     <button type="button" class="btn-add-unit-orange">
@@ -334,7 +329,6 @@
                     </button>
                 </div>
             </section>
-
         </div>
     </main>
 </div>

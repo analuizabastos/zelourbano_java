@@ -61,6 +61,17 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    @Transactional
+    public Usuario atualizar(Morador morador, Usuario usuario) {
+        // Alinha o login do usuário caso ele tenha alterado o e-mail na tela
+        usuario.setLogin(morador.getEmail());
+
+        // Salva o morador e o usuário modificados direto no banco, sem passar pelas validações de novo cadastro
+        Morador moradorSalvo = moradorRepository.save(morador);
+        usuario.setMorador(moradorSalvo);
+        return usuarioRepository.save(usuario);
+    }
+
     public void desativar(Integer idUsuario) {
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));

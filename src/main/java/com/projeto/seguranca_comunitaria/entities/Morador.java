@@ -63,6 +63,10 @@ public class Morador {
     @JoinColumn(name = "status")
     private StatusSistema status;
 
+    @OneToMany(mappedBy = "morador", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private java.util.List<MoradorUnidade> moradorUnidades = new java.util.ArrayList<>();
+
+
     public Morador() {
     }
 
@@ -169,7 +173,7 @@ public class Morador {
         return cidade;
     }
 
-    public void setCidade(String municipio) {
+    public void setCidade(String cidade) {
         this.cidade = cidade;
     }
 
@@ -220,6 +224,11 @@ public class Morador {
     public void setStatus(StatusSistema status) {
         status = status;
     }
+
+
+    public java.util.List<MoradorUnidade> getMoradorUnidades() { return moradorUnidades;}
+
+    public void setMoradorUnidades(java.util.List<MoradorUnidade> moradorUnidades) {this.moradorUnidades = moradorUnidades;}
 
     @Override
     public boolean equals(Object o) {
