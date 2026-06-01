@@ -138,131 +138,53 @@
         </div>
 
         <div class="occurrence-cards-grid">
-            <div class="occurrence-card">
-                <div class="card-meta-row">
-                    <div class="meta-left-badges">
-                        <span class="badge-protocol amber-badge">#INFRA-9021</span>
-                        <span class="badge-category">Iluminação</span>
-                    </div>
-                    <div class="status-indicator-box">
-                        <span class="status-dot-active dot-amber"></span>
-                        <span class="status-indicator-text text-amber">Em Análise</span>
-                    </div>
-                </div>
-                <h3 class="card-occurrence-title">Poste de luz intermitente na Praça Central</h3>
-                <p class="card-occurrence-description">O poste localizado na esquina da Rua das Flores com a Av. Principal está piscando há três noites, dificultando a...</p>
-                <div class="card-media-preview-box">
-                    <img src="../static/images/paisagem-ocorrencia-1.svg" class="media-preview-img" alt="Poste">
-                </div>
-                <div class="card-interaction-footer">
-                    <div class="footer-meta-info-group">
-                        <span class="meta-info-item date-item">Hoje, 10:45</span>
-                        <span class="meta-info-item location-item">Av. Principal</span>
-                    </div>
-                    <div class="footer-action-buttons-group">
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/like.svg" alt="Curtir">
-                            <span>12</span>
-                        </button>
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/comentario.svg" alt="Comentar">
-                            <span>3</span>
-                        </button>
-                    </div>
-                </div>
+            <div th:if="${#lists.isEmpty(ocorrencias)}" class="occurrence-card" style="grid-column: span 2; text-align: center;">
+                <p style="padding: 40px; color: #64748B; font-size: 16px;">Nenhuma ocorrência registrada ainda.</p>
             </div>
-
-            <div class="occurrence-card">
+            <div th:each="o : ${ocorrencias}" class="occurrence-card" th:classappend="${o.status.nome == 'FINALIZADO' or o.status.nome == 'CONCLUIDO'} ? 'custom-border-success' : ''">
                 <div class="card-meta-row">
                     <div class="meta-left-badges">
-                        <span class="badge-protocol amber-badge">#SEG-1142</span>
-                        <span class="badge-category">Segurança</span>
+                        <span class="badge-protocol" th:classappend="${o.status.nome == 'FINALIZADO' or o.status.nome == 'CONCLUIDO'} ? 'green-badge' : 'amber-badge'" th:text="${o.protocolo}">#INFRA-9021</span>
+                        <span class="badge-category" th:text="${o.tipoOcorrencia.tipos}">Iluminação</span>
                     </div>
                     <div class="status-indicator-box">
-                        <span class="status-dot-gray"></span>
-                        <span class="status-indicator-text text-gray">Aguardando</span>
+                        <img th:if="${o.status.nome == 'FINALIZADO' or o.status.nome == 'CONCLUIDO'}" src="../static/images/check.svg" th:src="@{/images/check.svg}" alt="Check">
+                        <span th:if="${o.status.nome == 'ABERTO' or o.status.nome == 'EM ANÁLISE' or o.status.nome == 'EM EXECUÇÃO'}" class="status-dot-active dot-amber"></span>
+                        <span th:if="${o.status.nome == 'AGUARDANDO'}" class="status-dot-gray"></span>
+                        <span class="status-indicator-text"
+                              th:classappend="${o.status.nome == 'ABERTO' or o.status.nome == 'EM ANÁLISE' or o.status.nome == 'EM EXECUÇÃO'} ? 'text-amber' : (${o.status.nome == 'FINALIZADO' or o.status.nome == 'CONCLUIDO'} ? 'text-success' : 'text-gray')"
+                              th:text="${o.status.nome == 'FINALIZADO' or o.status.nome == 'CONCLUIDO' ? 'Concluído' : o.status.nome}">Em Análise</span>
                     </div>
                 </div>
-                <h3 class="card-occurrence-title">Poda de árvore necessária</h3>
-                <p class="card-occurrence-description">Galhos de uma árvore de grande porte estão encostando na fiação elétrica e bloqueando a câmera de...</p>
-                <div class="card-media-preview-box">
-                    <img src="../static/images/paisagem-ocorrencia-2.svg" class="media-preview-img" alt="Árvore">
-                </div>
-                <div class="card-interaction-footer">
-                    <div class="footer-meta-info-group">
-                        <span class="meta-info-item date-item">Ontem, 16:20</span>
-                        <span class="meta-info-item location-item">Lote 3</span>
-                    </div>
-                    <div class="footer-action-buttons-group">
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/like.svg" alt="Curtir">
-                            <span>45</span>
-                        </button>
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/comentario.svg" alt="Comentar">
-                            <span>8</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="occurrence-card custom-border-success">
-                <div class="card-meta-row">
-                    <div class="meta-left-badges">
-                        <span class="badge-protocol green-badge">#INFRA-8832</span>
-                        <span class="badge-category">Pavimentação</span>
-                    </div>
-                    <div class="status-indicator-box">
-                        <img src="../static/images/check.svg" alt="Check">
-                        <span class="status-indicator-text text-success">Concluído</span>
-                    </div>
+                <div class="title-with-anonymous-tag">
+                    <h3 class="card-occurrence-title" th:text="${o.titulo}">Poste de luz intermitente na Praça Central</h3>
+                    <span th:if="${o.denunciaAnonima}" class="badge-anonymous-status">Anônimo</span>
                 </div>
-                <h3 class="card-occurrence-title">Buraco na ciclovia da Marginal</h3>
-                <p class="card-occurrence-description">Equipe de zeladoria finalizou o recapeamento do trecho afetado. A ciclovia já está liberada para uso sem riscos aos ciclistas.</p>
-                <div class="card-interaction-footer">
-                    <div class="footer-meta-info-group">
-                        <span class="meta-info-item date-item">02 Out, 09:15</span>
-                        <span class="meta-info-item location-item">Pinheiros</span>
-                    </div>
-                    <div class="footer-action-buttons-group">
-                        <button class="btn-card-interaction btn-success-text-bold">
-                            <img src="../static/images/selo-confirmado.svg" alt="Resolução">
-                            <span>Solucionado</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="occurrence-card">
-                <div class="card-meta-row">
-                    <div class="meta-left-badges">
-                        <span class="badge-protocol amber-badge">#CONV-4412</span>
-                        <span class="badge-category">Convivência</span>
-                    </div>
-                    <div class="status-indicator-box">
-                        <span class="status-dot-active dot-amber"></span>
-                        <span class="status-indicator-text text-amber">Em Análise</span>
-                    </div>
-                </div>
-                <h3 class="card-occurrence-title">Descarte irregular de entulho</h3>
-                <p class="card-occurrence-description">Acúmulo de móveis velhos e restos de construção no terreno baldio entre os prédios Alpha e Beta.</p>
-                <div class="card-media-preview-box">
-                    <img src="../static/images/paisagem-ocorrencia-3.svg" class="media-preview-img" alt="Entulho">
-                </div>
+                <p class="card-occurrence-description" th:text="${o.descricao}">Descrição da ocorrência...</p>
+
                 <div class="card-interaction-footer">
                     <div class="footer-meta-info-group">
-                        <span class="meta-info-item date-item">01 Out, 14:00</span>
-                        <span class="meta-info-item location-item">Centro Histórico</span>
+                        <span class="meta-info-item date-item" th:text="${#temporals.format(o.dataDoRegistro, 'dd/MM/yyyy HH:mm')}">Hoje, 10:45</span>
                     </div>
                     <div class="footer-action-buttons-group">
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/like.svg" alt="Curtir">
-                            <span>28</span>
-                        </button>
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/comentario.svg" alt="Comentar">
-                            <span>5</span>
-                        </button>
+                        <th:block th:if="${o.status.nome != 'FINALIZADO' and o.status.nome != 'CONCLUIDO'}">
+                            <button class="btn-card-interaction">
+                                <img src="../static/images/like.svg" th:src="@{/images/like.svg}" alt="Curtir">
+                                <span>0</span>
+                            </button>
+                            <button class="btn-card-interaction">
+                                <img src="../static/images/comentario.svg" th:src="@{/images/comentario.svg}" alt="Comentar">
+                                <span>0</span>
+                            </button>
+                        </th:block>
+                        <th:block th:if="${o.status.nome == 'FINALIZADO' or o.status.nome == 'CONCLUIDO'}">
+                            <a href="#" class="btn-success-text-bold">
+                                <img src="../static/images/selo-confirmado.svg" th:src="@{/images/selo-confirmado.svg}" alt="Solucionado">
+                                <span>Solucionado</span>
+                            </a>
+                        </th:block>
                     </div>
                 </div>
             </div>

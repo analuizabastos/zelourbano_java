@@ -92,20 +92,20 @@
                 <section class="form-section-block">
                     <h2 class="section-heading-title">1. Classificação</h2>
                     <div class="classification-button-group">
-                        <input type="radio" id="infra" name="categoria" value="INFRAESTRUTURA" th:field="*{categoria}" class="radio-hidden" checked>
+                        <input type="radio" id="infra" name="tipoOcorrenciaId" value="1" class="radio-hidden" checked>
                         <label for="infra" class="btn-selectable">
                             <img src="../static/images/ferramenta-preta.svg" th:src="@{/images/ferramenta-preta.svg}" alt="Icon">
                             <span>Infraestrutura</span>
                         </label>
 
-                        <input type="radio" id="seguranca" name="categoria" value="SEGURANCA" th:field="*{categoria}" class="radio-hidden">
+                        <input type="radio" id="seguranca" name="tipoOcorrenciaId" value="2" class="radio-hidden">
                         <label for="seguranca" class="btn-selectable">
                             <img src="../static/images/escudo-quadriculado.svg" th:src="@{/images/escudo-quadriculado.svg}" alt="Icon">
                             <span>Segurança</span>
                         </label>
                     </div>
                     <div class="classification-button-group second-row-group">
-                        <input type="radio" id="convivencia" name="categoria" value="CONVIVENCIA" th:field="*{categoria}" class="radio-hidden">
+                        <input type="radio" id="convivencia" name="tipoOcorrenciaId" value="3" class="radio-hidden">
                         <label for="convivencia" class="btn-selectable">
                             <img src="../static/images/varios-perfis.svg" th:src="@{/images/varios-perfis.svg}" alt="Icon">
                             <span>Convivência</span>
@@ -113,13 +113,30 @@
                         <div class="empty-flex-spacer"></div>
                     </div>
                 </section>
-
+                <section class="form-section-block">
+                    <label for="titulo" class="field-label-text">Título *</label>
+                    <input type="text" id="titulo" th:field="*{titulo}" class="form-input" maxlength="50" placeholder="Resumo breve do problema...">
+                </section>
                 <section class="form-section-block">
                     <label for="descricao" class="field-label-text">Descrição detalhada</label>
                     <textarea id="descricao" th:field="*{descricao}" class="form-textarea" placeholder="Descreva o problema com o máximo de detalhes possível para agilizar o atendimento..."></textarea>
                     <span class="error-msg" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
                 </section>
+                <section class="form-section-block">
+                    <label class="field-label-text">Encaminhar para</label>
+                    <div class="classification-button-group">
+                        <input type="radio" id="encMorador" name="encaminharPara" value="morador" class="radio-hidden">
+                        <label for="encMorador" class="btn-selectable"><span>Morador / Responsável</span></label>
 
+                        <input type="radio" id="encPrestador" name="encaminharPara" value="prestador" class="radio-hidden">
+                        <label for="encPrestador" class="btn-selectable"><span>Prestador de Serviço</span></label>
+                    </div>
+
+                    <select id="prestadorId" name="prestadorId" class="form-select hidden-dropdown">
+                        <option value="" disabled selected>Selecione um prestador</option>
+                        <option th:each="p : ${prestadores}" th:value="${p.id}" th:text="${p.nome}"></option>
+                    </select>
+                </section>
                 <section class="form-section-block">
                     <h2 class="section-heading-title">2. Evidências</h2>
                     <div class="upload-dashed-zone">
@@ -138,7 +155,7 @@
                     <div class="location-header-border">
                         <span class="location-title-text">Localização</span>
                         <div class="checkbox-wrapper">
-                            <input type="checkbox" id="usarEnd" th:field="*{usarLocalizacaoAtual}">
+                            <input type="checkbox" id="usarEnd" name="usarLocalizacao">
                             <label for="usarEnd" class="checkbox-label-text">Usar meu endereço</label>
                         </div>
                     </div>
@@ -148,7 +165,7 @@
                         </div>
                         <div class="map-address-overlay-blur">
                             <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" alt="Buscar">
-                            <input type="text" id="endereco" th:field="*{endereco}" class="map-address-input" placeholder="Buscar endereço ou CEP...">
+                            <input type="text" id="endereco" name="endereco" class="map-address-input">
                         </div>
                     </div>
                 </section>
@@ -160,7 +177,7 @@
                             <span class="anonimato-title">Enviar como denúncia anônima</span>
                         </div>
                         <label class="switch-toggle-widget">
-                            <input type="checkbox" id="anonimo" th:field="*{anonimo}">
+                            <input type="checkbox" id="anonimo" th:field="*{denunciaAnonima}">
                             <span class="switch-slider-track"></span>
                         </label>
                     </div>
@@ -194,5 +211,27 @@
     </div>
 </footer>
 
+<script th:inline="javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const btnMorador = document.getElementById('encMorador');
+        const btnPrestador = document.getElementById('encPrestador');
+        const dropdownPrestador = document.getElementById('prestadorId');
+
+        if (btnMorador && btnPrestador && dropdownPrestador) {
+            btnMorador.addEventListener('change', function() {
+                if (this.checked) {
+                    dropdownPrestador.classList.add('hidden-dropdown');
+                    dropdownPrestador.value = '';
+                }
+            });
+
+            btnPrestador.addEventListener('change', function() {
+                if (this.checked) {
+                    dropdownPrestador.classList.remove('hidden-dropdown');
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

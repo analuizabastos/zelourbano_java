@@ -46,38 +46,77 @@
 
 <div class="painel-layout">
 
-    <aside class="sidebar-lateral">
-        <div class="sidebar-scroll-content">
-            <span class="sidebar-section-title">NAVEGAÇÃO</span>
-            <nav class="sidebar-menu-links">
-                <a href="#" class="sidebar-link">
-                    <img src="../static/images/geral.svg" th:src="@{/images/geral.svg}" class="sidebar-icon" alt="Icon">
-                    <span>Geral</span>
+    <!-- BARRA LATERAL PADRONIZADA IGUAL A HOME -->
+    <aside class="admin-sidebar-aside">
+        <div class="sidebar-section">
+            <span class="sidebar-group-title">Navegação</span>
+            <nav class="sidebar-nav-links">
+                <a href="#" th:href="@{/ocorrencias/geral}" class="sidebar-link-item">
+                    <img src="../static/images/geral.svg" th:src="@{/images/geral.svg}" alt="Geral">
+                    <span class="sidebar-text">Geral</span>
                 </a>
-                <a href="#" class="sidebar-link">
-                    <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" class="sidebar-icon" alt="Icon">
-                    <span>Minhas Ocorrências</span>
-                </a>
-            </nav>
-
-            <span class="sidebar-section-title">DISPOSITIVOS</span>
-            <nav class="sidebar-menu-links">
-                <a href="#" class="sidebar-link active-link">
-                    <img src="../static/images/camera-cinza.svg" th:src="@{/images/camera-cinza.svg}" class="sidebar-icon" alt="Icon">
-                    <span>Câmeras Ativas</span>
+                <a href="#" th:href="@{/ocorrencias/minhas}" class="sidebar-link-item">
+                    <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" alt="Ocorrências">
+                    <span class="sidebar-text">Minhas Ocorrências</span>
                 </a>
             </nav>
+        </div>
 
-            <div class="sidebar-group footer-group">
-                <a href="#" class="sidebar-link">
-                    <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" class="sidebar-icon" alt="Ajuda">
-                    <span>Ajuda</span>
+        <div class="sidebar-section">
+            <span class="sidebar-group-title">Dispositivos</span>
+            <nav class="sidebar-nav-links">
+                <a href="#" th:href="@{/cameras}" class="sidebar-link-item active">
+                    <img src="../static/images/camera.svg" th:src="@{/images/camera.svg}" alt="Câmeras">
+                    <span class="sidebar-text">Câmeras Ativas</span>
                 </a>
-                <a href="#" class="sidebar-link link-logout">
-                    <img src="../static/images/logout.svg" th:src="@{/images/logoutsvg}" class="sidebar-icon" alt="Sair">
-                    <span>Sair</span>
-                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="sidebar-group-title">Filtrar Status</span>
+            <div class="sidebar-filter-inputs">
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterStatus" value="ABERTO" checked>
+                    <span>Aberto</span>
+                </label>
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterStatus" value="ANDAMENTO">
+                    <span>Em Execução</span>
+                </label>
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterStatus" value="FINALIZADO">
+                    <span>Finalizado</span>
+                </label>
             </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="sidebar-group-title">Tipo</span>
+            <div class="sidebar-filter-inputs">
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterCategory" value="INFRAESTRUTURA">
+                    <span>Infraestrutura</span>
+                </label>
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterCategory" value="SEGURANCA">
+                    <span>Segurança</span>
+                </label>
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterCategory" value="CONVIVENCIA">
+                    <span>Convivência</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom-links">
+            <a href="#" th:href="@{/suporte}" class="sidebar-link-item">
+                <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" alt="Suporte">
+                <span class="sidebar-text">Suporte</span>
+            </a>
+            <a href="#" th:href="@{/logout}" class="sidebar-link-item text-danger">
+                <img src="../static/images/logout.svg" th:src="@{/images/logout.svg}" alt="Sair">
+                <span class="sidebar-text">Sair</span>
+            </a>
         </div>
     </aside>
 
@@ -173,7 +212,7 @@
 
                         <article class="camera-miniature-card">
                             <div class="miniature-thumb-frame">
-                                <img src="../static/images/imagem-camera-3.svg" th:src="@{/images/imagem-camera-3.svg" class="mini-stream-img" alt="Cam">
+                                <img src="../static/images/imagem-camera-3.svg" th:src="@{/images/imagem-camera-3.svg}" class="mini-stream-img" alt="Cam">
                                 <div class="mini-ui-overlay">
                                     <div class="mini-label-bg">
                                         <span>ÁREA SOCIAL</span>
@@ -247,7 +286,7 @@
                         <div class="camera-list-row">
                             <div class="row-meta-left">
                                 <div class="status-dot-green"></div>
-                                <span>Rua das Acácias</span>
+                                <span>Rua das Acacia</span>
                             </div>
                             <span class="eye-status-icon"></span>
                         </div>
@@ -306,7 +345,7 @@
         <a href="#" class="footer-link">Contato</a>
         <div class="footer-social-margin">
             <div class="social-overlay">
-                <img src="../static/images/globo.svg" th:src="@{/images/globo" class="social-icon" alt="Globo">
+                <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" class="social-icon" alt="Globo">
             </div>
         </div>
     </div>
