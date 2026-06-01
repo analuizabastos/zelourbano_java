@@ -5,6 +5,7 @@ import com.projeto.seguranca_comunitaria.repositories.OcorrenciaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +29,7 @@ public class OcorrenciaService {
     @Transactional
     public Ocorrencia registrar(Ocorrencia ocorrencia) {
         ocorrencia.setProtocolo(gerarProtocolo());
+        ocorrencia.setDataDoRegistro(LocalDateTime.now());
         return ocorrenciaRepository.save(ocorrencia);
     }
 
