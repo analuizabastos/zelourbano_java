@@ -77,7 +77,7 @@
 
             <div class="input-group">
                 <label>Categoria de Serviço *</label>
-                <select required th:field="*{categoriaServico}">
+                <select required th:field="*{categoriaDeServico}">
                     <option value="">Selecione uma especialidade</option>
                     <option value="MANUTENCAO">Manutenção Geral</option>
                     <option value="SEGURANCA">Segurança</option>
@@ -88,7 +88,7 @@
             <div class="input-row">
                 <div class="input-group">
                     <label>Telefone de Emergência *</label>
-                    <input type="text" placeholder="(11) 99999-9999" required th:field="*{telefoneEmergencia}">
+                    <input type="text" th:field="*{telefone}">
                 </div>
                 <div class="input-group">
                     <label>Link/App de Suporte</label>

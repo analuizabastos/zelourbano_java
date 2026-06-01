@@ -20,8 +20,8 @@ public class PrestadorController {
         this.statusSistemaService = statusSistemaService;
     }
 
-    @GetMapping("/novo")
-    public String formulario(Model model) {
+    @GetMapping("/cadastro")
+    public String cadastro(Model model) {
         model.addAttribute("prestador", new Prestador());
         model.addAttribute("statuses", statusSistemaService.listarTodos());
         return "cadastro-de-prestador";

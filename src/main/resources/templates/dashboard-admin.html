@@ -62,13 +62,13 @@
             </div>
 
             <nav class="sidebar-menu-links">
-                <a href="#" class="sidebar-link active-link">
+                <a th:href="@{/configuracoes}" class="sidebar-link active-link">
                     <img src="../static/images/pessoa-com-confirmado-preto.svg" th:src="@{/images/pessoa-com-confirmado-preto.svg}" class="sidebar-icon" alt="Dashboard">
                     <div class="sidebar-text-double">
                         <span>Aprovação de Cadastros</span>
                     </div>
                 </a>
-                <a th:href="@{/configuracoes}" class="sidebar-link">
+                <a href="#" class="sidebar-link">
                     <img src="../static/images/varios-perfis.svg" th:src="@{/images/varios-perfis.svg}" class="sidebar-icon" alt="Moradores">
                     <span>Gestão de Perfis</span>
                 </a>
@@ -76,7 +76,7 @@
                     <img src="../static/images/historico-icon.svg" th:src="@{/images/historico-icon.svg}" class="sidebar-icon" alt="Unidades">
                     <span>Histórico</span>
                 </a>
-                <a href="#" class="sidebar-link">
+                <a href="/gestao-ocorrencias" class="sidebar-link">
                     <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" class="sidebar-icon" alt="Ocorrências">
                     <span>Gestão de Ocorrências</span>
                 </a>
@@ -228,13 +228,13 @@
                 </div>
 
                 <div class="adm-quick-actions-list">
-                    <button class="btn-quick-action-row">
+                    <a th:href="@{/prestadores/cadastro}" class="btn-quick-action-row" style="text-decoration: none;">
                         <div class="btn-action-label-left">
                             <img src="../static/images/perfil-com-engrenagem.svg" th:src="@{/images/perfil-com-engrenagem.svg}" class="quick-action-svg" alt="Icon">
-                            <span>Gerenciar Prestadores</span>
+                            <span>Adicionar Prestadores</span>
                         </div>
                         <span class="quick-arrow-right"></span>
-                    </button>
+                    </a>
                     <button class="btn-quick-action-row">
                         <div class="btn-action-label-left">
                             <img src="../static/images/perfil-com-engrenagem.svg" th:src="@{/images/perfil-com-engrenagem.svg}" class="quick-action-svg" alt="Icon">

@@ -19,9 +19,11 @@ public class PrestadorService {
     }
 
     public Prestador salvar(Prestador prestador) {
-        if (prestador.getCpf() != null &&
-                prestadorRepository.findByCpf(prestador.getCpf()).isPresent()) {
-            throw new RuntimeException("CPF já cadastrado");
+        if (prestador.getStatus() == null) {
+            StatusSistema ativo = statusSistemaRepository
+                    .findByNome("Ativo")
+                    .orElseThrow(() -> new RuntimeException("Status nao encontrado"));
+            prestador.setStatus(ativo);
         }
         return prestadorRepository.save(prestador);
     }

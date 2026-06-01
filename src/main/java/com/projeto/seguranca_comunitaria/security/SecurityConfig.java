@@ -42,6 +42,8 @@ public class SecurityConfig {
                                 "/cameras",
                                 "/configuracoes",
                                 "/gestao-usuario",
+                                "/prestadores/cadastro",
+                                "/prestadores/listar",
                                 "/css/**",
                                 "/js/**",
                                 "/images/**"

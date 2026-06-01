@@ -140,7 +140,7 @@
         </div>
 
         <div class="occurrence-cards-grid">
-<div th:if="${#lists.isEmpty(ocorrencias)}" class="occurrence-card" style="grid-column: span 2; text-align: center;">
+            <div th:if="${#lists.isEmpty(ocorrencias)}" class="occurrence-card" style="grid-column: span 2; text-align: center;">
                 <p style="padding: 40px; color: #64748B; font-size: 16px;">Nenhuma ocorrência registrada ainda.</p>
             </div>
             <div th:each="o : ${ocorrencias}" class="occurrence-card" th:classappend="${o.status.nome == 'FINALIZADO' or o.status.nome == 'CONCLUIDO'} ? 'custom-border-success' : ''">
