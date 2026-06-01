@@ -1,10 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Gestão de Ocorrências - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/gestao-de-ocorrencias.css" th:href="@{/css/gestao-de-ocorrencias.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;700&family=Sora:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<header class="top-navbar-header">
+    <div class="navbar-brand-container">
+        <div class="logo-container">
+            <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-shield-img" alt="Logo">
+            <div class="logo-text-wrapper">
+                <div class="logo-main-title">
+                    <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+                </div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+        <nav class="navbar-links-center">
+            <a href="#" th:href="@{/}" class="navbar-link-anchor">Início</a>
+            <a href="#" th:href="@{/mapa}" class="navbar-link-anchor">Mapa</a>
+            <a href="#" th:href="@{/prestadores}" class="navbar-link-anchor">Prestadores</a>
+            <a href="#" th:href="@{/ocorrencias}" class="navbar-link-anchor active">Relatórios</a>
+        </nav>
+    </div>
+
+    <div class="header-right-actions">
+        <div class="navbar-search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Buscar">
+            <input type="text" placeholder="Pesquisar..." class="navbar-search-input">
+        </div>
+        <button class="nav-btn-icon notification-icon">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn-icon settings-icon">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-profile-avatar">
+            <img src="../static/images/avatar-default.png" th:src="@{/images/avatar-default.png}" alt="Avatar">
+        </div>
+    </div>
+</header>
+
+<div class="main-container-layout">
+    <aside class="admin-sidebar-aside">
+        <div class="sidebar-top-group">
+            <div class="sidebar-profile-block">
+                <div class="profile-avatar-bg">
+                    <img src="../static/images/shield-person.svg" th:src="@{/images/shield-person.svg}" alt="Admin">
+                </div>
+                <div class="profile-text-meta">
+                    <span class="profile-name-text">Painel Admin</span>
+                    <span class="profile-role-text">Gestão de Sistema</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav-links">
+                <a href="#" class="sidebar-link-item">
+                    <img src="../static/images/assignment-check.svg" th:src="@{/images/assignment-check.svg}" alt="Cadastros">
+                    <span class="sidebar-text">Aprovação de Cadastros</span>
+                </a>
+                <a href="#" class="sidebar-link-item">
+                    <img src="../static/images/group-manage.svg" th:src="@{/images/group-manage.svg}" alt="Perfis">
+                    <span class="sidebar-text">Gestão de Perfis</span>
+                </a>
+                <a href="#" class="sidebar-link-item">
+                    <img src="../static/images/history-clock.svg" th:src="@{/images/history-clock.svg}" alt="Histórico">
+                    <span class="sidebar-text">Histórico</span>
+                </a>
+                <a href="#" class="sidebar-link-item active">
+                    <img src="../static/images/alert-triangle.svg" th:src="@{/images/alert-triangle.svg}" alt="Ocorrências">
+                    <span class="sidebar-text">Gestão de Ocorrências</span>
+                </a>
+            </nav>
+        </div>
+        <div class="sidebar-bottom-links">
+            <a href="#" class="sidebar-link-item">
+                <img src="../static/images/suporte-icon.svg" th:src="@{/images/suporte-icon.svg}" alt="Suporte">
+                <span class="sidebar-text">Suporte</span>
+            </a>
+            <a href="#" class="sidebar-link-item text-danger">
+                <img src="../static/images/sair-icon.svg" th:src="@{/images/sair-icon.svg}" alt="Sair">
+                <span class="sidebar-text">Sair</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content-canvas">
+        <header class="page-header-section">
+            <div class="header-title-container">
+                <h1 class="header-title-text">Ocorrências</h1>
+                <p class="header-description-text">Gerencie e monitore todos os chamados da comunidade em tempo real. Atribua prestadores e acompanhe a resolução dos problemas urbanos.</p>
+            </div>
+            <div class="header-actions-container">
+                <button class="btn-secondary-action">
+                    <img src="../static/images/download.svg" th:src="@{/images/download.svg}" alt="Exportar">
+                    <span>Exportar CSV</span>
+                </button>
+                <button class="btn-primary-action">
+                    <img src="../static/images/filtros.svg" th:src="@{/images/filtros.svg}" alt="Filtros">
+                    <span>Filtros Avançados</span>
+                </button>
+            </div>
+        </header>
+
+        <section class="filters-bento-area">
+            <div class="filter-buttons-group">
+                <button class="filter-tag-btn active">Todos</button>
+                <button class="filter-tag-btn inactive">Aberto</button>
+                <button class="filter-tag-btn inactive">Em Análise</button>
+                <button class="filter-tag-btn inactive">Em Execução</button>
+                <button class="filter-tag-btn inactive">Finalizado</button>
+                <button class="filter-tag-btn inactive">Cancelado</button>
+            </div>
+            <div class="search-input-bento-container">
+                <img src="../static/images/lupa-cinza.svg" th:src="@{/images/lupa-cinza.svg}" alt="Buscar">
+                <input type="text" placeholder="Protocolo, morador ou título..." class="search-placeholder-text">
+            </div>
+        </section>
+
+        <section class="table-main-container">
+            <table class="data-table-element">
+                <thead>
+                <tr class="table-header-row">
+                    <th class="table-header-cell">Protocolo</th>
+                    <th class="table-header-cell">Tipo</th>
+                    <th class="table-header-cell">Título</th>
+                    <th class="table-header-cell">Morador</th>
+                    <th class="table-header-cell">Data</th>
+                    <th class="table-header-cell">Status</th>
+                    <th class="table-header-cell align-center">Ação</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:remove="all" class="table-data-row">
+                    <td class="table-cell-data"><span class="protocolo-text">#URB-2024-001</span></td>
+                    <td class="table-cell-data">
+                        <div class="tipo-cell-box">
+                            <img src="../static/images/iluminacao.svg" alt="Ícone">
+                            <span class="common-cell-text">Iluminação</span>
+                        </div>
+                    </td>
+                    <td class="table-cell-data max-width-titulo"><span class="titulo-cell-text">Poste quebrado Rua das Flores</span></td>
+                    <td class="table-cell-data"><span class="common-cell-text">Ricardo Almeida</span></td>
+                    <td class="table-cell-data"><span class="common-cell-text">12/05/2024</span></td>
+                    <td class="table-cell-data"><div class="status-badge aberto"><span class="status-text">ABERTO</span></div></td>
+                    <td class="table-cell-data align-center"><a href="#" class="btn-table-action">Atribuir Prestador</a></td>
+                </tr>
+                <tr th:remove="all" class="table-data-row">
+                    <td class="table-cell-data"><span class="protocolo-text">#URB-2024-002</span></td>
+                    <td class="table-cell-data">
+                        <div class="tipo-cell-box">
+                            <img src="../static/images/saneamento.svg" alt="Ícone">
+                            <span class="common-cell-text">Saneamento</span>
+                        </div>
+                    </td>
+                    <td class="table-cell-data max-width-titulo"><span class="titulo-cell-text">Vazamento de água Av. Central</span></td>
+                    <td class="table-cell-data"><span class="common-cell-text">Marina Silva</span></td>
+                    <td class="table-cell-data"><span class="common-cell-text">11/05/2024</span></td>
+                    <td class="table-cell-data"><div class="status-badge analise"><span class="status-text">EM ANÁLISE</span></div></td>
+                    <td class="table-cell-data align-center"><a href="#" class="btn-table-action">Atribuir Prestador</a></td>
+                </tr>
+                <tr th:remove="all" class="table-data-row">
+                    <td class="table-cell-data"><span class="protocolo-text">#URB-2024-003</span></td>
+                    <td class="table-cell-data">
+                        <div class="tipo-cell-box">
+                            <img src="../static/images/poda.svg" alt="Ícone">
+                            <span class="common-cell-text">Poda de Árvore</span>
+                        </div>
+                    </td>
+                    <td class="table-cell-data max-width-titulo"><span class="titulo-cell-text">Galhos atingindo fiação elétrica</span></td>
+                    <td class="table-cell-data"><span class="common-cell-text">Carlos Mendes</span></td>
+                    <td class="table-cell-data"><span class="common-cell-text">10/05/2024</span></td>
+                    <td class="table-cell-data"><div class="status-badge execucao"><span class="status-text">EM EXECUÇÃO</span></div></td>
+                    <td class="table-cell-data align-center"><button class="btn-table-action disabled" disabled>Atribuído</button></td>
+                </tr>
+                <tr th:remove="all" class="table-data-row">
+                    <td class="table-cell-data"><span class="protocolo-text">#URB-2024-004</span></td>
+                    <td class="table-cell-data">
+                        <div class="tipo-cell-box">
+                            <img src="../static/images/pavimentacao.svg" alt="Ícone">
+                            <span class="common-cell-text">Pavimentação</span>
+                        </div>
+                    </td>
+                    <td class="table-cell-data max-width-titulo"><span class="titulo-cell-text">Buraco em via pública (Rua 5)</span></td>
+                    <td class="table-cell-data"><span class="common-cell-text">Ana Paula J.</span></td>
+                    <td class="table-cell-data"><span class="common-cell-text">09/05/2024</span></td>
+                    <td class="table-cell-data"><div class="status-badge finalizado"><span class="status-text">FINALIZADO</span></div></td>
+                    <td class="table-cell-data align-center"><a href="#" class="btn-table-action view-details">Ver Detalhes</a></td>
+                </tr>
+
+                <tr th:each="ocorrencia : ${ocorrencias}" th:key="${ocorrencia.id}" class="table-data-row">
+                    <td class="table-cell-data">
+                        <span class="protocolo-text" th:text="${ocorrencia.protocolo}">#URB-2024-001</span>
+                    </td>
+                    <td class="table-cell-data">
+                        <div class="tipo-cell-box">
+                            <img src="../static/images/tipo-icon.svg" th:src="@{/images/{icon}.svg(icon=${#strings.toLowerCase(ocorrencia.categoria)})}" alt="Tipo">
+                            <span class="common-cell-text" th:text="${ocorrencia.categoria}">Iluminação</span>
+                        </div>
+                    </td>
+                    <td class="table-cell-data max-width-titulo">
+                        <span class="titulo-cell-text" th:text="${ocorrencia.titulo}">Poste quebrado Rua das Flores</span>
+                    </td>
+                    <td class="table-cell-data">
+                        <span class="common-cell-text" th:text="${ocorrencia.moradorNome}">Ricardo Almeida</span>
+                    </td>
+                    <td class="table-cell-data">
+                        <span class="common-cell-text" th:text="${ocorrencia.dataAbertura}">12/05/2024</span>
+                    </td>
+                    <td class="table-cell-data">
+                        <div class="status-badge aberto" th:class="'status-badge ' + ${#strings.toLowerCase(#strings.replace(ocorrencia.status,' ','_'))}">
+                            <span class="status-text" th:text="${ocorrencia.status}">ABERTO</span>
+                        </div>
+                    </td>
+                    <td class="table-cell-data align-center">
+                        <a href="#" th:href="@{/ocorrencias/atribuir/{id}(id=${ocorrencia.id})}" th:if="${ocorrencia.status != 'FINALIZADO' and ocorrencia.status != 'EM EXECUÇÃO'}" class="btn-table-action">Atribuir Prestador</a>
+                        <button th:if="${ocorrencia.status == 'EM EXECUÇÃO'}" class="btn-table-action disabled" disabled>Atribuído</button>
+                        <a href="#" th:href="@{/ocorrencias/detalhes/{id}(id=${ocorrencia.id})}" th:if="${ocorrencia.status == 'FINALIZADO'}" class="btn-table-action view-details">Ver Detalhes</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination-table-footer">
+                <span class="pagination-info-text">Mostrando 1-4 de 128 ocorrências</span>
+                <div class="pagination-controls">
+                    <button class="page-arrow-btn">&lt;</button>
+                    <button class="page-number-btn active">1</button>
+                    <button class="page-number-btn">2</button>
+                    <button class="page-number-btn">3</button>
+                    <span class="pagination-ellipsis">...</span>
+                    <button class="page-number-btn">12</button>
+                    <button class="page-arrow-btn">&gt;</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="bottom-metrics-dashboard-grid">
+            <div class="metric-card bg-navy">
+                <span class="metric-card-label">TEMPO MÉDIO DE RESPOSTA</span>
+                <span class="metric-card-value">4.2 horas</span>
+                <span class="metric-card-subtext color-orange">15% mais rápido que mês anterior</span>
+                <img src="../static/images/clock-bg.svg" th:src="@{/images/clock-bg.svg}" class="metric-watermark-icon" alt="Relógio">
+            </div>
+            <div class="metric-card bg-white border-gray">
+                <span class="metric-card-label dark-label">SATISFAÇÃO DO MORADOR</span>
+                <span class="metric-card-value dark-value">94%</span>
+                <div class="stars-row">
+                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
+                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
+                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
+                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
+                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
+                </div>
+                <img src="../static/images/smile-bg.svg" th:src="@{/images/smile-bg.svg}" class="metric-watermark-icon" alt="Sorriso">
+            </div>
+            <div class="metric-card bg-white border-gray">
+                <span class="metric-card-label dark-label">ZELO SCORE GLOBAL</span>
+                <span class="metric-card-value dark-value">8.7 / 10</span>
+                <div class="metric-progress-container">
+                    <div class="metric-progress-bar-fill"></div>
+                </div>
+                <img src="../static/images/score-bg.svg" th:src="@{/images/score-bg.svg}" class="metric-watermark-icon" alt="Score">
+            </div>
+        </section>
+    </main>
+</div>
+
+<button class="floating-action-fab">+</button>
+
+<footer class="footer-sistema-global">
+    <div class="footer-brand-group">
+        <span class="footer-brand-title">ZeloUrbano</span>
+        <div class="footer-divider-vertical"></div>
+        <span class="footer-copyright-text">ZeloUrbano — Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-links-group">
+        <a href="#" class="footer-anchor-link">Privacidade</a>
+        <a href="#" class="footer-anchor-link">Termos</a>
+        <a href="#" class="footer-anchor-link">Contato</a>
+        <div class="footer-lang-icon-overlay">
+            <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" alt="Idioma">
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

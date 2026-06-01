@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #F5F5F5;
+    color: #44474E;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-navbar-header {
+    width: 100%;
+    height: 90px;
+    background-color: #1B2B4B;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-sistema-img {
+    width: 32px;
+    height: 32px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: baseline;
+}
+
+.logo-zelo {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+    color: #FFFFFF;
+}
+
+.logo-urbano {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+    color: #FD9826;
+}
+
+.logo-sub {
+    font-size: 11px;
+    color: #FFFFFF;
+    opacity: 0.7;
+    margin-top: 4px;
+    line-height: 1;
+}
+
+.main-content-canvas {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 32px;
+}
+
+.center-container {
+    width: 100%;
+    max-width: 1152px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading-title-box {
+    margin-bottom: 48px;
+}
+
+.header-title-text {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #041635;
+    text-align: center;
+}
+
+.cards-dashboard-grid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.profile-card {
+    background: #FFFFFF;
+    border: 1px solid #C5C6CF;
+    border-radius: 8px;
+    flex: 1;
+    max-width: 368px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-icon-bg {
+    width: 80px;
+    height: 80px;
+    background-color: #1B2B4B;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.profile-icon-bg img {
+    width: 50px;
+    height: 50px;
+}
+
+.profile-card-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #041635;
+    margin-bottom: 12px;
+}
+
+.profile-card-description {
+    font-size: 14px;
+    line-height: 22px;
+    color: #44474E;
+    margin-bottom: 32px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-profile-selection {
+    width: 100%;
+    height: 49px;
+    background-color: #FD9826;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.btn-profile-selection span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.btn-arrow-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.registration-fallback-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.registration-fallback-text {
+    font-size: 14px;
+    color: #44474E;
+    opacity: 0.6;
+}
+
+.btn-registration-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 35px;
+    border: 1px solid #041635;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #041635;
+}
+
+.footer-sistema-global {
+    width: 100%;
+    height: 81px;
+    background: #1B2B4B;
+    border-top: 1px solid #C5C6CF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.footer-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-brand-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #FFFFFF;
+}
+
+.footer-divider-vertical {
+    width: 1px;
+    height: 16px;
+    background: #FFFFFF;
+    opacity: 0.3;
+}
+
+.footer-copyright-text {
+    font-size: 11px;
+    color: #FFFFFF;
+}
+
+.footer-links-group {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-anchor-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.footer-lang-icon-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+.footer-lang-icon-overlay img {
+    width: 15px;
+    height: 15px;
+}
