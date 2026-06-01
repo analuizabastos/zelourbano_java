@@ -1,10 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Minhas Ocorrências - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/home-morador-minhas-ocorrencias.css" th:href="@{/css/home-morador-minhas-ocorrencias.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;700&family=Sora:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<header class="top-navbar-header">
+    <div class="navbar-brand-container">
+        <div class="logo-container">
+            <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-shield-img" alt="Logo">
+            <div class="logo-text-wrapper">
+                <div class="logo-main-title">
+                    <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+                </div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+        <nav class="navbar-links-center">
+            <a href="#" th:href="@{/}" class="navbar-link-anchor">Início</a>
+            <a href="#" th:href="@{/mapa}" class="navbar-link-anchor">Mapa</a>
+            <a href="#" th:href="@{/ocorrencias}" class="navbar-link-anchor active">Ocorrências</a>
+        </nav>
+    </div>
+
+    <div class="header-right-actions">
+        <div class="navbar-search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Buscar">
+            <input type="text" placeholder="Pesquisar..." class="navbar-search-input">
+        </div>
+        <button class="nav-btn-icon">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn-icon">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-profile-avatar">
+            <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Avatar">
+        </div>
+    </div>
+</header>
+
+<div class="main-container-layout">
+    <aside class="admin-sidebar-aside">
+        <div class="sidebar-section">
+            <span class="sidebar-group-title">Navegação</span>
+            <nav class="sidebar-nav-links">
+                <a href="#" th:href="@{/dashboard}" class="sidebar-link-item">
+                    <img src="../static/images/geral.svg" th:src="@{/images/geral.svg}" alt="Geral">
+                    <span class="sidebar-text">Geral</span>
+                </a>
+                <a href="#" th:href="@{/ocorrencias/minhas}" class="sidebar-link-item active">
+                    <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" alt="Ocorrências">
+                    <span class="sidebar-text">Minhas Ocorrências</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="sidebar-group-title">Dispositivos</span>
+            <nav class="sidebar-nav-links">
+                <a href="#" th:href="@{/cameras}" class="sidebar-link-item">
+                    <img src="../static/images/camera.svg" th:src="@{/images/camera.svg}" alt="Câmeras">
+                    <span class="sidebar-text">Câmeras Ativas</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="sidebar-group-title">Filtrar Status</span>
+            <div class="sidebar-filter-inputs">
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterStatus" value="ABERTO" checked>
+                    <span>Aberto</span>
+                </label>
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterStatus" value="ANDAMENTO">
+                    <span>Em Execução</span>
+                </label>
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterStatus" value="FINALIZADO">
+                    <span>Finalizado</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="sidebar-group-title">Tipo</span>
+            <div class="sidebar-filter-inputs">
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterCategory" value="INFRAESTRUTURA">
+                    <span>Infraestrutura</span>
+                </label>
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterCategory" value="SEGURANCA">
+                    <span>Segurança</span>
+                </label>
+                <label class="sidebar-checkbox-label">
+                    <input type="checkbox" name="filterCategory" value="CONVIVENCIA">
+                    <span>Convivência</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom-links">
+            <a href="#" th:href="@{/suporte}" class="sidebar-link-item">
+                <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" alt="Suporte">
+                <span class="sidebar-text">Suporte</span>
+            </a>
+            <a href="#" th:href="@{/logout}" class="sidebar-link-item text-danger">
+                <img src="../static/images/logout.svg" th:src="@{/images/logout.svg}" alt="Sair">
+                <span class="sidebar-text">Sair</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content-canvas">
+        <div class="content-search-header">
+            <div class="search-input-container">
+                <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-bar-icon" alt="Buscar">
+                <input type="text" placeholder="Pesquisar por protocolo, bairro ou descrição..." class="search-input-field">
+            </div>
+            <a href="#" th:href="@{/ocorrencias/nova}" class="btn-new-occurrence">
+                <img src="../static/images/sinal-de-mais.svg" th:src="@{/images/sinal-de-mais.svg}" alt="Novo">
+                <span>Nova Ocorrência</span>
+            </a>
+        </div>
+
+        <div class="feed-section-header">
+            <h2 class="feed-section-title">Minhas Ocorrências</h2>
+            <button class="btn-sort-dropdown">
+                <img src="../static/images/recentes.svg" th:src="@{/images/recentes.svg}" alt="Ordenar">
+                <span>Recentes</span>
+            </button>
+        </div>
+
+        <div class="occurrence-cards-grid">
+            <div class="occurrence-card">
+                <div class="card-meta-row">
+                    <div class="meta-left-badges">
+                        <span class="badge-protocol amber-badge">#INFRA-9021</span>
+                        <span class="badge-category">Iluminação</span>
+                    </div>
+                    <div class="status-indicator-box">
+                        <span class="status-dot-active dot-amber"></span>
+                        <span class="status-indicator-text text-amber">Em Análise</span>
+                    </div>
+                </div>
+                <h3 class="card-occurrence-title">Poste de luz intermitente na Praça Central</h3>
+                <p class="card-occurrence-description">O poste localizado na esquina da Rua das Flores com a Av. Principal está piscando há três noites, dificultando a...</p>
+                <div class="card-media-preview-box">
+                    <img src="../static/images/paisagem-ocorrencia-1.svg" class="media-preview-img" alt="Poste">
+                </div>
+                <div class="card-interaction-footer">
+                    <div class="footer-meta-info-group">
+                        <span class="meta-info-item date-item">Hoje, 10:45</span>
+                        <span class="meta-info-item location-item">Av. Principal</span>
+                    </div>
+                    <div class="footer-action-buttons-group">
+                        <button class="btn-card-interaction">
+                            <img src="../static/images/like.svg" alt="Curtir">
+                            <span>12</span>
+                        </button>
+                        <button class="btn-card-interaction">
+                            <img src="../static/images/comentario.svg" alt="Comentar">
+                            <span>3</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="occurrence-card">
+                <div class="card-meta-row">
+                    <div class="meta-left-badges">
+                        <span class="badge-protocol amber-badge">#SEG-1142</span>
+                        <span class="badge-category">Segurança</span>
+                    </div>
+                    <div class="status-indicator-box">
+                        <span class="status-dot-gray"></span>
+                        <span class="status-indicator-text text-gray">Aguardando</span>
+                    </div>
+                </div>
+                <h3 class="card-occurrence-title">Poda de árvore necessária</h3>
+                <p class="card-occurrence-description">Galhos de uma árvore de grande porte estão encostando na fiação elétrica e bloqueando a câmera de...</p>
+                <div class="card-media-preview-box">
+                    <img src="../static/images/paisagem-ocorrencia-2.svg" class="media-preview-img" alt="Árvore">
+                </div>
+                <div class="card-interaction-footer">
+                    <div class="footer-meta-info-group">
+                        <span class="meta-info-item date-item">Ontem, 16:20</span>
+                        <span class="meta-info-item location-item">Lote 3</span>
+                    </div>
+                    <div class="footer-action-buttons-group">
+                        <button class="btn-card-interaction">
+                            <img src="../static/images/like.svg" alt="Curtir">
+                            <span>45</span>
+                        </button>
+                        <button class="btn-card-interaction">
+                            <img src="../static/images/comentario.svg" alt="Comentar">
+                            <span>8</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="occurrence-card custom-border-success">
+                <div class="card-meta-row">
+                    <div class="meta-left-badges">
+                        <span class="badge-protocol green-badge">#INFRA-8832</span>
+                        <span class="badge-category">Pavimentação</span>
+                    </div>
+                    <div class="status-indicator-box">
+                        <img src="../static/images/check.svg" alt="Check">
+                        <span class="status-indicator-text text-success">Concluído</span>
+                    </div>
+                </div>
+                <div class="title-with-anonymous-tag">
+                    <h3 class="card-occurrence-title">Som alto após as 22h</h3>
+                    <span class="badge-anonymous-status">Anônimo</span>
+                </div>
+                <p class="card-occurrence-description">As Festas do Lote 4 estão se alongando até a madrugada, não respeitando a regra do silêncio.</p>
+                <div class="card-interaction-footer">
+                    <div class="footer-meta-info-group">
+                        <span class="meta-info-item date-item">01 Jan, 09:15</span>
+                        <span class="meta-info-item location-item">Lote 4</span>
+                    </div>
+                    <div class="footer-action-buttons-group">
+                        <button class="btn-card-interaction btn-success-text-bold">
+                            <img src="../static/images/selo-confirmado.svg" alt="Resolução">
+                            <span>Solucionado</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer class="footer-sistema-global">
+    <div class="footer-brand-group">
+        <span class="footer-brand-title">ZeloUrbano</span>
+        <div class="footer-divider-vertical"></div>
+        <span class="footer-copyright-text">ZeloUrbano — Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-links-group">
+        <a href="#" class="footer-anchor-link">Privacidade</a>
+        <a href="#" class="footer-anchor-link">Termos</a>
+        <a href="#" class="footer-anchor-link">Contato</a>
+        <div class="footer-lang-icon-overlay">
+            <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" alt="Idioma">
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

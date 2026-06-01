@@ -39,7 +39,7 @@
             <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
         </button>
         <div class="user-profile-avatar">
-            <img src="../static/images/avatar-default.png" th:src="@{/images/avatar-default.png}" alt="Avatar">
+            <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Avatar">
         </div>
     </div>
 </header>
@@ -49,7 +49,7 @@
         <div class="sidebar-top-group">
             <div class="sidebar-profile-block">
                 <div class="profile-avatar-bg">
-                    <img src="../static/images/shield-person.svg" th:src="@{/images/shield-person.svg}" alt="Admin">
+                    <img src="../static/images/escudo-com-avatar-cinza.svg" th:src="@{/images/escudo-com-avatar-cinza.svg}" alt="Admin">
                 </div>
                 <div class="profile-text-meta">
                     <span class="profile-name-text">Painel Admin</span>
@@ -58,30 +58,30 @@
             </div>
             <nav class="sidebar-nav-links">
                 <a href="#" class="sidebar-link-item">
-                    <img src="../static/images/assignment-check.svg" th:src="@{/images/assignment-check.svg}" alt="Cadastros">
+                    <img src="../static/images/pessoa-com-confirmado-preto.svg" th:src="@{/images/pessoa-com-confirmado-preto.svg}" alt="Cadastros">
                     <span class="sidebar-text">Aprovação de Cadastros</span>
                 </a>
                 <a href="#" class="sidebar-link-item">
-                    <img src="../static/images/group-manage.svg" th:src="@{/images/group-manage.svg}" alt="Perfis">
+                    <img src="../static/images/varios-perfis.svg" th:src="@{/images/varios-perfis.svg}" alt="Perfis">
                     <span class="sidebar-text">Gestão de Perfis</span>
                 </a>
                 <a href="#" class="sidebar-link-item">
-                    <img src="../static/images/history-clock.svg" th:src="@{/images/history-clock.svg}" alt="Histórico">
+                    <img src="../static/images/historico-icon.svg" th:src="@{/historico-icon.svg}" alt="Histórico">
                     <span class="sidebar-text">Histórico</span>
                 </a>
                 <a href="#" class="sidebar-link-item active">
-                    <img src="../static/images/alert-triangle.svg" th:src="@{/images/alert-triangle.svg}" alt="Ocorrências">
+                    <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" alt="Ocorrências">
                     <span class="sidebar-text">Gestão de Ocorrências</span>
                 </a>
             </nav>
         </div>
         <div class="sidebar-bottom-links">
             <a href="#" class="sidebar-link-item">
-                <img src="../static/images/suporte-icon.svg" th:src="@{/images/suporte-icon.svg}" alt="Suporte">
+                <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" alt="Suporte">
                 <span class="sidebar-text">Suporte</span>
             </a>
             <a href="#" class="sidebar-link-item text-danger">
-                <img src="../static/images/sair-icon.svg" th:src="@{/images/sair-icon.svg}" alt="Sair">
+                <img src="../static/images/logout.svg" th:src="@{/images/logout.svg}" alt="Sair">
                 <span class="sidebar-text">Sair</span>
             </a>
         </div>
@@ -95,11 +95,11 @@
             </div>
             <div class="header-actions-container">
                 <button class="btn-secondary-action">
-                    <img src="../static/images/download.svg" th:src="@{/images/download.svg}" alt="Exportar">
+                    <img src="../static/images/baixar-icon.svg" th:src="@{/images/baixar-icon.svg}" alt="Exportar">
                     <span>Exportar CSV</span>
                 </button>
                 <button class="btn-primary-action">
-                    <img src="../static/images/filtros.svg" th:src="@{/images/filtros.svg}" alt="Filtros">
+                    <img src="../static/images/filtro.svg" th:src="@{/images/filtro.svg}" alt="Filtros">
                     <span>Filtros Avançados</span>
                 </button>
             </div>
@@ -115,7 +115,7 @@
                 <button class="filter-tag-btn inactive">Cancelado</button>
             </div>
             <div class="search-input-bento-container">
-                <img src="../static/images/lupa-cinza.svg" th:src="@{/images/lupa-cinza.svg}" alt="Buscar">
+                <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" alt="Buscar">
                 <input type="text" placeholder="Protocolo, morador ou título..." class="search-placeholder-text">
             </div>
         </section>
@@ -166,7 +166,7 @@
                     <td class="table-cell-data"><span class="protocolo-text">#URB-2024-003</span></td>
                     <td class="table-cell-data">
                         <div class="tipo-cell-box">
-                            <img src="../static/images/poda.svg" alt="Ícone">
+                            <img src="../static/images/arvore-colorida.svg" alt="Ícone">
                             <span class="common-cell-text">Poda de Árvore</span>
                         </div>
                     </td>
@@ -180,7 +180,7 @@
                     <td class="table-cell-data"><span class="protocolo-text">#URB-2024-004</span></td>
                     <td class="table-cell-data">
                         <div class="tipo-cell-box">
-                            <img src="../static/images/pavimentacao.svg" alt="Ícone">
+                            <img src="../static/images/ferramenta-vermelha.svg" alt="Ícone">
                             <span class="common-cell-text">Pavimentação</span>
                         </div>
                     </td>
@@ -197,7 +197,7 @@
                     </td>
                     <td class="table-cell-data">
                         <div class="tipo-cell-box">
-                            <img src="../static/images/tipo-icon.svg" th:src="@{/images/{icon}.svg(icon=${#strings.toLowerCase(ocorrencia.categoria)})}" alt="Tipo">
+                            <img src="../static/images/iluminacao.svg" th:src="@{/images/{icon}.svg(icon=${#strings.toLowerCase(ocorrencia.categoria)})}" alt="Tipo">
                             <span class="common-cell-text" th:text="${ocorrencia.categoria}">Iluminação</span>
                         </div>
                     </td>
@@ -249,11 +249,11 @@
                 <span class="metric-card-label dark-label">SATISFAÇÃO DO MORADOR</span>
                 <span class="metric-card-value dark-value">94%</span>
                 <div class="stars-row">
-                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
-                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
-                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
-                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
-                    <img src="../static/images/star.svg" th:src="@{/images/star.svg}" alt="Estrela">
+                    <img src="../static/images/estrela.svg" th:src="@{/images/estrela.svg}" alt="Estrela">
+                    <img src="../static/images/estrela.svg" th:src="@{/images/estrela.svg}" alt="Estrela">
+                    <img src="../static/images/estrela.svg" th:src="@{/images/estrela.svg}" alt="Estrela">
+                    <img src="../static/images/estrela.svg" th:src="@{/images/estrela.svg}" alt="Estrela">
+                    <img src="../static/images/estrela-meia.svg" th:src="@{/images/estrela-meia.svg}" alt="Estrela">
                 </div>
                 <img src="../static/images/smile-bg.svg" th:src="@{/images/smile-bg.svg}" class="metric-watermark-icon" alt="Sorriso">
             </div>

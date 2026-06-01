@@ -1,10 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Registrar Ocorrência - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/registro-de-ocorrencias.css" th:href="@{/css/registro-de-ocorrencias.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<header class="top-navbar-header">
+    <div class="navbar-brand-container">
+        <div class="logo-container">
+            <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-shield-img" alt="Logo">
+            <div class="logo-text-wrapper">
+                <div class="logo-main-title">
+                    <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+                </div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+        <nav class="navbar-links-center">
+            <a href="#" th:href="@{/}" class="navbar-link-anchor">Início</a>
+            <a href="#" th:href="@{/mapa}" class="navbar-link-anchor">Mapa</a>
+            <a href="#" th:href="@{/ocorrencias}" class="navbar-link-anchor active">Ocorrências</a>
+        </nav>
+    </div>
+
+    <div class="header-right-actions">
+        <div class="navbar-search-box">
+            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" class="search-icon" alt="Buscar">
+            <input type="text" placeholder="Pesquisar..." class="navbar-search-input">
+        </div>
+        <button class="nav-btn-icon">
+            <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
+        </button>
+        <button class="nav-btn-icon">
+            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+        </button>
+        <div class="user-profile-avatar">
+            <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Avatar">
+        </div>
+    </div>
+</header>
+
+<div class="main-container-layout">
+    <aside class="admin-sidebar-aside">
+        <div class="sidebar-top-group">
+            <span class="sidebar-group-title">Navegação</span>
+            <nav class="sidebar-nav-links">
+                <a href="#" th:href="@{/dashboard}" class="sidebar-link-item active">
+                    <img src="../static/images/geral.svg" th:src="@{/images/geral.svg}" alt="Geral">
+                    <span class="sidebar-text">Geral</span>
+                </a>
+                <a href="#" th:href="@{/ocorrencias/minhas}" class="sidebar-link-item">
+                    <img src="../static/images/triangulo-com-exclamacao.svg" th:src="@{/images/triangulo-com-exclamacao.svg}" alt="Ocorrências">
+                    <span class="sidebar-text">Minhas Ocorrências</span>
+                </a>
+            </nav>
+
+            <span class="sidebar-group-title" style="margin-top: 24px;">Dispositivos</span>
+            <nav class="sidebar-nav-links">
+                <a href="#" th:href="@{/cameras}" class="sidebar-link-item">
+                    <img src="../static/images/camera.svg" th:src="@{/images/camera.svg}" alt="Câmeras">
+                    <span class="sidebar-text">Câmeras Ativas</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom-links">
+            <a href="#" th:href="@{/suporte}" class="sidebar-link-item">
+                <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" alt="Suporte">
+                <span class="sidebar-text">Suporte</span>
+            </a>
+            <a href="#" th:href="@{/logout}" class="sidebar-link-item text-danger">
+                <img src="../static/images/logout.svg" th:src="@{/images/logout.svg}" alt="Sair">
+                <span class="sidebar-text">Sair</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content-canvas">
+        <div class="header-action-row">
+            <a href="#" th:href="@{/ocorrencias}" class="btn-back-arrow">
+                <img src="../static/images/seta-para-direita.svg" th:src="@{/images/seta-para-direita.svg}" alt="Voltar">
+            </a>
+            <h1 class="header-title-text">Registrar Ocorrência</h1>
+        </div>
+
+        <form action="#" th:action="@{/ocorrencias/salvar}" th:object="${ocorrenciaForm}" method="POST" class="form-grid-canvas">
+            <div class="left-form-column">
+                <section class="form-section-block">
+                    <h2 class="section-heading-title">1. Classificação</h2>
+                    <div class="classification-button-group">
+                        <input type="radio" id="infra" name="categoria" value="INFRAESTRUTURA" th:field="*{categoria}" class="radio-hidden" checked>
+                        <label for="infra" class="btn-selectable">
+                            <img src="../static/images/ferramenta-preta.svg" th:src="@{/images/ferramenta-preta.svg}" alt="Icon">
+                            <span>Infraestrutura</span>
+                        </label>
+
+                        <input type="radio" id="seguranca" name="categoria" value="SEGURANCA" th:field="*{categoria}" class="radio-hidden">
+                        <label for="seguranca" class="btn-selectable">
+                            <img src="../static/images/escudo-quadriculado.svg" th:src="@{/images/escudo-quadriculado.svg}" alt="Icon">
+                            <span>Segurança</span>
+                        </label>
+                    </div>
+                    <div class="classification-button-group second-row-group">
+                        <input type="radio" id="convivencia" name="categoria" value="CONVIVENCIA" th:field="*{categoria}" class="radio-hidden">
+                        <label for="convivencia" class="btn-selectable">
+                            <img src="../static/images/varios-perfis.svg" th:src="@{/images/varios-perfis.svg}" alt="Icon">
+                            <span>Convivência</span>
+                        </label>
+                        <div class="empty-flex-spacer"></div>
+                    </div>
+                </section>
+
+                <section class="form-section-block">
+                    <label for="descricao" class="field-label-text">Descrição detalhada</label>
+                    <textarea id="descricao" th:field="*{descricao}" class="form-textarea" placeholder="Descreva o problema com o máximo de detalhes possível para agilizar o atendimento..."></textarea>
+                    <span class="error-msg" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+                </section>
+
+                <section class="form-section-block">
+                    <h2 class="section-heading-title">2. Evidências</h2>
+                    <div class="upload-dashed-zone">
+                        <div class="upload-icon-shadow-box">
+                            <img src="../static/images/enviar-nuvem.svg" th:src="@{/images/enviar-nuvem.svg}" alt="Upload">
+                        </div>
+                        <span class="upload-primary-text">Upload de Foto ou Vídeo</span>
+                        <span class="upload-sub-text">Arraste arquivos ou clique para selecionar</span>
+                        <input type="file" id="evidencias" name="arquivos" class="file-input-hidden" multiple>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-form-column">
+                <section class="location-box-container">
+                    <div class="location-header-border">
+                        <span class="location-title-text">Localização</span>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="usarEnd" th:field="*{usarLocalizacaoAtual}">
+                            <label for="usarEnd" class="checkbox-label-text">Usar meu endereço</label>
+                        </div>
+                    </div>
+                    <div class="mock-map-canvas">
+                        <div class="map-marker-pin">
+                            <img src="../static/images/mapa-de-cima.svg" th:src="@{/images/mapa-de-cima.svg}" alt="Pin">
+                        </div>
+                        <div class="map-address-overlay-blur">
+                            <img src="../static/images/lupa.svg" th:src="@{/images/lupa.svg}" alt="Buscar">
+                            <input type="text" id="endereco" th:field="*{endereco}" class="map-address-input" placeholder="Buscar endereço ou CEP...">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="submission-actions-container">
+                    <div class="anonimato-toggle-row">
+                        <div class="anonimato-left-meta">
+                            <img src="../static/images/olho-com-barra.svg" th:src="@{/images/olho-com-barra.svg}" alt="Anônimo">
+                            <span class="anonimato-title">Enviar como denúncia anônima</span>
+                        </div>
+                        <label class="switch-toggle-widget">
+                            <input type="checkbox" id="anonimo" th:field="*{anonimo}">
+                            <span class="switch-slider-track"></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit-form-action">
+                        <span>Enviar Ocorrência</span>
+                    </button>
+
+                    <div class="submission-notice-box">
+                        <span class="submission-notice-text">Ao enviar, você concorda com nossos termos de uso e privacidade. Sua ocorrência será analisada pela equipe de gestão.</span>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </main>
+</div>
+
+<footer class="footer-sistema-global">
+    <div class="footer-brand-group">
+        <span class="footer-brand-title">ZeloUrbano</span>
+        <div class="footer-divider-vertical"></div>
+        <span class="footer-copyright-text">ZeloUrbano — Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-links-group">
+        <a href="#" class="footer-anchor-link">Privacidade</a>
+        <a href="#" class="footer-anchor-link">Termos</a>
+        <a href="#" class="footer-anchor-link">Contato</a>
+        <div class="footer-lang-icon-overlay">
+            <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" alt="Idioma">
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
