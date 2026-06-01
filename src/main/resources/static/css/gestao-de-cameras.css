@@ -189,76 +189,106 @@ body {
     margin-top: 70px;
     width: 100%;
     align-items: stretch;
+    flex: 1;
 }
 
-.sidebar-lateral {
-    width: 240px;
+/* ==========================================================================
+   NOVA BARRA LATERAL ATUALIZADA (PADRÃO HOME)
+   ========================================================================== */
+.admin-sidebar-aside {
+    width: 280px;
     background-color: #FBF8FC;
     border-right: 1px solid #C5C6CF;
+    padding: 24px 0;
     display: flex;
     flex-direction: column;
+    gap: 24px;
     flex-shrink: 0;
-    padding: 24px 16px;
-    gap: 16px;
 }
 
-.sidebar-scroll-content {
+.sidebar-section {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    height: 100%;
+    padding: 0 16px;
 }
 
-.sidebar-section-title {
-    font-size: 12px;
+.sidebar-group-title {
+    font-size: 11px;
     font-weight: 600;
+    text-transform: uppercase;
     color: #75777F;
-    padding: 8px 8px 4px;
     letter-spacing: 0.6px;
+    margin-bottom: 12px;
+    padding-left: 12px;
 }
 
-.sidebar-menu-links {
+.sidebar-nav-links {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.sidebar-link {
+.sidebar-link-item {
     display: flex;
     align-items: center;
-    gap: 12px;
     padding: 10px 12px;
     color: #44474E;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
+    gap: 12px;
     border-radius: 4px;
 }
 
-.sidebar-link:hover, .sidebar-link.active-link {
-    background-color: #1B2B4B;
-    color: #8393B8;
-}
-
-.sidebar-icon {
+.sidebar-link-item img {
     width: 18px;
     height: 18px;
     object-fit: contain;
 }
 
-.sidebar-group.footer-group {
+.sidebar-link-item:hover, .sidebar-link-item.active {
+    background-color: #1B2B4B;
+    color: #8393B8;
+}
+
+.sidebar-filter-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 12px;
+}
+
+.sidebar-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #44474E;
+    cursor: pointer;
+}
+
+.sidebar-checkbox-label input {
+    accent-color: #8D4F00;
+    width: 16px;
+    height: 16px;
+}
+
+.sidebar-bottom-links {
     margin-top: auto;
-    padding-top: 16px;
     border-top: 1px solid #C5C6CF;
+    padding: 16px 16px 0;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.sidebar-link.link-logout {
+.text-danger {
     color: #BA1A1A !important;
 }
 
+/* ==========================================================================
+   CONTEÚDO CENTRAL E PAINEL DE CÂMERAS
+   ========================================================================== */
 .main-content-split {
     display: grid;
     grid-template-columns: 1fr 320px;
