@@ -155,26 +155,29 @@
                         <h3>Perfil Pessoal</h3>
                     </div>
 
-                    <form th:action="@{/conta/perfil/salvar}" method="POST" class="inner-form">
+                    <form th:action="@{/gestao-usuario/salvar}" th:object="${morador}" method="POST" class="inner-form">
+
+                        <input type="hidden" th:field="*{id}" />
+
                         <div class="form-row">
                             <div class="form-group-box">
                                 <label>Nome Completo</label>
-                                <input type="text" value="Ricardo Oliveira de Almeida" th:name="nome">
+                                <input type="text" th:field="*{nome}" required>
                             </div>
                             <div class="form-group-box">
                                 <label>Email</label>
-                                <input type="email" value="ricardo.almeida@zelourbano.gov.br" th:name="email">
+                                <input type="email" th:field="*{email}" required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group-box">
                                 <label>Telefone de Contato</label>
-                                <input type="text" value="(11) 98765-4321" th:name="telefone">
+                                <input type="text" th:field="*{telefone}" required>
                             </div>
                             <div class="form-group-box disabled-box">
                                 <label>CPF</label>
-                                <input type="text" value="123.456.789-00" readonly th:name="cpf">
+                                <input type="text" th:field="*{cpf}" readonly>
                             </div>
                         </div>
 
@@ -207,37 +210,40 @@
                     <h3>Endereço</h3>
                 </div>
 
-                <form th:action="@{/conta/endereco/salvar}" method="POST" class="inner-form">
+                <form th:action="@{/gestao-usuario/salvar}" th:object="${morador}" method="POST" class="inner-form">
+
+                    <input type="hidden" th:field="*{id}" />
+
                     <div class="form-row split-cep">
                         <div class="form-group-box">
                             <label>CEP <span class="required-star">*</span></label>
-                            <input type="text" placeholder="00000-000" required th:name="cep">
+                            <input type="text" th:field="*{cep}" placeholder="00000-000" required>
                         </div>
                         <div class="form-group-box">
                             <label>Logradouro / Rua <span class="required-star">*</span></label>
-                            <input type="text" placeholder="Nome da rua ou avenida" required th:name="logradouro">
+                            <input type="text" th:field="*{logradouro}" placeholder="Nome da rua ou avenida" required>
                         </div>
                     </div>
 
                     <div class="form-row split-num">
                         <div class="form-group-box">
                             <label>Número <span class="required-star">*</span></label>
-                            <input type="text" placeholder="123" required th:name="numero">
+                            <input type="text" th:field="*{numero}" placeholder="123" required>
                         </div>
                         <div class="form-group-box">
                             <label>Complemento</label>
-                            <input type="text" placeholder="Apt, Bloco, etc." th:name="complemento">
+                            <input type="text" th:field="*{complemento}" placeholder="Apt, Bloco, etc.">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group-box">
                             <label>Cidade</label>
-                            <input type="text" placeholder="Ex: Maceió" th:name="cidade">
+                            <input type="text" th:field="*{municipio}" placeholder="Ex: Maceió">
                         </div>
                         <div class="form-group-box">
                             <label>Estado</label>
-                            <input type="text" placeholder="Ex: Alagoas" th:name="estado">
+                            <input type="text" th:field="*{estado}" placeholder="Ex: Alagoas">
                         </div>
                     </div>
 
