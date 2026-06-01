@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Seleção de Perfil - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/selecao-de-perfil.css" th:href="@{/css/selecao-de-perfil.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<header class="top-navbar-header">
+    <div class="logo-container">
+        <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema-img" alt="Escudo">
+        <div class="logo-text-group">
+            <div class="logo-title">
+                <span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span>
+            </div>
+            <span class="logo-sub">Gestão Comunitária de Confiança</span>
+        </div>
+    </div>
+</header>
+
+<main class="main-content-canvas">
+    <div class="center-container">
+        <div class="heading-title-box">
+            <h1 class="header-title-text">Como deseja acessar?</h1>
+        </div>
+
+        <div class="cards-dashboard-grid">
+            <section class="profile-card">
+                <div class="profile-icon-bg">
+                    <img src="../static/images/residente-icon.svg" th:src="@{/images/residente-icon.svg}" alt="Residente">
+                </div>
+                <h2 class="profile-card-title">Residente</h2>
+                <p class="profile-card-description">Cadastre a sua comunidade ou faça parte de uma, reporte e acompanhe ocorrências.</p>
+                <a href="#" th:href="@{/dashboard/residente}" class="btn-profile-selection">
+                    <span>Selecionar Perfil</span>
+                    <img src="../static/images/seta-branca.svg" th:src="@{/images/seta-branca.svgg}" class="btn-arrow-icon" alt="Seta">
+                </a>
+            </section>
+
+            <section class="profile-card">
+                <div class="profile-icon-bg">
+                    <img src="../static/images/ferramenta.svg" th:src="@{/images/ferramenta.svg}" alt="Prestador">
+                </div>
+                <h2 class="profile-card-title">Prestador de Serviço</h2>
+                <p class="profile-card-description">Gerencie ordens de serviço e atualize o status de manutenções urbanas.</p>
+                <a href="#" th:href="@{/dashboard/prestador}" class="btn-profile-selection">
+                    <span>Selecionar Perfil</span>
+                    <img src="../static/images/seta-branca.svg" th:src="@{/images/seta-branca.svg}" class="btn-arrow-icon" alt="Seta">
+                </a>
+            </section>
+
+            <section class="profile-card">
+                <div class="profile-icon-bg">
+                    <img src="../static/images/escudo-com-avatar.svg" th:src="@{/images/escudo-com-avatar.svg}" alt="Admin">
+                </div>
+                <h2 class="profile-card-title">Administrador</h2>
+                <p class="profile-card-description">Acesse painéis de controle, relatórios e gestão de recursos da comunidade.</p>
+                <a href="#" th:href="@{/ocorrencias}" class="btn-profile-selection">
+                    <span>Selecionar Perfil</span>
+                    <img src="../static/images/seta-branca.svg" th:src="@{/images/seta-branca.svg}" class="btn-arrow-icon" alt="Seta">
+                </a>
+            </section>
+        </div>
+
+        <div class="registration-fallback-box">
+            <p class="registration-fallback-text">Primeira vez por aqui?</p>
+            <a href="#" th:href="@{/cadastro}" class="btn-registration-action">Cadastre-se</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer-sistema-global">
+    <div class="footer-brand-group">
+        <span class="footer-brand-title">ZeloUrbano</span>
+        <div class="footer-divider-vertical"></div>
+        <span class="footer-copyright-text">ZeloUrbano — Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-links-group">
+        <a href="#" class="footer-anchor-link">Privacidade</a>
+        <a href="#" class="footer-anchor-link">Termos</a>
+        <a href="#" class="footer-anchor-link">Contato</a>
+        <div class="footer-lang-icon-overlay">
+            <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" alt="Idioma">
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
