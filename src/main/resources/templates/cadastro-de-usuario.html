@@ -71,9 +71,8 @@
                             <div class="form-group-box">
                                 <label>Perfil de Acesso <span class="required-star">*</span></label>
                                 <div class="select-custom-container">
-                                    <select th:field="*{perfilAcesso}" required>
+                                    <select th:name="perfilAcesso" required>
                                         <option value="MORADOR">Morador</option>
-                                        <option value="SINDICO">Síndico / Administrador</option>
                                     </select>
                                 </div>
                             </div>
@@ -91,7 +90,7 @@
 
                         <div class="form-group-full">
                             <label>Senha <span class="required-star">*</span></label>
-                            <input type="password" placeholder="No mínimo 8 caracteres" required th:field="*{senha}">
+                            <input type="password" placeholder="No mínimo 8 caracteres" required th:name="senha">
                         </div>
 
                         <div class="form-group-full">

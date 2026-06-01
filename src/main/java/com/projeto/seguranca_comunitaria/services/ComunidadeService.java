@@ -23,6 +23,7 @@ public class ComunidadeService {
         return comunidadeRepository.save(comunidade);
     }
 
+
     public Optional<Comunidade> buscarPorId(Integer id) {
         return comunidadeRepository.findById(id);
     }

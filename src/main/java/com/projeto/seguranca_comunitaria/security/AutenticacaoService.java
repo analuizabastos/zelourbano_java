@@ -34,6 +34,10 @@ public class AutenticacaoService implements UserDetailsService {
                 .username(usuario.getLogin())
                 .password(usuario.getSenha())
                 .roles(role)
+                .accountExpired(false)
+                .accountLocked(false)
+                .credentialsExpired(false)
+                .disabled(false)
                 .build();
     }
 }
