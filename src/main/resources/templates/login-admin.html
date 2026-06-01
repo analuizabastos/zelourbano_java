@@ -38,16 +38,17 @@
                 <p>Insira suas credenciais para acessar sua conta administrativa.</p>
             </header>
 
-            <form method="POST" th:action="@{/login-admin/entrar}" class="login-form-element">
+            <form method="POST" th:action="@{/login/entrar}" class="login-form-element">
                 <div class="form-group-block">
                     <label>Comunidade / Localidade <span class="required-asterisk">*</span></label>
                     <div class="input-icon-wrapper">
                         <img src="../static/images/map-marker-icon.svg" th:src="@{/images/map-marker-icon.svg}" class="input-field-icon" alt="Local">
                         <select name="comunidadeId" required class="select-field-custom">
                             <option value="" disabled selected hidden>Selecione sua localidade</option>
-                            <option value="1">Loteamento Harmonia</option>
-                            <option value="2">Condomínio Vila Verde</option>
-                            <option value="3">Residencial Primavera</option>
+                            <option th:each="c : ${comunidades}"
+                                    th:value="${c.id}"
+                                    th:text="${c.nome}">
+                            </option>
                         </select>
                     </div>
                 </div>

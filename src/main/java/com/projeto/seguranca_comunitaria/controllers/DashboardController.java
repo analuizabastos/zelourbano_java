@@ -24,5 +24,10 @@ public class DashboardController {
     @GetMapping("/configuracoes")
     public String configuracoes() {
         return "configuracoes";
+
+    }
+    @GetMapping("/gestao-usuario")
+    public String gestaoUsuario() {
+        return "gestao-de-usuario";
     }
 }
