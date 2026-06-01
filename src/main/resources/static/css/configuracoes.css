@@ -14,7 +14,6 @@ body {
     overflow-y: auto;
 }
 
-/* Header - TopNavBar */
 .navbar-sistema {
     width: 100%;
     height: 70px;
@@ -186,7 +185,6 @@ body {
     object-fit: cover;
 }
 
-/* Divisão de Layout Principal */
 .painel-layout {
     display: flex;
     margin-top: 70px;
@@ -195,7 +193,6 @@ body {
     min-height: calc(100vh - 70px - 81px);
 }
 
-/* Sidebar Lateral Esticando */
 .sidebar-lateral {
     width: 240px;
     background-color: #FFFFFF;
@@ -300,7 +297,6 @@ body {
     color: #BA1A1A !important;
 }
 
-/* Área do Painel Bento */
 .main-content {
     padding: 32px;
     flex-grow: 1;
@@ -364,7 +360,6 @@ body {
     cursor: pointer;
 }
 
-/* Configuração do Grid Bento Assimétrico */
 .bento-layout-grid {
     display: grid;
     grid-template-columns: 1fr 325.33px;
@@ -502,7 +497,6 @@ body {
     cursor: pointer;
 }
 
-/* Coluna Lateral - Painel de Status Escuro */
 .bento-side-column {
     display: flex;
     flex-direction: column;
@@ -612,7 +606,6 @@ body {
     background: #FD9826;
 }
 
-/* Linha de Carregamento */
 .load-more-placeholder-row {
     display: flex;
     justify-content: center;
@@ -639,7 +632,160 @@ body {
     height: 16px;
 }
 
-/* Rodapé (Footer) */
+.active-users-section {
+    background: #FFFFFF;
+    border: 1px solid #C5C6CF;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin-top: 16px;
+}
+
+.table-section-header {
+    margin-bottom: 20px;
+}
+
+.table-section-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #041635;
+}
+
+.table-section-subtitle {
+    font-size: 14px;
+    color: #75777F;
+    margin-top: 4px;
+    display: block;
+}
+
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.data-table-users {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.data-table-users th {
+    background-color: #F5F3F6;
+    color: #041635;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-bottom: 2px solid #C5C6CF;
+}
+
+.data-table-users td {
+    padding: 16px;
+    border-bottom: 1px solid #E4E2E5;
+    color: #44474E;
+    vertical-align: middle;
+}
+
+.data-table-users tbody tr:hover {
+    background-color: #FBF8FC;
+}
+
+.table-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.table-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #EFEDF0;
+    border: 1px solid #C5C6CF;
+}
+
+.table-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.table-user-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-user-meta strong {
+    color: #041635;
+    font-size: 14px;
+}
+
+.table-user-meta span {
+    color: #75777F;
+    font-size: 12px;
+}
+
+.font-mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 13.5px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.status-tag-active {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.generic-badge-success {
+    background-color: #E8F5E9;
+    color: #1B5E20;
+}
+
+.table-row-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-table-action {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+}
+
+.action-edit {
+    background-color: #1B2B4B;
+    color: #FFFFFF !important;
+}
+
+.action-edit:hover {
+    background-color: #041635;
+}
+
+.action-suspend {
+    background-color: transparent;
+    border-color: #BA1A1A;
+    color: #BA1A1A !important;
+}
+
+.action-suspend:hover {
+    background-color: #FFEFEF;
+}
+
 .footer-sistema {
     width: 100%;
     height: 81px;
