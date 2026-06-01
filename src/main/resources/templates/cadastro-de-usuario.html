@@ -34,7 +34,7 @@
             <p>Preencha as informações abaixo para criar sua conta de morador.</p>
         </header>
 
-        <form th:action="@{/cadastro/salvar}" method="POST" enctype="multipart/form-data" class="cadastro-split-container" th:object="${morador}">
+        <form th:action="@{/cadastro/salvar}" method="POST" enctype="multipart/form-data" th:object="${morador}" class="cadastro-split-container">
 
             <div class="main-form-column">
 
@@ -47,17 +47,17 @@
                     <div class="inner-form-fields">
                         <div class="form-group-full">
                             <label>Nome Completo <span class="required-star">*</span></label>
-                            <input type="text" placeholder="Seu nome completo" required th:name="nome">
+                            <input type="text" placeholder="Seu nome completo" required th:field="*{nome}">
                         </div>
 
                         <div class="form-group-row">
                             <div class="form-group-box">
                                 <label>CPF <span class="required-star">*</span></label>
-                                <input type="text" placeholder="000.000.000-00" required th:name="cpf">
+                                <input type="text" placeholder="000.000.000-00" required th:field="*{cpf}">
                             </div>
                             <div class="form-group-box">
                                 <label>RG</label>
-                                <input type="text" placeholder="00.000.000-0" th:name="rg">
+                                <input type="text" placeholder="00.000.000-0" th:field="*{rg}">
                             </div>
                         </div>
 
@@ -65,14 +65,14 @@
                             <div class="form-group-box">
                                 <label>Data de Nascimento</label>
                                 <div class="date-input-container">
-                                    <input type="date" required th:name="dataNascimento">
+                                    <input type="date" required th:field="*{dataNascimento}">
                                 </div>
                             </div>
                             <div class="form-group-box">
                                 <label>Perfil de Acesso <span class="required-star">*</span></label>
                                 <div class="select-custom-container">
-                                    <select th:name="perfilAcesso" required>
-                                        <option value="MORADOR" selected>Morador</option>
+                                    <select th:field="*{perfilAcesso}" required>
+                                        <option value="MORADOR">Morador</option>
                                         <option value="SINDICO">Síndico / Administrador</option>
                                     </select>
                                 </div>
@@ -81,17 +81,17 @@
 
                         <div class="form-group-full">
                             <label>E-mail <span class="required-star">*</span></label>
-                            <input type="email" placeholder="exemplo@email.com" required th:name="email">
+                            <input type="email" placeholder="exemplo@email.com" required th:field="*{email}">
                         </div>
 
                         <div class="form-group-full">
                             <label>Telefone <span class="required-star">*</span></label>
-                            <input type="text" placeholder="(00) 00000-0000" required th:name="telefone">
+                            <input type="text" placeholder="(00) 00000-0000" required th:field="*{telefone}">
                         </div>
 
                         <div class="form-group-full">
                             <label>Senha <span class="required-star">*</span></label>
-                            <input type="password" placeholder="No mínimo 8 caracteres" required th:name="senha">
+                            <input type="password" placeholder="No mínimo 8 caracteres" required th:field="*{senha}">
                         </div>
 
                         <div class="form-group-full">
@@ -111,33 +111,33 @@
                         <div class="form-group-row split-cep">
                             <div class="form-group-box">
                                 <label>CEP</label>
-                                <input type="text" placeholder="00000-000" th:name="cep">
+                                <input type="text" placeholder="00000-000" th:field="*{cep}">
                             </div>
                             <div class="form-group-box">
                                 <label>Logradouro / Rua</label>
-                                <input type="text" placeholder="Nome da rua ou avenida" th:name="logradouro">
+                                <input type="text" placeholder="Nome da rua ou avenida" th:field="*{logradouro}">
                             </div>
                         </div>
 
                         <div class="form-group-row split-num">
                             <div class="form-group-box">
                                 <label>Número</label>
-                                <input type="text" placeholder="123" th:name="numero">
+                                <input type="text" placeholder="123" th:field="*{numero}">
                             </div>
                             <div class="form-group-box">
                                 <label>Complemento</label>
-                                <input type="text" placeholder="Apt, Bloco, etc." th:name="complemento">
+                                <input type="text" placeholder="Apt, Bloco, etc." th:field="*{complemento}">
                             </div>
                         </div>
 
                         <div class="form-group-row">
                             <div class="form-group-box">
                                 <label>Cidade</label>
-                                <input type="text" placeholder="Ex: Maceió" th:name="cidade">
+                                <input type="text" placeholder="Ex: Maceió" th:field="*{cidade}">
                             </div>
                             <div class="form-group-box">
                                 <label>Estado</label>
-                                <input type="text" placeholder="Ex: Alagoas" th:name="estado">
+                                <input type="text" placeholder="Ex: Alagoas" th:field="*{estado}">
                             </div>
                         </div>
                     </div>
@@ -158,11 +158,11 @@
                         <div class="form-group-row">
                             <div class="form-group-box">
                                 <label>Latitude</label>
-                                <input type="text" value="-0.000000" class="input-readonly" readonly th:name="latitude">
+                                <input type="text" class="input-readonly" readonly name="latitude">
                             </div>
                             <div class="form-group-box">
                                 <label>Longitude</label>
-                                <input type="text" value="-0.000000" class="input-readonly" readonly th:name="longitude">
+                                <input type="text" class="input-readonly" readonly name="longitude">
                             </div>
                         </div>
 
@@ -170,7 +170,7 @@
                             <div class="form-group-box">
                                 <label>Comunidade</label>
                                 <div class="select-custom-container">
-                                    <select th:name="comunidadeId">
+                                    <select name="comunidadeId">
                                         <option value="" disabled selected>Ex: Rio das Flores</option>
                                     </select>
                                 </div>

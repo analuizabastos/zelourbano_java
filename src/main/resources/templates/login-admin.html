@@ -1,10 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login Administrativo - ZeloUrbano</title>
+    <link rel="stylesheet" href="../static/css/login-admin.css" th:href="@{/css/login-admin.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<header class="navbar-sistema">
+    <div class="nav-container-inner">
+        <div class="logo-container">
+            <div class="logo-icon-bg">
+                <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+            </div>
+            <div class="logo-text-group">
+                <div class="logo-title"><span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span></div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+        <div class="nav-actions-right">
+            <a href="/suporte" class="nav-header-link">Suporte</a>
+            <a href="/acessibilidade" class="nav-header-link">Acessibilidade</a>
+        </div>
+    </div>
+</header>
+
+<div class="painel-layout">
+    <div class="decorative-background-dim">
+        <img src="../static/images/bg-pattern.png" th:src="@{/images/bg-pattern.png}" alt="Pattern">
+    </div>
+
+    <main class="main-content-canvas">
+        <div class="login-card-box">
+            <header class="card-header-text">
+                <h2>ZeloUrbano</h2>
+                <p>Insira suas credenciais para acessar sua conta administrativa.</p>
+            </header>
+
+            <form method="POST" th:action="@{/login-admin/entrar}" class="login-form-element">
+                <div class="form-group-block">
+                    <label>Comunidade / Localidade <span class="required-asterisk">*</span></label>
+                    <div class="input-icon-wrapper">
+                        <img src="../static/images/map-marker-icon.svg" th:src="@{/images/map-marker-icon.svg}" class="input-field-icon" alt="Local">
+                        <select name="comunidadeId" required class="select-field-custom">
+                            <option value="" disabled selected hidden>Selecione sua localidade</option>
+                            <option value="1">Loteamento Harmonia</option>
+                            <option value="2">Condomínio Vila Verde</option>
+                            <option value="3">Residencial Primavera</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-block">
+                    <label>Usuário <span class="required-asterisk">*</span></label>
+                    <div class="input-icon-wrapper">
+                        <img src="../static/images/user-field-icon.svg" th:src="@{/images/user-field-icon.svg}" class="input-field-icon" alt="User">
+                        <input type="text" name="username" placeholder="Seu nome de usuário" required>
+                    </div>
+                </div>
+
+                <div class="form-group-block">
+                    <div class="label-row-split">
+                        <label>Senha <span class="required-asterisk">*</span></label>
+                        <a href="/recuperar-senha" class="link-forgot-password">Esqueceu a senha?</a>
+                    </div>
+                    <div class="input-icon-wrapper">
+                        <img src="../static/images/lock-field-icon.svg" th:src="@{/images/lock-field-icon.svg}" class="input-field-icon" alt="Lock">
+                        <input type="password" name="password" placeholder="••••••••" required>
+                        <button type="button" class="btn-toggle-password-visibility">
+                            <img src="../static/images/eye-icon.svg" th:src="@{/images/eye-icon.svg}" alt="Exibir">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="remember-me-row">
+                    <input type="checkbox" name="remember-me" id="rememberMeCheckbox">
+                    <label th:for="rememberMeCheckbox">Lembrar acesso neste dispositivo</label>
+                </div>
+
+                <button type="submit" class="btn-submit-login">
+                    <span>ENTRAR AS ADMIN</span>
+                    <img src="../static/images/arrow-right-white.svg" th:src="@{/images/arrow-right-white.svg}" class="btn-submit-icon" alt="Seta">
+                </button>
+            </form>
+
+            <footer class="card-support-footer"></footer>
+        </div>
+    </main>
+</div>
+
+<footer class="footer-sistema">
+    <div class="footer-left">
+        <span class="footer-brand">ZeloUrbano</span>
+        <div class="vertical-divider"></div>
+        <span class="footer-copyright">© 2026 ZeloUrbano - Gestão Comunitária de Confiança</span>
+    </div>
+    <div class="footer-right">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <div class="footer-social-margin">
+            <div class="social-overlay">
+                <img src="../static/images/global-icon.svg" th:src="@{/images/global-icon.svg}" class="social-icon" alt="Global">
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

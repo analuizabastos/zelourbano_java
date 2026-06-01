@@ -1,10 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ZeloUrbano - Gestão Comunitária de Confiança</title>
+    <link rel="stylesheet" href="../static/css/landing-page.css" th:href="@{/css/landing-page.css}">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<header class="navbar-landing">
+    <div class="nav-container-inner">
+        <div class="logo-container">
+            <div class="logo-icon-bg">
+                <img src="../static/images/logo-escudo.svg" th:src="@{/images/logo-escudo.svg}" class="logo-sistema" alt="Escudo">
+            </div>
+            <div class="logo-text-group">
+                <div class="logo-title"><span class="logo-zelo">Zelo</span><span class="logo-urbano">Urbano</span></div>
+                <span class="logo-sub">Gestão Comunitária de Confiança</span>
+            </div>
+        </div>
+
+        <nav class="nav-links-center">
+            <a href="#" class="nav-link active">Início</a>
+            <a href="#" class="nav-link">Sobre</a>
+            <a href="#" class="nav-link">Funcionalidades</a>
+            <a href="#" class="nav-link">Planos</a>
+            <a href="#" class="nav-link">Contato</a>
+        </nav>
+
+        <div class="nav-actions-right">
+            <a href="/login" th:href="@{/login}" class="btn-login-text">Entrar</a>
+            <a href="/cadastro" th:href="@{/cadastro}" class="btn-register-header">
+                <span>Cadastrar Minha Comunidade</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="main-landing-content">
+
+    <section class="hero-section">
+        <div class="section-container">
+            <div class="hero-text-side">
+                <div class="hero-badge-container">
+                    <span class="badge-bullet"></span>
+                    <span class="badge-text">NOVA ERA EM SEGURANÇA URBANA</span>
+                </div>
+                <h1>Segurança e Cuidado para sua Comunidade</h1>
+                <p class="hero-description">A plataforma definitiva para bairros e condomínios que buscam eficiência administrativa e vigilância colaborativa inteligente. Transforme seu ambiente local com tecnologia de ponta e confiança institucional.</p>
+                <div class="hero-action-row">
+                    <a href="/cadastro" th:href="@{/cadastro}" class="btn-hero-primary">
+                        <span>Cadastrar Minha Comunidade</span>
+                        <img src="../static/images/seta-marrom.svg" th:src="@{/images/seta-marrom.svg}" class="btn-icon" alt="Seta">
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-graphic-side">
+                <div class="hero-blur-glow-1"></div>
+                <div class="hero-card-glassmorphism">
+                    <div class="hero-main-image-placeholder">
+                        <img src="../static/images/paisagem.svg" th:src="@{/images/paisagem.svg}" class="img-hero-background" alt="Vista Aérea">
+                    </div>
+                    <div class="hero-floating-users-panel">
+                        <div class="users-avatar-stack">
+                            <div class="avatar-item user-1">
+                                <img src="../static/images/foto-de-perfil-homem-2.svg" th:src="@{/images/foto-de-perfil-homem-2.svg}" alt="Usuário 1">
+                            </div>
+                            <div class="avatar-item user-2">
+                                <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário 2">
+                            </div>
+                            <div class="avatar-item user-3">
+                                <img src="../static/images/foto-de-perfil-homem.svg" th:src="@{/images/foto-de-perfil-homem.svg}" alt="Usuário 3">
+                            </div>
+                        </div>
+                        <div class="users-stack-text">
+                            <span class="text-stat-number">+150</span>
+                            <span class="text-stat-label">Moradores Ativos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-proposition-section">
+        <div class="section-container padding-x-32">
+            <div class="section-center-header">
+                <h2>Pilares da Nossa Plataforma</h2>
+                <p>Desenvolvemos uma solução 360º para garantir que sua vizinhança seja mais do que apenas um lugar para morar—um ecossistema de confiança.</p>
+            </div>
+
+            <div class="cards-three-columns-grid">
+                <article class="proposition-card">
+                    <div class="card-icon-wrapper">
+                        <img src="../static/images/olho-icon.svg" th:src="@{/images/olho-icon.svg}" class="card-icon" alt="Vigilância">
+                    </div>
+                    <h3>Vigilância Colaborativa</h3>
+                    <p>Rede integrada de câmeras onde moradores cooperam em tempo real para um ambiente monitorado e seguro.</p>
+                </article>
+
+                <article class="proposition-card">
+                    <div class="card-icon-wrapper">
+                        <img src="../static/images/casa-2.svg" th:src="@{/images/casa-2.svg}" class="card-icon" alt="Gestão">
+                    </div>
+                    <h3>Gestão Transparente</h3>
+                    <p>Transparência total de obras, finanças da associação, assembleias virtuais e decisões administrativas.</p>
+                </article>
+
+                <article class="proposition-card">
+                    <div class="card-icon-wrapper">
+                        <img src="../static/images/pessoas-em-circulo.svg" th:src="@{/images/pessoas-em-circulo.svg}" class="card-icon" alt="Conexão">
+                    </div>
+                    <h3>Conexão Local</h3>
+                    <p>Fortaleça os laços comunitários através de canais dedicados e mediação de conflitos entre vizinhos.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-bento-section">
+        <div class="section-container padding-x-32">
+            <div class="bento-top-header">
+                <div class="bento-header-left">
+                    <span class="bento-tagline">RECURSOS PREMIUM</span>
+                    <h2>Tecnologia que Simplifica o Cuidado</h2>
+                </div>
+                <div class="bento-header-right">
+                    <div class="bento-info-box">
+                        <span class="info-box-mono">SISTEMA ATIVO</span>
+                        <span class="info-box-text">Operando em nuvem de alta disponibilidade</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-grid-canvas">
+
+                <div class="bento-item feature-camera-monitoring">
+                    <div class="bento-glow-effect"></div>
+                    <div class="feature-inner-flex">
+                        <div class="feature-title-row">
+                            <div class="feature-icon icon-cam-orange">
+                                <img src="../static/images/camera-amarela.svg" th:src="@{/images/icon-cam-orange.svg}" alt="Câmera">
+                            </div>
+                            <h3>Acesso Direto às Câmeras</h3>
+                        </div>
+                        <p>Tenha acesso às câmeras de segurança do seu perímetro diretamente pelo site.</p>
+                        <ul class="feature-bullet-list">
+                            <li><span class="bullet-dot"></span> Transmissão estável em tempo real</li>
+                            <li><span class="bullet-dot"></span> Visualização dividida por setores</li>
+                        </ul>
+                    </div>
+                    <div class="bento-graphic-box border-rotated">
+                        <div class="camera-interface-placeholder">
+                            <img src="../static/images/paisagem-cameras.svg" th:src="@{/images/paisagem-cameras.svg}" class="img-bento-background" alt="Monitoramento">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-item feature-stats-highlight">
+                    <div class="stats-highlight-content">
+                        <div class="stats-icon-wrapper">
+                            <img src="../static/images/alerta-icon.svg" th:src="@{/images/alerta-icon.svg}" alt="Segurança">
+                        </div>
+                        <h3>Convivência Segura</h3>
+                        <p>Navegue até a central de monitoramento, cheque as câmeras e crie ocorrências para alertar problemas.</p>
+                    </div>
+                    <div class="stats-highlight-footer">
+                        <span class="big-stat-number">24/7</span>
+                        <span class="big-stat-label">Monitoramento Ativo</span>
+                    </div>
+                </div>
+
+                <div class="bento-item feature-occurrence-reporting">
+                    <div class="feature-title-row">
+                        <div class="feature-icon icon-incident-blue">
+                            <img src="../static/images/triangulo-exclamcao-branco.svg" th:src="@{/images/triangulo-exclamcao-branco.svg}" alt="Ocorrência">
+                        </div>
+                        <h3>Relato de Ocorrências</h3>
+                    </div>
+                    <p>Interface intuitiva para reportar desde lâmpadas queimadas até incidentes de segurança. Acompanhe o status da resolução em tempo real com notificações push.</p>
+                    <div class="bento-upload-dropzone-mock">
+                        <div class="dropzone-icon-cloud">
+                            <img src="../static/images/adcionar-foto-icon.svg" th:src="@{/images/adcionar-foto-icon.svg}" alt="Nuvem">
+                        </div>
+                        <div class="dropzone-badge-orange">
+                            <div class="dropzone-check-icon">
+                                <img src="../static/images/evniar.svg" th:src="@{/images/evniar.svg}" alt="Verificado">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-item feature-service-providers">
+                    <div class="feature-title-row">
+                        <div class="feature-icon icon-providers-blue">
+                            <img src="../static/images/trabalhador-com-engrenagem-branco.svg" th:src="@{/images/trabalhador-com-engrenagem-branco.svg}" alt="Prestadores">
+                        </div>
+                        <h3>Guia de Prestadores Locais</h3>
+                    </div>
+                    <p>Lista personalizada de profissionais locais. De empresas a autônomos, entre em contato rápido e direto com os prestadores.</p>
+
+                    <div class="provider-item-row-mock">
+                        <div class="provider-avatar-circle">JD</div>
+                        <div class="provider-meta-info">
+                            <h4>João da Elétrica</h4>
+                        </div>
+                        <div class="provider-action-icon">
+                            <img src="../static/images/selo-confirmado.svg" th:src="@{/images/selo-confirmado.svg}" alt="Acessar">
+                        </div>
+                    </div>
+
+                    <div class="provider-item-row-mock">
+                        <div class="provider-avatar-circle">BRK</div>
+                        <div class="provider-meta-info">
+                            <h4>BRK - Companhia de Água</h4>
+                        </div>
+                        <div class="provider-action-icon">
+                            <img src="../static/images/selo-confirmado.svg" th:src="@{/images/selo-confirmado.svg}" alt="Acessar">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="counter-stats-section">
+        <div class="section-container counter-grid-four-columns">
+            <div class="counter-box-item">
+                <span class="counter-number">98%</span>
+                <span class="counter-label">Satisfeitos</span>
+            </div>
+            <div class="counter-box-item">
+                <span class="counter-number">15+</span>
+                <span class="counter-label">Associações</span>
+            </div>
+            <div class="counter-box-item">
+                <span class="counter-number">14k</span>
+                <span class="counter-label">Moradores</span>
+            </div>
+            <div class="counter-box-item">
+                <span class="counter-number">400+</span>
+                <span class="counter-label">Câmeras</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta-section">
+        <div class="cta-background-blur-left"></div>
+        <div class="cta-background-blur-right"></div>
+        <div class="section-container container-centered-cta">
+            <h2>Pronto para transformar sua comunidade?</h2>
+            <p>Junte-se à plataforma que está redefinindo o cuidado urbano local através da união e da tecnologia de ponta.</p>
+            <div class="cta-buttons-wrapper">
+                <a href="/cadastro" th:href="@{/cadastro}" class="btn-final-cta-orange">
+                    <span>CADASTRAR MINHA COMUNIDADE</span>
+                </a>
+                <a href="#" class="btn-final-cta-dark">
+                    <div class="btn-dark-icon-wrapper">
+                        <img src="../static/images/callcenter-icon.svg" th:src="@{/images/callcenter-icon.svg}" alt="Consultor">
+                    </div>
+                    <span>Falar com Consultor</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer-landing-page">
+    <div class="footer-top-container">
+        <div class="footer-brand-column">
+            <div class="footer-brand-title">
+                <span class="brand-white">Zelo</span><span class="brand-orange">Urbano</span>
+            </div>
+            <p class="footer-brand-description">© 2026 Zelo Urbano. Gestão Comunitária de Confiança. Tecnologia para uma vida urbana mais segura e integrada.</p>
+        </div>
+
+        <div class="footer-links-grid-wrapper">
+            <div class="footer-links-column">
+                <span class="footer-column-title">PRODUTO</span>
+                <a href="#" class="footer-navigation-link">Funcionalidades</a>
+                <a href="#" class="footer-navigation-link">Segurança da Informação</a>
+            </div>
+            <div class="footer-links-column">
+                <span class="footer-column-title">CONTEÚDO</span>
+                <a href="#" class="footer-navigation-link">Termos de Uso</a>
+                <a href="#" class="footer-navigation-link">Políticas de Privacidade</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom-border-row">
+        <span class="footer-legal-tag">ZELOURBANO LTDA</span>
+        <div class="footer-social-media-icons-row">
+            <a href="#" class="social-link-icon-item"><img src="../static/images/globo-2.svg" th:src="@{/images/globo-2.svg}" alt="Site"></a>
+            <a href="#" class="social-link-icon-item"><img src="../static/images/arroba-icon.svg" th:src="@{/images/arroba-icon.svg}" alt="Instagram"></a>
+            <a href="#" class="social-link-icon-item"><img src="../static/images/compartilhar-icon.svg" th:src="@{/images/compartilhar-icon.svg}" alt="Compartilhar"></a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
