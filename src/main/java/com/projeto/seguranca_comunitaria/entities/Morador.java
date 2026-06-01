@@ -41,8 +41,8 @@ public class Morador {
     @Column(name = "bairro", length = 100)
     private String bairro;
 
-    @Column(name = "municipio", length = 100)
-    private String municipio;
+    @Column(name = "cidade", length = 100)
+    private String cidade;
 
     @Column(name = "estado", length = 2)
     private String estado;
@@ -56,7 +56,7 @@ public class Morador {
     @Column(name = "telefone", nullable = false, length = 20)
     private String telefone;
 
-    @Column(name = "doc_identificacao", nullable = false)
+    @Column(name = "doc_identificacao")
     private String documentoIdentificacao;
 
     @ManyToOne
@@ -66,7 +66,7 @@ public class Morador {
     public Morador() {
     }
 
-    public Morador(String cpf, String nome, String rg, String email, LocalDate dataNascimento, String logradouro, String cep, String numero, String bairro, String municipio, String estado, String complemento, String observacoes, String telefone, String documentoIdentificacao, StatusSistema status) {
+    public Morador(String cpf, String nome, String rg, String email, LocalDate dataNascimento, String logradouro, String cep, String numero, String bairro, String cidade, String estado, String complemento, String observacoes, String telefone, String documentoIdentificacao, StatusSistema status) {
         this.cpf = cpf;
         this.nome = nome;
         this.rg = rg;
@@ -76,7 +76,7 @@ public class Morador {
         this.cep = cep;
         this.numero = numero;
         this.bairro = bairro;
-        this.municipio = municipio;
+        this.cidade = cidade;
         this.estado = estado;
         this.complemento = complemento;
         this.observacoes = observacoes;
@@ -165,12 +165,12 @@ public class Morador {
         this.bairro = bairro;
     }
 
-    public String getMunicipio() {
-        return municipio;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setMunicipio(String municipio) {
-        this.municipio = municipio;
+    public void setCidade(String municipio) {
+        this.cidade = cidade;
     }
 
     public String getEstado() {

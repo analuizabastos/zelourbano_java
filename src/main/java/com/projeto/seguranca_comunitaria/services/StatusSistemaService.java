@@ -17,4 +17,9 @@ public class StatusSistemaService {
     public List<StatusSistema> listarTodos() {
         return repository.findAll();
     }
+
+    public StatusSistema buscarPorNome(String nome) {
+        return repository.findByNome(nome)
+                .orElseThrow(() -> new RuntimeException("Status nao encontrado"));
+    }
 }

@@ -40,9 +40,16 @@ public class MoradorController {
     }
 
     @PostMapping("/salvar")
-    public String salvar(@ModelAttribute Morador morador,
-                         @ModelAttribute Usuario usuario) {
+    public String salvar(
+            @ModelAttribute Morador morador,
+            @RequestParam String senha,
+            @RequestParam(required = false) String perfilAcesso,
+            @RequestParam(required = false) String comunidadeId) {
+
+        Usuario usuario = new Usuario();
+        usuario.setSenha(senha);
         usuarioService.cadastrar(morador, usuario);
         return "redirect:/login";
     }
+
 }

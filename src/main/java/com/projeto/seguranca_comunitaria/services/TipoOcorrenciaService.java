@@ -17,4 +17,9 @@ public class TipoOcorrenciaService {
     public List<TipoOcorrencia> listarTodos() {
         return repository.findAll();
     }
+
+    public TipoOcorrencia buscarPorId(Integer id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tipo nao encontrado"));
+    }
 }

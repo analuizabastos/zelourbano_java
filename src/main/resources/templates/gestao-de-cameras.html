@@ -33,9 +33,11 @@
         <button class="nav-btn">
             <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
         </button>
-        <button class="nav-btn">
-            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
-        </button>
+        <a th:href="@{/gestao-usuario}" class="nav-btn-icon-link">
+            <button class="nav-btn-icon" type="button">
+                <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+            </button>
+        </a>
         <div class="user-avatar-border">
             <div class="user-avatar">
                 <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário">
@@ -87,6 +89,15 @@
                     <input type="checkbox" name="filterStatus" value="FINALIZADO">
                     <span>Finalizado</span>
                 </label>
+            <div class="sidebar-group footer-group">
+                <a href="#" class="sidebar-link">
+                    <img src="../static/images/circulo-interrogacao.svg" th:src="@{/images/circulo-interrogacao.svg}" class="sidebar-icon" alt="Ajuda">
+                    <span>Ajuda</span>
+                </a>
+                <a href="#" class="sidebar-link link-logout">
+                    <img src="../static/images/logout.svg" th:src="@{/images/logout.svg}" class="sidebar-icon" alt="Sair">
+                    <span>Sair</span>
+                </a>
             </div>
         </div>
 

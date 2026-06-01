@@ -34,9 +34,11 @@
         <button class="nav-btn-icon">
             <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
         </button>
-        <button class="nav-btn-icon">
-            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
-        </button>
+        <a th:href="@{/gestao-usuario}" class="nav-btn-icon-link">
+            <button class="nav-btn-icon" type="button">
+                <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+            </button>
+        </a>
         <div class="user-profile-avatar">
             <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Avatar">
         </div>
@@ -98,7 +100,7 @@
                             <span>Infraestrutura</span>
                         </label>
 
-                        <input type="radio" id="seguranca" name="tipoOcorrenciaId" value="2" class="radio-hidden">
+<input type="radio" id="seguranca" name="tipoOcorrenciaId" value="2" class="radio-hidden">
                         <label for="seguranca" class="btn-selectable">
                             <img src="../static/images/escudo-quadriculado.svg" th:src="@{/images/escudo-quadriculado.svg}" alt="Icon">
                             <span>Segurança</span>
