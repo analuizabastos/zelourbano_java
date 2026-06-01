@@ -16,13 +16,18 @@ public class DashboardController {
         return "gestao-de-ocorrencias";
     }
 
-    @GetMapping("/gestao-cameras")
-    public String gestaoCameras() {
+    @GetMapping("/cameras")
+    public String cameras() {
         return "gestao-de-cameras";
     }
 
     @GetMapping("/configuracoes")
     public String configuracoes() {
         return "configuracoes";
+
+    }
+    @GetMapping("/gestao-usuario")
+    public String gestaoUsuario() {
+        return "gestao-de-usuario";
     }
 }
