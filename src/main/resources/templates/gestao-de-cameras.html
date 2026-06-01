@@ -33,9 +33,11 @@
         <button class="nav-btn">
             <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
         </button>
-        <button class="nav-btn">
-            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
-        </button>
+        <a th:href="@{/gestao-usuario}" class="nav-btn-icon-link">
+            <button class="nav-btn-icon" type="button">
+                <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+            </button>
+        </a>
         <div class="user-avatar-border">
             <div class="user-avatar">
                 <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Usuário">
@@ -74,7 +76,7 @@
                     <span>Ajuda</span>
                 </a>
                 <a href="#" class="sidebar-link link-logout">
-                    <img src="../static/images/logout.svg" th:src="@{/images/logoutsvg}" class="sidebar-icon" alt="Sair">
+                    <img src="../static/images/logout.svg" th:src="@{/images/logout.svg}" class="sidebar-icon" alt="Sair">
                     <span>Sair</span>
                 </a>
             </div>
@@ -173,7 +175,7 @@
 
                         <article class="camera-miniature-card">
                             <div class="miniature-thumb-frame">
-                                <img src="../static/images/imagem-camera-3.svg" th:src="@{/images/imagem-camera-3.svg" class="mini-stream-img" alt="Cam">
+                                <img src="../static/images/imagem-camera-3.svg" th:src="@{/images/imagem-camera-3.svg}" class="mini-stream-img" alt="Cam">
                                 <div class="mini-ui-overlay">
                                     <div class="mini-label-bg">
                                         <span>ÁREA SOCIAL</span>
@@ -306,7 +308,7 @@
         <a href="#" class="footer-link">Contato</a>
         <div class="footer-social-margin">
             <div class="social-overlay">
-                <img src="../static/images/globo.svg" th:src="@{/images/globo" class="social-icon" alt="Globo">
+                <img src="../static/images/globo.svg" th:src="@{/images/globo.svg}" class="social-icon" alt="Globo">
             </div>
         </div>
     </div>

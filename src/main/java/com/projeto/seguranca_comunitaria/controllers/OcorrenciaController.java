@@ -41,9 +41,10 @@ public class OcorrenciaController {
     }
 
     @GetMapping("/minhas")
-    public String feedMinhas(Model model) {
+    public String feedMinhas(Model model, Principal principal) {
+        Usuario usuario = usuarioService.buscarPorLogin(principal.getName()).orElseThrow();
         model.addAttribute("ocorrencias",
-                ocorrenciaService.listarPorUsuario(1));
+                ocorrenciaService.listarPorUsuario(usuario.getId()));
         return "home-morador-minhas-ocorrencias";
     }
 

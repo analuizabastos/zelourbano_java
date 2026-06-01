@@ -34,9 +34,11 @@
         <button class="nav-btn-icon">
             <img src="../static/images/sino.svg" th:src="@{/images/sino.svg}" alt="Notificações">
         </button>
-        <button class="nav-btn-icon">
-            <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
-        </button>
+        <a th:href="@{/gestao-usuario}" class="nav-btn-icon-link">
+            <button class="nav-btn-icon" type="button">
+                <img src="../static/images/engrenagem.svg" th:src="@{/images/engrenagem.svg}" alt="Configurações">
+            </button>
+        </a>
         <div class="user-profile-avatar">
             <img src="../static/images/foto-de-perfil.svg" th:src="@{/images/foto-de-perfil.svg}" alt="Avatar">
         </div>
@@ -138,131 +140,27 @@
         </div>
 
         <div class="occurrence-cards-grid">
-            <div class="occurrence-card">
+            <div th:if="${#lists.isEmpty(ocorrencias)}" class="occurrence-card">
+                <p style="padding: 20px; color: #888;">Nenhuma ocorrência registrada ainda.</p>
+            </div>
+
+            <div th:each="o : ${ocorrencias}" class="occurrence-card">
                 <div class="card-meta-row">
                     <div class="meta-left-badges">
-                        <span class="badge-protocol amber-badge">#INFRA-9021</span>
-                        <span class="badge-category">Iluminação</span>
+                        <span class="badge-protocol amber-badge" th:text="${o.protocolo}">protocolo</span>
+                        <span class="badge-category" th:text="${o.tipoOcorrencia.tipo}">tipo</span>
                     </div>
                     <div class="status-indicator-box">
                         <span class="status-dot-active dot-amber"></span>
-                        <span class="status-indicator-text text-amber">Em Análise</span>
+                        <span class="status-indicator-text text-amber" th:text="${o.status.nome}">status</span>
                     </div>
                 </div>
-                <h3 class="card-occurrence-title">Poste de luz intermitente na Praça Central</h3>
-                <p class="card-occurrence-description">O poste localizado na esquina da Rua das Flores com a Av. Principal está piscando há três noites, dificultando a...</p>
-                <div class="card-media-preview-box">
-                    <img src="../static/images/paisagem-ocorrencia-1.svg" class="media-preview-img" alt="Poste">
-                </div>
+                <h3 class="card-occurrence-title" th:text="${o.titulo}">título</h3>
+                <p class="card-occurrence-description" th:text="${o.descricao}">descrição</p>
                 <div class="card-interaction-footer">
                     <div class="footer-meta-info-group">
-                        <span class="meta-info-item date-item">Hoje, 10:45</span>
-                        <span class="meta-info-item location-item">Av. Principal</span>
-                    </div>
-                    <div class="footer-action-buttons-group">
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/like.svg" alt="Curtir">
-                            <span>12</span>
-                        </button>
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/comentario.svg" alt="Comentar">
-                            <span>3</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="occurrence-card">
-                <div class="card-meta-row">
-                    <div class="meta-left-badges">
-                        <span class="badge-protocol amber-badge">#SEG-1142</span>
-                        <span class="badge-category">Segurança</span>
-                    </div>
-                    <div class="status-indicator-box">
-                        <span class="status-dot-gray"></span>
-                        <span class="status-indicator-text text-gray">Aguardando</span>
-                    </div>
-                </div>
-                <h3 class="card-occurrence-title">Poda de árvore necessária</h3>
-                <p class="card-occurrence-description">Galhos de uma árvore de grande porte estão encostando na fiação elétrica e bloqueando a câmera de...</p>
-                <div class="card-media-preview-box">
-                    <img src="../static/images/paisagem-ocorrencia-2.svg" class="media-preview-img" alt="Árvore">
-                </div>
-                <div class="card-interaction-footer">
-                    <div class="footer-meta-info-group">
-                        <span class="meta-info-item date-item">Ontem, 16:20</span>
-                        <span class="meta-info-item location-item">Lote 3</span>
-                    </div>
-                    <div class="footer-action-buttons-group">
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/like.svg" alt="Curtir">
-                            <span>45</span>
-                        </button>
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/comentario.svg" alt="Comentar">
-                            <span>8</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="occurrence-card custom-border-success">
-                <div class="card-meta-row">
-                    <div class="meta-left-badges">
-                        <span class="badge-protocol green-badge">#INFRA-8832</span>
-                        <span class="badge-category">Pavimentação</span>
-                    </div>
-                    <div class="status-indicator-box">
-                        <img src="../static/images/check.svg" alt="Check">
-                        <span class="status-indicator-text text-success">Concluído</span>
-                    </div>
-                </div>
-                <h3 class="card-occurrence-title">Buraco na ciclovia da Marginal</h3>
-                <p class="card-occurrence-description">Equipe de zeladoria finalizou o recapeamento do trecho afetado. A ciclovia já está liberada para uso sem riscos aos ciclistas.</p>
-                <div class="card-interaction-footer">
-                    <div class="footer-meta-info-group">
-                        <span class="meta-info-item date-item">02 Out, 09:15</span>
-                        <span class="meta-info-item location-item">Pinheiros</span>
-                    </div>
-                    <div class="footer-action-buttons-group">
-                        <button class="btn-card-interaction btn-success-text-bold">
-                            <img src="../static/images/selo-confirmado.svg" alt="Resolução">
-                            <span>Solucionado</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="occurrence-card">
-                <div class="card-meta-row">
-                    <div class="meta-left-badges">
-                        <span class="badge-protocol amber-badge">#CONV-4412</span>
-                        <span class="badge-category">Convivência</span>
-                    </div>
-                    <div class="status-indicator-box">
-                        <span class="status-dot-active dot-amber"></span>
-                        <span class="status-indicator-text text-amber">Em Análise</span>
-                    </div>
-                </div>
-                <h3 class="card-occurrence-title">Descarte irregular de entulho</h3>
-                <p class="card-occurrence-description">Acúmulo de móveis velhos e restos de construção no terreno baldio entre os prédios Alpha e Beta.</p>
-                <div class="card-media-preview-box">
-                    <img src="../static/images/paisagem-ocorrencia-3.svg" class="media-preview-img" alt="Entulho">
-                </div>
-                <div class="card-interaction-footer">
-                    <div class="footer-meta-info-group">
-                        <span class="meta-info-item date-item">01 Out, 14:00</span>
-                        <span class="meta-info-item location-item">Centro Histórico</span>
-                    </div>
-                    <div class="footer-action-buttons-group">
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/like.svg" alt="Curtir">
-                            <span>28</span>
-                        </button>
-                        <button class="btn-card-interaction">
-                            <img src="../static/images/comentario.svg" alt="Comentar">
-                            <span>5</span>
-                        </button>
+                <span class="meta-info-item date-item"
+                      th:text="${#temporals.format(o.dataDoRegistro, 'dd/MM/yyyy HH:mm')}">data</span>
                     </div>
                 </div>
             </div>
